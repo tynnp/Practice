@@ -1,6 +1,3 @@
-
-// Không biết sai ở đâu :)
-
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -76,12 +73,26 @@ struct DaThuc {
         res2 = res1.daoHamCapMot();
         return res2;
     }
+
+    int check() {
+        int res = 0;
+        for (int i = this->bac; i >= 0; i--)    
+            res += this->giaTri[i].heSo;
+        return res;
+    }
 };
 
 int main() {
     DaThuc a; cin >> a;
     cout << a << endl;
-    cout << a.daoHamCapMot() << endl;
-    cout << a.daoHamCapHai() << endl;
+    DaThuc b = a.daoHamCapMot();
+    DaThuc c = a.daoHamCapHai();
+
+    if (b.check() == 0) cout << 0 << endl;
+    else cout << b << endl;
+
+    if (c.check() == 0) cout << 0 << endl;
+    else cout << c << endl;
+
     return 0;
 }
