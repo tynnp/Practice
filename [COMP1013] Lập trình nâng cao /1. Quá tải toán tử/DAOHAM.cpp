@@ -2,58 +2,85 @@
 #include <cmath>
 using namespace std;
 
-struct DaThuc {
-    int bac;
-    int *heSo;
+struct DonThuc {
+    int heSo;
+    int soMu;
 
-    friend istream& operator >> (istream &in, DaThuc &daThuc) {
-        in >> daThuc.bac;
-        daThuc.bac += 1;
-        daThuc.heSo = new int[daThuc.bac];
-        for (int i = daThuc.bac-1; i >= 0; i--)
-            in >> daThuc.heSo[i];
-        return in;
+    DonThuc daoHam() {
+        DonThuc res;
+        res.heSo =  this->heSo * this->soMu;
+        res.soMu = this->soMu - 1;
+        return res;
     }
-
-    friend ostream& operator << (ostream &out, DaThuc daThuc) {
-        bool check = false; // Kiểm tra xem trước đó có đơn thức nào hay chưa
-        for (int i = daThuc.bac-1; i >= 0; i--) {
-            int giaTri = daThuc.heSo[i];
-
-            if (giaTri != 0) {
-                if (check && giaTri > 0) out << "+";
-                if (giaTri == -1) out << "-";
-                if (abs(giaTri) == 1 && i == 0) out << abs(giaTri);
-                if (abs(giaTri) != 1) out << giaTri;
-                if (i != 1 && i != 0) out << "x^" << i;
-                if (i == 1) out << "x";
-            }  
-
-            if (daThuc.heSo[i] != 0) check = true;
+    
+    friend ostream& operator << (ostream &out, DonThuc donThuc) {
+        if (donThuc.heSo != 0) {
+            if (donThuc.soMu != 0) {
+                if (abs(donThuc.heSo) == 1) out << "x";
+                else out << abs(donThuc.heSo) << "x";
+                if (donThuc.soMu > 1) out << "^" << donThuc.soMu;
+            } else out << abs(donThuc.heSo);
         }
+
         return out;
     }
 };
 
-DaThuc daoHamCapMot(DaThuc other) {
-    DaThuc res;
-    res.bac = other.bac-1;
-    res.heSo = new int[res.bac];
-    for (int i = res.bac-1; i >= 0; i--)
-        res.heSo[i] = other.heSo[i+1]*(i+1);
-    return res;
-}
+struct DaThuc {
+    int bac;
+    DonThuc *giaTri;
 
-DaThuc daoHamCapHai(DaThuc other) {
-    DaThuc res1 = daoHamCapMot(other);
-    DaThuc res2 = daoHamCapMot(res1);
-    return res2;
-}
+    friend istream& operator >> (istream &in, DaThuc &daThuc) {
+        in >> daThuc.bac;
+        int size = daThuc.bac + 1;
+        daThuc.giaTri = new DonThuc[size];
+
+        for (int i = size-1; i >= 0; i--) {
+            in >> daThuc.giaTri[i].heSo;
+            daThuc.giaTri[i].soMu = i;
+        }
+
+        return in;
+    }
+
+    friend ostream& operator << (ostream &out, DaThuc daThuc) {
+        int size = daThuc.bac;
+        bool check = false;
+
+        for (int i = size; i >= 0; i--) {
+            int heSo = daThuc.giaTri[i].heSo;
+
+            if (check && heSo > 0) cout << "+";
+            if (heSo < 0) cout << "-";
+            cout << daThuc.giaTri[i];
+
+            if (heSo != 0) check = true;
+        }
+
+        return out;
+    }
+
+    DaThuc daoHamCapMot() {
+        DaThuc res;
+        res.bac = this->bac;
+        res.giaTri = new DonThuc[res.bac];
+        for (int i = res.bac; i >= 0; i--)  
+            res.giaTri[i] = this->giaTri[i+1].daoHam();
+        return res;
+    }
+
+    DaThuc daoHamCapHai() {
+        DaThuc res1, res2;
+        res1 = this->daoHamCapMot();
+        res2 = res1.daoHamCapMot();
+        return res2;
+    }
+};
 
 int main() {
     DaThuc a; cin >> a;
     cout << a << endl;
-    cout << daoHamCapMot(a) << endl;
-    cout << daoHamCapHai(a) << endl;
+    cout << a.daoHamCapMot() << endl;
+    cout << a.daoHamCapHai() << endl;
     return 0;
 }
