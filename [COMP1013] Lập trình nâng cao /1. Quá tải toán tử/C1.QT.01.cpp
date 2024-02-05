@@ -1,6 +1,3 @@
-
-// Đúng 11/12 testcase, sai testcase 10
-
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -14,6 +11,11 @@ struct PhanSo {
         int ucln = __gcd(this->tu, this->mau);
         this->tu /= ucln;
         this->mau /= ucln;
+
+        if (this->mau < 0) 
+            this->tu = -this->tu,
+            this->mau = abs(this->mau);
+
         return;
     }
 
@@ -24,8 +26,8 @@ struct PhanSo {
     }
 
     friend ostream& operator << (ostream &out, PhanSo p) {
-        if (p.tu < 0 || p.mau < 0) out << "-";
-        out << abs(p.tu) << "/" << (p.mau);
+        if (p.tu < 0) out << "-";
+        out << abs(p.tu) << "/" << p.mau;
         return out;
     }
 };
@@ -49,6 +51,8 @@ struct SoPhuc {
                 out << abs(sp.ao);
             out << "i";
         } 
+        
+        if (sp.thuc == 0 && sp.ao == 0) out << 0;
         
         return out;
     }
@@ -78,20 +82,17 @@ struct SoPhuc {
 int main() {
     SoPhuc x; cin >> x;
     char c; cin >> c;
-    int i; SoPhuc z; PhanSo p;
+    cout << x << endl;
 
-    cout << x << endl; 
-    
+    int i; SoPhuc z; PhanSo p;
     if (c == 'i') {
         cin >> i;
         cout << i << endl;
         cout << x + i;
-
     } else if (c == 'z') {
         cin >> z;
         cout << z << endl;
         cout << x + z;
-
     } else if (c == 'p') {
         cin >> p;
         cout << p << endl;
