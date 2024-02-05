@@ -80,7 +80,7 @@ int main() {
     char c; cin >> c;
     int i; SoPhuc z; PhanSo p;
 
-    cout << x << endl;
+    cout << x << endl; 
     
     if (c == 'i') {
         cin >> i;
