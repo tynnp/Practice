@@ -8,7 +8,7 @@ struct DonThuc {
 
     DonThuc daoHam() {
         DonThuc res;
-        res.heSo =  this->heSo * this->soMu;
+        res.heSo = this->heSo * this->soMu;
         res.soMu = this->soMu - 1;
         return res;
     }
@@ -28,14 +28,13 @@ struct DonThuc {
 
 struct DaThuc {
     int bac;
-    DonThuc *giaTri;
+    DonThuc giaTri[100];
 
     friend istream& operator >> (istream &in, DaThuc &daThuc) {
         in >> daThuc.bac;
-        int size = daThuc.bac + 1;
-        daThuc.giaTri = new DonThuc[size];
+        int size = daThuc.bac;
 
-        for (int i = size-1; i >= 0; i--) {
+        for (int i = size; i >= 0; i--) {
             in >> daThuc.giaTri[i].heSo;
             daThuc.giaTri[i].soMu = i;
         }
@@ -62,8 +61,7 @@ struct DaThuc {
 
     DaThuc daoHamCapMot() {
         DaThuc res;
-        res.bac = this->bac;
-        res.giaTri = new DonThuc[res.bac];
+        res.bac = this->bac-1;
         for (int i = res.bac; i >= 0; i--)  
             res.giaTri[i] = this->giaTri[i+1].daoHam();
         return res;
