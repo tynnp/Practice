@@ -89,10 +89,12 @@ int main() {
         cin >> i;
         cout << i << endl;
         cout << x + i;
+
     } else if (c == 'z') {
         cin >> z;
         cout << z << endl;
         cout << x + z;
+        
     } else if (c == 'p') {
         cin >> p;
         cout << p << endl;
