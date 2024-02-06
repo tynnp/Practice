@@ -267,4 +267,5 @@ int main() {
 
     ifile.close();
     ofile.close();
+    return 0;
 }
