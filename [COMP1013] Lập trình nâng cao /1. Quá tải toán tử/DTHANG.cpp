@@ -62,9 +62,9 @@ struct PhanSo {
 };
 
 char viTriTuongDoi(int D, int Dx, int Dy, int Dv) {
-    if (Dx != 0 && Dy != 0) return 'S';
     if (D != 0) return 'C';
     if (Dx == Dy && Dy == 0) return 'T';
+    if (Dx != 0 && Dy != 0) return 'S';
     if (Dv == 0) return 'V';
 }
 
