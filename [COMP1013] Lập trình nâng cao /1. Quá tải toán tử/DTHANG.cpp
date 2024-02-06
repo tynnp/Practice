@@ -21,6 +21,7 @@ struct DuongThang {
         if (dt.b != 0) {
             if (dt.b > 0 && dt.a != 0) out << " + ";
             if (dt.b < 0 && dt.a != 0) out << " - ";
+            if (dt.b < 0 && dt.a == 0) out << "-";
             if (abs(dt.b) != 1) out << abs(dt.b);
             out << "y";
         }
@@ -47,8 +48,9 @@ struct PhanSo {
         this->tu /= ucln;
         this->mau /= ucln;
 
-        this->tu = -this->tu,
-        this->mau = abs(this->mau);
+        if (this->mau < 0)  
+            this->mau = -this->mau,
+            this->tu = -this->tu;
     }
 
     friend ostream& operator << (ostream &out, PhanSo ps) {
@@ -62,13 +64,17 @@ struct PhanSo {
 };
 
 char viTriTuongDoi(int D, int Dx, int Dy, int Dv) {
-    if (D != 0) return 'C';
-    if (Dx == Dy && Dy == 0) return 'T';
-    if (Dx != 0 && Dy != 0) return 'S';
     if (Dv == 0) return 'V';
+    if (D != 0) return 'C';
+    else {
+        if (Dx == Dy && Dy == 0) return 'T';
+        if (Dx != 0 && Dy != 0) return 'S';
+    }
 }
 
 void xuat(DuongThang dt1, DuongThang dt2) {
+    dt1.c = -dt1.c;
+    dt2.c = -dt2.c;
     int D = dt1.a*dt2.b - dt2.a*dt1.b;
     int Dx = dt1.c*dt2.b - dt2.c*dt1.b;
     int Dy = dt1.a*dt2.c - dt2.a*dt1.c;
