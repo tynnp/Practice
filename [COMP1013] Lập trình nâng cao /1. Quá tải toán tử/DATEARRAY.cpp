@@ -1,3 +1,6 @@
+
+// Bài chưa hoàn thành 
+
 #include <iostream>
 #include <cmath>
 #include <fstream>
@@ -139,7 +142,7 @@ struct DateArray {
     bool operator == (DateArray other) {
         if (this->size != other.size) return false;
         for (int i = 0; i < this->size; i++)
-            if (this->values[i].thuTrongTuan() != other.values[i].thuTrongTuan()) return false;
+            if (!this->values[i].kiemTraTrungThu(other.values[i])) return false;
         return true;
     } 
 
@@ -165,9 +168,10 @@ struct DateArray {
         return res;
     }
 
-    int* soNgay(DateArray other) {
-        int *res = new int[this->size];
-        for (int i = 0; i < this->size; i++)
+    int* operator - (DateArray other) {
+        int length = min(this->size, other.size);
+        int *res = new int[length];
+        for (int i = 0; i < length; i++)
             res[i] = this->values[i] - other.values[i];
         return res;
     }
@@ -248,7 +252,7 @@ int main() {
     else if (b.tangGiam() == 1) ofile << "TANG" << endl;
     else if (b.tangGiam() == -1) ofile << "GIAM" << endl;
 
-    int *mangNgay = a.soNgay(b);
+    int *mangNgay = a - b;
     for (int i = 0; i < a.size; i++)     
         ofile << mangNgay[i] << " ";
     ofile << endl;
@@ -258,7 +262,7 @@ int main() {
     if (h == "TANG") c.xapSepTangDan();
     else if (h == "GIAM") c.xapSepGiamDan();
 
-    for (int i = 0; i < c.size; i++)
+    for (int i = 0; i < c.size; i++) 
         ofile << c.values[i] << endl;
 
     ifile.close();
