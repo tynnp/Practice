@@ -3,9 +3,7 @@
 using namespace std;
 
 struct Date {
-    int ngay;
-    int thang;
-    int nam;
+    int ngay, thang, nam;
     int ngayCuaThang[13] = {0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     bool kiemTraNamNhuan() {
@@ -21,8 +19,10 @@ struct Date {
 
     friend istream& operator >> (istream &in, Date &date) {
         in >> date.ngay >> date.thang >> date.nam;
+        
         if (date.kiemTraNamNhuan()) date.ngayCuaThang[2] = 29;
         else date.ngayCuaThang[2] = 28;
+        
         date.setSoNgay();
         return in;
     }
@@ -38,6 +38,7 @@ struct Date {
         if (date.nam < 100) out << 0;
         if (date.nam < 10) out << 0;
         out << date.nam;
+        
         return out;
     }
 
