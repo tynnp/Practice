@@ -38,7 +38,7 @@ struct Date {
         if (date.nam < 100) out << 0;
         if (date.nam < 10) out << 0;
         out << date.nam;
-        
+
         return out;
     }
 
@@ -71,7 +71,6 @@ struct Date {
         res.ngay = this->ngay + 1;
         res.thang = this->thang;
         res.nam = this->nam;
-        res.ngayCuaThang[2] = this->ngayCuaThang[2];
 
         if (res.ngay > this->ngayCuaThang[res.thang])
             res.ngay = 1, res.thang += 1;
@@ -79,7 +78,6 @@ struct Date {
         if (res.thang > 12) 
             res.thang = 1, res.nam += 1;
 
-        res.setSoNgay();
         return res;
     }
 
@@ -95,8 +93,11 @@ struct Date {
 
     bool operator < (Date other) {
         if (this->nam < other.nam) return true;
-        if (this->thang < other.thang) return true;
-        if (this->ngay < other.ngay) return true;
+        else if (this->nam == other.nam) {
+            if (this->thang < other.thang) return true;
+            else if (this->thang == other.thang) 
+                if (this->ngay < other.ngay) return true;
+        }
         return false;
     }
 
