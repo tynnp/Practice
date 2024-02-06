@@ -13,14 +13,17 @@ struct Date {
         (this->nam % 4 == 0 && this->nam % 100 != 0);
     }
 
+    void setSoNgay() {
+        if (this->kiemTraNamNhuan()) this->ngayCuaThang[0] = 366;
+        else this->ngayCuaThang[0] = 365;
+        return;
+    }
+
     friend istream& operator >> (istream &in, Date &date) {
         in >> date.ngay >> date.thang >> date.nam;
-        if (date.kiemTraNamNhuan()) 
-            date.ngayCuaThang[2] = 29,
-            date.ngayCuaThang[0] = 366;
-        else 
-            date.ngayCuaThang[2] = 28;
-            date.ngayCuaThang[0] = 365;
+        if (date.kiemTraNamNhuan()) date.ngayCuaThang[2] = 29;
+        else date.ngayCuaThang[2] = 28;
+        date.setSoNgay();
         return in;
     }
 
@@ -75,9 +78,7 @@ struct Date {
         if (res.thang > 12) 
             res.thang = 1, res.nam += 1;
 
-        if (res.kiemTraNamNhuan()) res.ngayCuaThang[0] = 366;
-        else res.ngayCuaThang[0] = 365;
-
+        res.setSoNgay();
         return res;
     }
 
@@ -96,12 +97,6 @@ struct Date {
         if (this->thang < other.thang) return true;
         if (this->ngay < other.ngay) return true;
         return false;
-    }
-
-    void setSoNgay() {
-        if (this->kiemTraNamNhuan()) this->ngayCuaThang[0] = 366;
-        else this->ngayCuaThang[0] = 365;
-        return;
     }
 
     int operator - (Date other) {
