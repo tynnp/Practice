@@ -19,8 +19,8 @@ struct DuongThang {
         }
 
         if (dt.b != 0) {
-            if (dt.b > 0) out << " + ";
-            if (dt.b < 0) out << " - ";
+            if (dt.b > 0 && dt.a != 0) out << " + ";
+            if (dt.b < 0 && dt.a != 0) out << " - ";
             if (abs(dt.b) != 1) out << abs(dt.b);
             out << "y";
         }
@@ -47,9 +47,8 @@ struct PhanSo {
         this->tu /= ucln;
         this->mau /= ucln;
 
-        if (this->mau < 0) 
-            this->tu = -this->tu,
-            this->mau = -this->mau;
+        this->tu = -this->tu,
+        this->mau = abs(this->mau);
     }
 
     friend ostream& operator << (ostream &out, PhanSo ps) {
@@ -73,23 +72,23 @@ void xuat(DuongThang dt1, DuongThang dt2) {
 
     char viTri = viTriTuongDoi(D, Dx, Dy, Dv);
     cout << viTri << endl;
-
-    PhanSo x, y;
-    x.tu = Dx; x.mau = D; x.rutGon();
-    y.tu = Dy; y.mau = D; y.rutGon();
      
     if (viTri == 'C' || viTri == 'V') {
+        PhanSo x, y;
+        x.tu = Dx; x.mau = D; x.rutGon();
+        y.tu = Dy; y.mau = D; y.rutGon();
+
         cout << "(";
         if (x.tu % x.mau == 0) cout << x.tu / x.mau;
         else cout << x;
-        cout << ",";
+        cout << ", ";
 
-        if (y.tu % y.mau == 0) cout << " " << y.tu / y.mau;
+        if (y.tu % y.mau == 0) cout << y.tu / y.mau;
         else cout << y;
         cout << ")";
 
     } else if (viTri == 'S') {
-        double khoangCach = abs(dt2.c - dt1.c) / sqrt(dt1.a*dt1.a + dt1.b*dt1.b);
+        double khoangCach = abs(dt2.a*dt1.c - dt1.a*dt2.c) / sqrt(dt1.a*dt1.a + dt1.b*dt1.b);
         cout << roundf(khoangCach * 1000) / 1000;
 
     } else if (viTri == 'T') cout << 0;
