@@ -55,12 +55,16 @@ struct PhanSo {
         out << ps.tu << "/" << ps.mau;
         return out;
     }
+
+    double operator * (int x) {
+        return (double) this->tu * x / this->mau;
+    }
 };
 
 char viTriTuongDoi(int D, int Dx, int Dy, int Dv) {
+    if (Dx != 0 && Dy != 0) return 'S';
     if (D != 0) return 'C';
     if (Dx == Dy && Dy == 0) return 'T';
-    if (Dx != 0 && Dy != 0) return 'S';
     if (Dv == 0) return 'V';
 }
 
@@ -72,7 +76,7 @@ void xuat(DuongThang dt1, DuongThang dt2) {
 
     char viTri = viTriTuongDoi(D, Dx, Dy, Dv);
     cout << viTri << endl;
-     
+
     if (viTri == 'C' || viTri == 'V') {
         PhanSo x, y;
         x.tu = Dx; x.mau = D; x.rutGon();
@@ -88,7 +92,9 @@ void xuat(DuongThang dt1, DuongThang dt2) {
         cout << ")";
 
     } else if (viTri == 'S') {
-        double khoangCach = abs(dt2.a*dt1.c - dt1.a*dt2.c) / sqrt(dt1.a*dt1.a + dt1.b*dt1.b);
+        int x = 1;
+        double y = (double) (-dt2.c - dt2.a*x) / dt2.b;
+        double khoangCach = abs(dt1.a*x + dt1.b*y + dt1.c) / sqrt(dt1.a*dt1.a + dt1.b*dt1.b);
         cout << roundf(khoangCach * 1000) / 1000;
 
     } else if (viTri == 'T') cout << 0;
