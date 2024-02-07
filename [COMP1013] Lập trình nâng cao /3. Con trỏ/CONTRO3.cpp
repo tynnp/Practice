@@ -67,7 +67,7 @@ struct Linkedlist {
             tmp = tmp->next;
         }
     }
-};
+}; 
 
 int main() {
     Linkedlist list;
