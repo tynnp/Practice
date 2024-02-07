@@ -5,12 +5,12 @@ struct Node {
     int data;
     Node* next;
 
-    Node(int n) : data(n), next(nullptr) {}
+    Node(int n): data(n), next(nullptr) {}
 };
 
 struct LinkedList {
     Node* head;
-    LinkedList() : head(nullptr) {}
+    LinkedList(): head(nullptr) {}
 
     void add(int n) {
         Node* node = new Node(n);
