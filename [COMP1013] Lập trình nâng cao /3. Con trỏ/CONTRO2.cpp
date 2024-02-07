@@ -31,17 +31,17 @@ struct LinkedList {
 
         while (tmp != nullptr && tmp->data == n) {
             this->head = tmp->next;
-            delete tmp;
-            tmp = this->head;
+            Node* nodeToRemove = tmp;
+            tmp = tmp->next;
+            delete nodeToRemove;
         }
 
-        while (tmp->next != nullptr) {
+        while (tmp != nullptr && tmp->next != nullptr) {
             if (tmp->next->data == n) {
                 Node* nodeToRemove = tmp->next;
                 tmp->next = tmp->next->next;
                 delete nodeToRemove;
-            }
-            tmp = tmp->next;
+            } else tmp = tmp->next;
         }
 
         return;
