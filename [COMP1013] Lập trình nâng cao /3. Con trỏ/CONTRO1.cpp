@@ -4,6 +4,8 @@ using namespace std;
 struct Node {
     int data;
     Node* next;
+
+    Node(int n) : data(n), next(nullptr) {}
 };
 
 struct LinkedList {
@@ -11,9 +13,7 @@ struct LinkedList {
     LinkedList() : head(nullptr) {}
 
     void add(int n) {
-        Node* node = new Node;
-        node->data = n;
-        node->next = nullptr;
+        Node* node = new Node(n);
         
         if (this->head == nullptr)
             this->head = node;
