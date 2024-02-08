@@ -15,7 +15,7 @@ struct Linkedlist {
         Node* node = new Node(n);
         Node* tmp = this->head;
 
-        if (tmp == nullptr) 
+        if (tmp == nullptr)
             this->head = node;
         else {
             while (tmp->next != nullptr) 
@@ -25,29 +25,53 @@ struct Linkedlist {
         return;
     }
 
-    bool find(int n) {
+    int size() {
+        int size = 0;
         Node* tmp = this->head;
-
-        while (tmp != nullptr) {
-            if (tmp->data == n) return true;
-            tmp = tmp->next; 
-        }
-        return false;
+        while (tmp != nullptr) 
+            size += 1,
+            tmp = tmp->next;
+        return size;
     }
 
-    bool check() {
-        Node* ptr1 = this->head;
-        
-        while (ptr1 != nullptr) {
-            Node* ptr2 = ptr1->next;
-            while (ptr2 != nullptr) {
-                if(this->find(ptr1->data + ptr2->data)) 
-                    return true;
-                ptr2 = ptr2->next;
-            }
-            ptr1 = ptr1->next;
+    void print() {
+        if (this->size() > 0)
+            cout << this->size() << endl;
+        else {
+            cout << -1;
+            return;
         }
-        return false;
+
+        Node* tmp = this->head;
+        while (tmp != nullptr) {
+            cout << tmp->data << " ";
+            tmp = tmp->next;
+        }
+        return;
+    }
+
+    void check() {
+        Linkedlist res;
+        Node* ptr1 = this->head;
+        int index = 2;
+
+        if (ptr1 == nullptr || ptr1->next == nullptr || ptr1->next->next ==nullptr) {
+            cout << -1;
+            return;
+        }
+
+        while (ptr1->next->next != nullptr) {
+            Node* ptr2 = ptr1->next->next;
+            Node* ptr3 = ptr1->next;
+
+            if (ptr1->data*ptr2->data == ptr3->data)
+                    res.add(index);
+
+            ptr1 = ptr1->next;
+            index += 1;
+        }
+        res.print();
+        return;
     }
 
     ~Linkedlist() {
@@ -69,11 +93,11 @@ int main() {
     int n; cin >> n;
     Linkedlist list;
 
-    for (int i = 0; i < n; i++) {
+    while (n--) {
         int tmp; cin >> tmp;
         list.add(tmp);
     }
 
-    cout << (list.check() ? "YES" : "NO");
+    list.check();
     return 0;
 }

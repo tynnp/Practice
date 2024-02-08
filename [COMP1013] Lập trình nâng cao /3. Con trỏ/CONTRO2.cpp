@@ -66,6 +66,20 @@ struct LinkedList {
             tmp = tmp->next;
         }
     }
+
+    ~LinkedList() {
+        Node* tmp = this->head;
+        Node* next;
+
+        while (tmp != nullptr) {
+            next = tmp->next;
+            delete tmp;
+            tmp = next;
+        }
+
+        this->head = nullptr;
+        return;
+    }
 };
 
 int main() {
