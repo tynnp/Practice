@@ -2,29 +2,23 @@
 #include <algorithm>
 using namespace std;
 
-int factorial(int n) {
-    if (n < 1) return 1;
-    return n * factorial(n-1);
-}
-
-void chuoiHoanVi(int n, string str) {
+void chuoiHoanVi(int n, int k, string str) {
     if (str.length() == n) 
         cout << str << endl;
     else {
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= k; i++) {
             string number = to_string(i);
             auto check = str.find(number);
             if (check != string::npos) continue;
-            else chuoiHoanVi(n, str + number);
+            else chuoiHoanVi(n, k, str + number);
         }
     } return;
 }
 
 int main() {
-    int n; 
+    int n, k; 
     string str;
-    cin >> n;
-    cout << factorial(n) << endl;
-    chuoiHoanVi(n, str);
+    cin >> n >> k;
+    chuoiHoanVi(n, k, str);
     return 0;
 }
