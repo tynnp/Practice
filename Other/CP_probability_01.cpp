@@ -9,6 +9,10 @@ int factorial(int n) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
+
     string s1, s2;
     int u = 0, v = 0; // u và v là số lượng + và - của s1
     int m = 0, n = 0; // m và n là số lượng + và - của s2

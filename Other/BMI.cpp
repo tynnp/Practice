@@ -1,8 +1,12 @@
 #include <iostream>
 #include <iomanip>
+#define endl '\n'
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     double cao, nang, bmi;
     cin >> cao >> nang;
     bmi = nang / (cao*cao);
