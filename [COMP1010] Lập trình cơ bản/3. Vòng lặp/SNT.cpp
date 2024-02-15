@@ -8,6 +8,6 @@ int main() {
     int n, cnt = 0; cin >> n;
     for (int i = 2; i*i <= n; i++)
         cnt += (n % i == 0);
-    cout << (cnt == 0 ? "true" : "false");
+    cout << (cnt == 0 && n > 1 ? "true" : "false");
     return 0;
 }
