@@ -1,33 +1,37 @@
-
-// Chưa đúng
-
 #include <iostream>
 #include <cstring>
+#include <stack>
 using namespace std;
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int n, k, size = 0; 
-    cin >> n >> k;
+    int n, m; 
+    cin >> n >> m;
 
-    bool check[n + 1];
-    int res[k];
-    memset(check, true, sizeof(check));
+    bool check1[n+1], check2[n+1];
+    memset(check1, true, sizeof(check1));
+    memset(check2, true, sizeof(check2));
 
-    check[0] = false;
-    for (int i = 0; i < k; i++) {
-        int tmp; cin >> tmp;
-        check[tmp] = false;
-        res[size++] = tmp;
+    stack<int> st;
+    while (m--) {
+        int disc; cin >> disc;
+        st.push(disc);
     }
-    
-    for (int i = size-1; i >= 0; i--)
-        cout << res[i] << " ";
 
-    for (int i = 0; i <= n; i++)
-        if (check[i]) cout << i << " ";
+    while (!st.empty()) {
+        int disc = st.top();
+        check1[disc] = false;
+
+        if (check2[disc]) cout << disc << " ";
+        check2[disc] = false;
+
+        st.pop();
+    }
+
+    for (int i = 1; i <= n; i++)
+        if (check1[i]) cout << i << " ";
 
     return 0;
 }
