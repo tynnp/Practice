@@ -20,6 +20,9 @@ bool operator == (PhanSo p1, PhanSo p2);
 bool operator != (PhanSo p1, PhanSo p2);
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     PhanSo a, b;
     cin >> a >> b;
     cout << a + b;

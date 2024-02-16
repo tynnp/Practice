@@ -107,6 +107,9 @@ void xuat(DuongThang dt1, DuongThang dt2) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     DuongThang dt1, dt2; 
     cin >> dt1 >> dt2;
 

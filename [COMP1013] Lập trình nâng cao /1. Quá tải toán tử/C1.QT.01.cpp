@@ -80,6 +80,9 @@ struct SoPhuc {
 };
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     SoPhuc x; cin >> x;
     char c; cin >> c;
     cout << x << endl;

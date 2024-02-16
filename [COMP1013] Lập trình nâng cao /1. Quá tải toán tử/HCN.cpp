@@ -29,10 +29,12 @@ struct HinhChuNhat {
 };
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     HinhChuNhat a, b;
     cin >> a >> b; 
     cout << a << endl << b << endl;
     cout << (a < b ? "true" : "false");
     return 0;
 }
-

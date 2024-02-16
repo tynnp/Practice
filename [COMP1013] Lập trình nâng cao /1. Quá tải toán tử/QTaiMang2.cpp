@@ -58,6 +58,9 @@ istream& operator >> (istream& in, MangMotChieu& arr) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     MangMotChieu arr1, arr2;
     cin >> arr1 >> arr2;
     MangMotChieu res = arr1 + arr2;

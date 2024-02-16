@@ -33,6 +33,9 @@ struct SinhVien {
 };
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     SinhVien sinhVien[100];
     int n = 0;
     while (cin >> sinhVien[n]) {

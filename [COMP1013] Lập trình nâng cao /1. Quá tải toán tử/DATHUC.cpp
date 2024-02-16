@@ -33,6 +33,9 @@ struct BacNhat {
 };
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     BacNhat f1, f2;
     int x;
     cin >> f1 >> f2 >> x;
