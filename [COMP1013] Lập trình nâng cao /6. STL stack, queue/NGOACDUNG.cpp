@@ -18,6 +18,9 @@ bool check(string str) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     string str;
     getline(cin, str);
     cout << (check(str) ? "yes" : "no"); 
