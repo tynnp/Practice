@@ -101,6 +101,9 @@ struct Array {
 };
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     string str; 
     Array<KG2C> arr2C;
     Array<KG3C> arr3C;
