@@ -13,6 +13,9 @@ float sum(int n, int x) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     float n, x; 
     cin >> n >> x;
     cout << roundf(sum(n, x)*1000) / 1000;
