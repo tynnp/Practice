@@ -3,6 +3,9 @@
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     int n; cin >> n;
     stack<int> intStack;
     if (n == 0) intStack.push(0);
