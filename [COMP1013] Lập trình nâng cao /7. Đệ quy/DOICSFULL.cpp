@@ -8,6 +8,9 @@ void deQuyCS8(stack<string> st, int n);
 void deQuyCS16(stack<string> st, int n);
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     long heSo10; cin >> heSo10;
     int heCoSoMoi; cin >> heCoSoMoi;
     chuyenCoSo(heSo10, heCoSoMoi);
