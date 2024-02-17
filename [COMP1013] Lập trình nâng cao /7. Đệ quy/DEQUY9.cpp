@@ -18,6 +18,9 @@ long long P(long long n) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     long long n; cin >> n;
     cout << "S(" << n << ") = " << S(n) << endl;
     cout << "P(" << n << ") = " << P(n) << endl;
