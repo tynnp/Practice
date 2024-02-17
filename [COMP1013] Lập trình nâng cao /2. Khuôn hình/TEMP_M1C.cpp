@@ -27,6 +27,9 @@ struct M1C {
 };
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     M1C<int> arr;
     arr.nhap();
     arr.xuat();
