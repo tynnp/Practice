@@ -89,7 +89,7 @@ int main() {
 			cout << "("; 
             res[i].xuat();
             cout << ")";
-        }
+        } 
 	}
 
     return 0;
