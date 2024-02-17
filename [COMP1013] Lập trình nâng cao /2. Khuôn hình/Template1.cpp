@@ -38,6 +38,9 @@ T max3So(T a, T b, T c) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     char kt; cin >> kt;
 
     if (kt == 'a') {
