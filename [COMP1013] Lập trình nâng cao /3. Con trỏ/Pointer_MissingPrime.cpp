@@ -2,6 +2,9 @@
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     bool *check = new bool[10000];
     for (int i = 0; i <= 10000; i++)
         check[i] = true;
