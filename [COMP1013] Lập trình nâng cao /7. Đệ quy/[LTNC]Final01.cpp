@@ -18,6 +18,9 @@ double mySin(double x, double n = 10) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     double x; cin >> x;
     cout << roundf(myCos(x)*100) / 100 << endl;
     cout << roundf(mySin(x)*100) / 100;
