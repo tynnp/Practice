@@ -84,6 +84,9 @@ struct Linkedlist {
 }; 
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     Linkedlist list;
     int n, a, k;
     cin >> n >> a >> k;
