@@ -56,7 +56,7 @@ struct Array {
     int tongDaySo() {
         int res = 0;
         for (int i = 0; i < this->size; i++)
-            res =this->values[i] + res;
+            res = this->values[i] + res;
         return res;
     }
 
