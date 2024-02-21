@@ -3,59 +3,18 @@ using namespace std;
 
 struct MangMotChieu {
     int size;
-    int *values;
+    int values[100];
 
-    MangMotChieu& operator = (MangMotChieu& other) {
-        this->size = other.size;
-        for (int i = 0; i < other.size; i++)
-            this->values[i] = other[i];
-        return *this;
-    }
-
-    MangMotChieu operator + (MangMotChieu arr) {
-        MangMotChieu res;
-        res.size = max(this->size, arr.size);
-        res.values = new int[res.size];
-        for (int i = 0; i < res.size; i++)
-            res.values[i] = this->values[i] + arr.values[i];
-        return res;
-    }
-
-    bool operator == (MangMotChieu other) {
-        if (this->size != other.size) return false;
-        for (int i = 0; i < other.size; i++)
-            if (this->values[i] != other.values[i])
-                return false;
-        return true;
-    }
-
-    bool operator != (MangMotChieu other) {
-        if (this->size == other.size) return false;
-        for (int i = 0; i < other.size; i++)
-            if (this->values[i] == other.values[i])
-                return false;
-        return true;
-    }
-
-    int operator [] (int index) {
-        if (index > 0 && index < this->size) 
-            return this->values[index];
-    }
+    int& operator [] (int index);
+    MangMotChieu& operator = (const MangMotChieu &arr2);
 };
 
-ostream& operator << (ostream& out, MangMotChieu arr) {
-    for (int i = 0; i < arr.size; i++)
-        out << arr.values[i] << " ";
-    return out;
-}
+istream& operator >> (istream &in, MangMotChieu &arr);
+ostream& operator << (ostream &out, MangMotChieu arr);
+MangMotChieu operator + (MangMotChieu arr1, MangMotChieu arr2);
+bool operator == (MangMotChieu arr1, MangMotChieu arr2);
+bool operator != (MangMotChieu arr1, MangMotChieu arr2);
 
-istream& operator >> (istream& in, MangMotChieu& arr) {
-    in >> arr.size;
-        arr.values = new int[arr.size];
-        for (int i = 0; i < arr.size; i++)
-        in >> arr.values[i];
-    return in;
-}
 
 int main() {
     ios_base::sync_with_stdio(0);
@@ -66,4 +25,55 @@ int main() {
     if (arr1 == arr2) cout << "yes";
     else cout << "no";
     return 0;
+}
+
+istream& operator >> (istream &in, MangMotChieu &arr) {
+    in >> arr.size;
+    for (int i = 0; i < arr.size; ++i) 
+        in >> arr.values[i];
+    return in;
+}
+
+ostream& operator << (ostream &out, MangMotChieu arr) {
+    for (int i = 0; i < arr.size; ++i) 
+        out << arr.values[i] << " ";
+    return out;
+}
+
+MangMotChieu& MangMotChieu::operator = (const MangMotChieu &arr2) {
+        size = arr2.size;
+        for (int i = 0; i < arr2.size; ++i) 
+            values[i] = arr2.values[i];
+        return *this;
+    }
+
+int& MangMotChieu::operator [] (int index) {
+        return values[index];
+    }
+
+MangMotChieu operator + (MangMotChieu arr1, MangMotChieu arr2) {
+    MangMotChieu result;
+    result.size = arr1.size + arr2.size;
+
+    for (int i = 0; i < arr1.size; ++i) 
+        result.values[i] = arr1.values[i];
+    
+    for (int i = arr1.size, j = 0; i < result.size; ++i, ++j) 
+        result.values[i] = arr2.values[j];
+    
+    return result;
+}
+
+bool operator == (MangMotChieu arr1, MangMotChieu arr2) {
+    if (arr1.size != arr2.size) return false;
+    
+    for (int i = 0; i < arr1.size; ++i) 
+        if (arr1.values[i] != arr2.values[i]) 
+            return false;
+        
+    return true;
+}
+
+bool operator != (MangMotChieu arr1, MangMotChieu arr2) {
+    return !(arr1 == arr2);
 }
