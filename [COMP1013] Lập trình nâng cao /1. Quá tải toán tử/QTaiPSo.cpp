@@ -5,13 +5,13 @@ using namespace std;
 struct PhanSo {
     int tu;
     int mau;
-
-    friend istream& operator >> (istream& in, PhanSo& p);
-    friend ostream& operator << (ostream& out, PhanSo p);
-    PhanSo operator + (PhanSo p);
-    bool operator == (PhanSo p);
-    bool operator != (PhanSo p);
 };
+
+istream& operator >> (istream& in, PhanSo& p);
+ostream& operator << (ostream& out, PhanSo p);
+PhanSo operator + (PhanSo p1, PhanSo p2);
+bool operator == (PhanSo p1, PhanSo p2);
+bool operator != (PhanSo p1, PhanSo p2);
 
 int main() {
     ios_base::sync_with_stdio(0);
@@ -36,17 +36,17 @@ ostream& operator << (ostream& out, PhanSo p) {
     return out;
 }
 
-PhanSo PhanSo::operator + (PhanSo p) {
+PhanSo operator + (PhanSo p1, PhanSo p2) {
     PhanSo res;
-    res.tu = this->tu*p.mau + p.tu*this->mau;
-    res.mau = this->mau * p.mau;
+    res.tu = p1.tu*p2.mau + p1.mau*p2.tu;
+    res.mau = p1.mau * p2.mau;
     return res;
 }
 
-bool PhanSo::operator == (PhanSo p) {
-    return this->tu*p.mau == p.tu*this->mau;
+bool operator == (PhanSo p1, PhanSo p2) {
+    return p1.tu*p2.mau == p1.mau*p2.tu;
 }
 
-bool PhanSo::operator != (PhanSo p) {
-    return !(*this == p);
+bool operator != (PhanSo p1, PhanSo p2) {
+    return !(p1 == p2);
 }
