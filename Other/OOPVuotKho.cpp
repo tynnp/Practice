@@ -184,25 +184,26 @@ int main() {
     cout << fixed << setprecision(2);
 
     int index = 0;
-    if (requestType == 0) {
-        cin >> year;
-        cout << "Cac can ho da ban den nam " << year << ": \n";
+    
+    if (requestType == 1) {
+        cin >> money;
+        cout << "Cac can ho co gia tu " << money << " trieu: \n";
 
-        for (Owner x : ownerList) {
-            if (x <= year) {
+        for (Renter x : renterList) {
+            if (x >= money) {
                 cout << "#" << ++index << endl;
                 cout << x;
             }
         }
 
         if (index == 0) cout << "Khong tim thay!";
+        
+    } else {
+        cin >> year;
+        cout << "Cac can ho da ban den nam " << year << ": \n";
 
-    } else if (requestType == 1) {
-        cin >> money;
-        cout << "Cac can ho co gia tu " << money << " trieu: \n";
-
-        for (Renter x : renterList) {
-            if (x >= money) {
+        for (Owner x : ownerList) {
+            if (x <= year) {
                 cout << "#" << ++index << endl;
                 cout << x;
             }
