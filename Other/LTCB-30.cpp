@@ -5,6 +5,6 @@ int main() {
     int n, res = 0; cin >> n;
     for (int i = 1; i < n; i++)
         if (n % i == 0) res += i;
-    cout << (res == n ? "co" : "khong");
+    cout << (res == n ? "YES" : "NO");
     return 0;
 }
