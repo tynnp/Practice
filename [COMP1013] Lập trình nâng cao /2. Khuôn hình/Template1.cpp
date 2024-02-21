@@ -3,11 +3,11 @@ using namespace std;
 
 struct PhanSo {
     int tu, mau;
-
-    bool operator < (PhanSo other) {
-        return tu*other.mau < mau*other.tu;
-    }
 };
+
+bool operator < (PhanSo p1, PhanSo p2) {
+    return p1.tu*p2.mau < p1.mau*p2.tu;
+}
 
 istream &operator >> (istream &in, PhanSo& p) {
     in >> p.tu >> p.mau;
