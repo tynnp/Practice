@@ -15,7 +15,6 @@ MangMotChieu operator + (MangMotChieu arr1, MangMotChieu arr2);
 bool operator == (MangMotChieu arr1, MangMotChieu arr2);
 bool operator != (MangMotChieu arr1, MangMotChieu arr2);
 
-
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
