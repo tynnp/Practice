@@ -5,7 +5,7 @@ using namespace std;
 
 class Resident {
 private:    
-    string name;
+    string name;            
     int age;
     int apartmentNumber;
     string phoneNumber;
