@@ -5,7 +5,7 @@ using namespace std;
 
 class Resident {
 private:    
-    string name;            
+    string name;              
     int age;
     int apartmentNumber;
     string phoneNumber;
@@ -71,9 +71,7 @@ public:
     friend istream& operator >> (istream &in, Resident &resident) {
         getline(in, resident.name);
         in >> resident.age >> resident.apartmentNumber;
-        in.ignore();
-        getline(in, resident.phoneNumber);
-        getline(in, resident.email);
+        in >> resident.phoneNumber >> resident.email;
         return in;
     }
 
@@ -188,7 +186,7 @@ int main() {
     int index = 0;
     if (requestType == 0) {
         cin >> year;
-        cout << "Cac can ho da ban den nam " << year << ":\n";
+        cout << "Cac can ho da ban den nam " << year << ": \n";
 
         for (Owner x : ownerList) {
             if (x <= year) {
@@ -201,7 +199,7 @@ int main() {
 
     } else if (requestType == 1) {
         cin >> money;
-        cout << "Cac can ho co gia tu " << money << " trieu:\n";
+        cout << "Cac can ho co gia tu " << money << " trieu: \n";
 
         for (Renter x : renterList) {
             if (x >= money) {
