@@ -159,7 +159,7 @@ public:
 
     friend ostream& operator << (ostream &out, Renter renter) {
         Resident resident = renter;
-        out << resident;
+        out << resident << fixed << setprecision(2);
         out << "Gia thue : " << renter.price << " trieu" << endl;
         return out;
     }
@@ -179,12 +179,9 @@ int main() {
     cin.ignore();
     for (Owner &x : ownerList) cin >> x;
     for (Renter &x : renterList) cin >> x;
-
     cin >> requestType;
-    cout << fixed << setprecision(2);
-
     int index = 0;
-    
+
     if (requestType == 1) {
         cin >> money;
         cout << "Cac can ho co gia tu " << money << " trieu: \n";
@@ -197,7 +194,7 @@ int main() {
         }
 
         if (index == 0) cout << "Khong tim thay!";
-        
+
     } else {
         cin >> year;
         cout << "Cac can ho da ban den nam " << year << ": \n";
