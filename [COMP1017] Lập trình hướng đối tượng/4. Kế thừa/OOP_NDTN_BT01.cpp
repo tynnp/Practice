@@ -142,7 +142,7 @@ int main() {
 
         cout << b.ToString() << endl;
         if (b.Withdraw(tienRut)) {
-            b.setBalance(a.getBalance() - tienRut);
+            b.setBalance(b.getBalance() - tienRut);
             cout << "Yes " << b.ToString() << endl; 
         } else cout << "No\n";
         b.Deposit(b.getBalance());
