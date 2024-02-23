@@ -36,13 +36,13 @@ int main() {
     double x; x = vt.back();
 
     Node::nhapDaThuc(dt1, dt2, vt);
-    Node::xuatDaThuc(dt1);
-    Node::xuatDaThuc(dt2);
+    Node::xuatDaThuc(dt1); cout << " ";
+    Node::xuatDaThuc(dt2); cout << endl;
     Node* dt3 = Node::tongHaiDaThuc(dt1, dt2); 
-    Node::xuatDaThuc(dt3);
     Node* dt4 = Node::daoHamDaThuc(dt3);
-    Node::xuatDaThuc(dt4);
-    cout << Node::giaTriDaThuc(dt3, x);
+    Node::xuatDaThuc(dt4); cout << endl;
+    cout << Node::giaTriDaThuc(dt3, x); cout << endl;
+    Node::xuatDaThuc(dt3);
     return 0;
 }
 
@@ -113,7 +113,7 @@ void Node::xuatDaThuc(Node* head) {
             cout << head->donThuc;
         }
         head = head->next;
-    } cout << endl;
+    } 
 }
 
 double Node::giaTriDaThuc(Node* head, double x) {
