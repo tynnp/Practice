@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 // Tìm kiếm tuần tự 
 int sequentialSearch(int arr[], int n, int k) {
     for (int i = 0; i < n; i++)
@@ -22,9 +19,4 @@ int binarySearch(int arr[], int n, int k) {
     }
 
     return -1;
-}
-
-int main() {
-
-    return 0;
 }
