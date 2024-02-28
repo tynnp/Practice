@@ -1,36 +1,72 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    int N, M; 
+    int N, M;
     cin >> N >> M;
 
-    vector<int> vec;
-    for (int i = 1; i <= N; i++)
-        vec.push_back(i);
+    int *arr = new int[N];
+    for (int i = 0; i < N; i++)
+        arr[i] = i + 1;
 
-    vector<int>::iterator it = vec.begin();
-    while(!vec.empty()) {
+    int *ptr = arr;
+    int *ptrEnd = arr + N;
+
+    while (arr != ptrEnd) {
         int tmp = M;
 
         while (--tmp) {
-            it++;
-            if (it == vec.end())
-                it = vec.begin();
+            ptr++;
+
+            if (ptr == ptrEnd)
+                ptr = arr;
         }
 
-        cout << *it << " ";
-        vec.erase(it);
-        if (it == vec.end())
-            it = vec.begin();
+        cout << *ptr << " ";
+
+        for (int *i = ptr; i != ptrEnd-1; i++)
+            *i = *(i + 1);
+        ptrEnd--;
+
+        if (ptr == ptrEnd) ptr = arr;
     }
 
     return 0;
 }
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int main() {
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(0);
+
+//     int N, M; 
+//     cin >> N >> M;
+
+//     vector<int> vec;
+//     for (int i = 1; i <= N; i++)
+//         vec.push_back(i);
+
+//     vector<int>::iterator it = vec.begin();
+//     while(!vec.empty()) {
+//         int tmp = M;
+
+//         while (--tmp) {
+//             it++;
+//             if (it == vec.end())
+//                 it = vec.begin();
+//         }
+
+//         cout << *it << " ";
+//         vec.erase(it);
+//         if (it == vec.end())
+//             it = vec.begin();
+//     }
+
+//     return 0;
+// }
 
 // #include <iostream>
 // #include <queue>
