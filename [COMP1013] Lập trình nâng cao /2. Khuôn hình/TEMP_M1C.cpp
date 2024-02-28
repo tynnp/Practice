@@ -9,27 +9,24 @@ struct M1C {
     void nhap() {
         T n; 
         while (cin >> n)
-            this->values[this->size++] = n;
+            values[size++] = n;
         return;
     }
 
     int tong() {
         T res = 0;
-        for (int i = 0; i < this->size; i++)
-            res = res + this->values[i];
+        for (int i = 0; i < size; i++)
+            res = res + values[i];
         return res;
     }
 
     void xuat() {
-        cout << this->tong();
+        cout << tong();
         return;
     }
 };
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
     M1C<int> arr;
     arr.nhap();
     arr.xuat();
