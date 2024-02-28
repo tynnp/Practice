@@ -16,15 +16,15 @@ struct HCN {
     }
 
     double chuVi() {
-        return (double) (this->dai + this->rong) * 2;
+        return (double) (dai + rong) * 2;
     }
 
     bool operator < (HCN other) {
-        return this->chuVi() < other.chuVi();
+        return chuVi() < other.chuVi();
     }
 
     double operator + (double n) {
-        return this->chuVi() + n;
+        return chuVi() + n;
     }
 };
 
@@ -45,47 +45,38 @@ struct Array {
     }
 
     T min() {
-        T res = this->values[0];
-        for (int i = 1; i < this->size; i++)
-            if (this->values[i] < res)
-                res = this->values[i];
+        T res = values[0];
+        for (int i = 1; i < size; i++)
+            if (values[i] < res)
+                res = values[i];
         return res;
     }
 
-    void sum() {
+    double sum() {
         double res = 0;
-        for (int i = 0; i < this->size; i++)
-            res = this->values[i] + res;
-        
-        T tmp;
-        if (tmp == 9999) cout << fixed << setprecision(1) << res;
-        else cout << (int) res;
-
-        return;
-    }
-
-    friend ostream& operator << (ostream &out, Array arr) {
-        out << arr.min() << endl;
-        arr.sum();
-        return out;
+        for (int i = 0; i < size; i++)
+            res = values[i] + res;
+        return res; 
     }
 };
 
+template<typename T> 
+void check(char c) {
+    Array<T> arr;
+    cin >> arr;
+    cout << arr.min() << endl;
+    if (c == 'H') cout << fixed << setprecision(1);
+    cout << arr.sum();
+    return;
+}
+
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    char c; cin >> c;
-    Array<int> arrInt;
-    Array<HCN> arrHCN;
-
-    if (c == 'N') {
-        cin >> arrInt;
-        cout << arrInt;
-
-    } else if (c == 'H') {
-        cin >> arrHCN;
-        cout << arrHCN;
+    char c; 
+    cin >> c;
+    
+    switch (c) {
+        case 'N': check<int>('N'); break;
+        case 'H': check<HCN>('H'); break;
     }
 
     return 0;
