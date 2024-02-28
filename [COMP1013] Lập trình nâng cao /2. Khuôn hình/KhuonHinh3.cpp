@@ -22,7 +22,7 @@ struct PhanSo {
     }
 
     bool operator < (PhanSo other) {
-        return (double) this->tu/this->mau < (double) other.tu/other.mau;
+        return tu*other.mau < mau*other.tu;
     }
 };
 
@@ -33,23 +33,20 @@ struct Array {
 
     void input() {
         T n; cin >> n;
-        this->values[this->size++] = n;
+        values[size++] = n;
         return;
     }
 
     T min() {
-        T min = this->values[0];
-        for (int i = 1; i < this->size; i++)
-            if (this->values[i] < min)
-                min = this->values[i];
+        T min = values[0];
+        for (int i = 1; i < size; i++)
+            if (values[i] < min)
+                min = values[i];
         return min;
     }
 };
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
     char c; 
     Array<int> arrInt;
     Array<double> arrDouble;
