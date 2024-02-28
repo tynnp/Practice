@@ -24,8 +24,8 @@ struct PhanSo {
 
     PhanSo operator + (PhanSo other) {
         PhanSo res;
-        res.tu = this->tu*other.mau + this->mau*other.tu;
-        res.mau = this->mau * other.mau;
+        res.tu = tu*other.mau + mau*other.tu;
+        res.mau = mau * other.mau;
         return res;
     }
 };
@@ -36,35 +36,34 @@ struct Array {
     T values[100];
 
     void input() {
-        this->size = 0;
+        size = 0;
         T n;
         while (cin >> n) 
-            this->values[this->size++] = n;
+            values[size++] = n;
     }
 
     T tinhTong() {
-        T res = this->values[0];
-        for (int i = 1; i < this->size; i++)
-            res = res + this->values[i];
+        T res = values[0];
+        for (int i = 1; i < size; i++)
+            res = res + values[i];
         return res;
     }
 };
 
+template<typename T>
+T tongDaySo() {
+    Array<T> arr;
+    arr.input();
+    return arr.tinhTong();
+}
+
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    char c; 
+    cin >> c;
 
-    char c; cin >> c;
-
-    if (c == 'a') {
-        Array<int> array;
-        array.input();
-        cout << array.tinhTong();
-
-    } else if (c == 'b') {
-        Array<PhanSo> array;
-        array.input();
-        cout << array.tinhTong();
+    switch (c) {
+        case 'a': cout << tongDaySo<int>(); break;
+        case 'b': cout << tongDaySo<PhanSo>(); break;
     }
 
     return 0;
