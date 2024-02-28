@@ -7,15 +7,6 @@ struct PhanSo {
 
     friend istream& operator >> (istream &in, PhanSo &p) {
         in >> p.tu >> p.mau;
-
-        int ucln = __gcd(p.tu, p.mau);
-        p.tu /= ucln;
-        p.mau /= ucln;
-
-        if (p.mau < 0)
-            p.tu = -p.tu,
-            p.mau = -p.mau;
-
         return in;
     }
 
@@ -25,7 +16,7 @@ struct PhanSo {
     }
 
     bool operator == (PhanSo other) {
-        return this->tu*other.mau == this->mau*other.tu;
+        return tu*other.mau == mau*other.tu;
     }
 };
 
@@ -44,7 +35,7 @@ int main() {
     switch (kt) {
         case 'a': soSanh<int>(); break;
         case 'b': soSanh<double>(); break;
-        case 'c': soSanh<double>(); break;
+        case 'c': soSanh<PhanSo>(); break;
     }
 
     return 0;
