@@ -23,8 +23,8 @@ struct PhanSo {
 
     PhanSo operator + (PhanSo other) {
         PhanSo res;
-        res.tu = this->tu*other.mau + this->mau*other.tu;
-        res.mau = this->mau * other.mau;
+        res.tu = tu*other.mau + mau*other.tu;
+        res.mau = mau * other.mau;
         return res;
     }
 };
@@ -35,23 +35,21 @@ struct Array {
     T values[100];
 
     void input() {
-        T n; cin >> n;
-        this->values[this->size++] = n;
+        T n; 
+        cin >> n;
+        values[size++] = n;
         return;
     }
 
     T sum() {
-        T res = this->values[0];
-        for (int i = 1; i < this->size; i++)
-            res = res + this->values[i];
+        T res = values[0];
+        for (int i = 1; i < size; i++)
+            res = res + values[i];
         return res;
     }
 };
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
     char c; 
     Array<int> arrInt;
     Array<PhanSo> arrPhanSo;
