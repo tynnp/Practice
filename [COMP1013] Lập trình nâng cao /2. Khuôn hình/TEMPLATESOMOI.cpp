@@ -15,29 +15,29 @@ struct SoMoi {
     }
 
     int tongChuSo() {
-        int res = 0, tmp = this->number;
+        int res = 0, tmp = number;
         while (tmp > 0) 
             res += tmp % 10,
             tmp /= 10;
         return res;
     }
 
-    bool operator > (SoMoi soMoi) {
-        return this->tongChuSo() > soMoi.tongChuSo();
+    bool operator > (SoMoi other) {
+        return tongChuSo() > other.tongChuSo();
     }
 
-    SoMoi operator + (SoMoi soMoi) {
+    SoMoi operator + (SoMoi other) {
         SoMoi res;
-        res.number = this->tongChuSo() + soMoi.tongChuSo();
+        res.number = tongChuSo() + other.tongChuSo();
         return res;
     }
 
     int operator + (int n) {
-        return n + this->tongChuSo();
+        return n + tongChuSo();
     }
 
-    bool operator == (SoMoi soMoi) {
-        return this->number == soMoi.number;
+    bool operator == (SoMoi other) {
+        return number == other.number;
     }
 };
 
@@ -55,8 +55,8 @@ struct Array {
 
     int tongDaySo() {
         int res = 0;
-        for (int i = 0; i < this->size; i++)
-            res = this->values[i] + res;
+        for (int i = 0; i < size; i++)
+            res = values[i] + res;
         return res;
     }
 
@@ -76,23 +76,24 @@ struct Array {
     }
 };
 
+template<typename T>
+void check(char c) {
+    Array<T> arr;
+    cin >> arr;
+    cout << arr;
+    if (c == 'M') cout << "[SoMoi]";
+    cout << arr.tongDaySo();
+    return;
+
+}
+
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    char c; 
+    cin >> c;
 
-    char c; cin >> c;
-    Array<int> arrInt;
-    Array<SoMoi> arrSoMoi;
-
-    if (c == 'N') {
-        cin >> arrInt;
-        cout << arrInt;
-        cout << arrInt.tongDaySo();
-
-    } else if (c == 'M') {
-        cin >> arrSoMoi;
-        cout << arrSoMoi;
-        cout << "[SoMoi]" << arrSoMoi.tongDaySo();
+    switch (c) {
+        case 'N': check<int>('N'); break;
+        case 'M': check<SoMoi>('M'); break;
     }
 
     return 0;

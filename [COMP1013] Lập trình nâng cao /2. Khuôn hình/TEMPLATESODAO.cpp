@@ -15,7 +15,7 @@ struct SoDao {
     }
 
     int soDao() {
-        int tmp = this->number;
+        int tmp = number;
         int res = 0;
         while (tmp > 0) 
             res = res*10 + tmp%10,
@@ -24,11 +24,11 @@ struct SoDao {
     }
 
     bool operator > (SoDao sd) {
-        return this->soDao() > sd.soDao();
+        return soDao() > sd.soDao();
     }
 
     int operator + (int x) {
-        return this->soDao() + x;
+        return soDao() + x;
     }
 };
 
@@ -38,23 +38,24 @@ struct Array {
     T values[1000];
 
     friend istream& operator >> (istream &in, Array &arr) {
-        T n; in >> n;
+        T n; 
+        in >> n;
         arr.values[arr.size++] = n;
         return in;
     }
 
     int tongSo() {
         int res = 0;
-        for (int i = 0; i < this->size; i++)
-            res = this->values[i] + res;
+        for (int i = 0; i < size; i++)
+            res = values[i] + res;
         return res;
     }
 
     T soLonNhat() {
-        T res = this->values[0];
-        for (int i = 1; i < this->size; i++) 
-            if (this->values[i] > res)
-                res = this->values[i];
+        T res = values[0];
+        for (int i = 1; i < size; i++) 
+            if (values[i] > res)
+                res = values[i];
         return res;
     }
 
@@ -70,9 +71,6 @@ struct Array {
 };
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
     char c; 
     Array<int> arrInt;
     Array<SoDao> arrSoDao;
