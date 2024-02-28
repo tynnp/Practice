@@ -16,12 +16,12 @@ struct KG2C {
     }
 
     double operator - (KG2C other) {
-        return sqrt(pow(other.x - this->x, 2) + pow(other.y - this->y, 2));
+        return sqrt(pow(other.x - x, 2) + pow(other.y - y, 2));
     }
 
     bool operator < (KG2C other) {
-        if (this->x < other.x) return true;
-        if (this->x == other.x && this-> y < other.y) return true;
+        if (x < other.x) return true;
+        if (x == other.x && y < other.y) return true;
         return false;
     }
 };
@@ -40,13 +40,13 @@ struct KG3C {
     }
 
     double operator - (KG3C other) {
-        return sqrt(pow(other.x - this->x, 2) + pow(other.y - this->y, 2) + pow(other.z - this->z, 2));
+        return sqrt(pow(other.x - x, 2) + pow(other.y - y, 2) + pow(other.z - z, 2));
     }
 
     bool operator < (KG3C other) {
-        if (this->x < other.x) return true;
-        if (this->x == other.x && this->y < other.y) return true;
-        if (this->x == other.x && this->y == other.y && this->z < other.z) return true;
+        if (x < other.x) return true;
+        if (x == other.x && y < other.y) return true;
+        if (x == other.x && y == other.y && z < other.z) return true;
         return false;
     }
 };
@@ -57,7 +57,8 @@ struct Array {
     T values[100];
 
     friend istream& operator >> (istream &in, Array &array) {
-        T n; in >> n;
+        T n; 
+        in >> n;
         array.values[array.size++] = n;
         return in;
     } 
@@ -70,18 +71,18 @@ struct Array {
 
     double khoangCachLonNhat() {
         double res = 0;
-        for (int i = 0; i < this->size; i++)
-            for (int j = i + 1; j < this->size; j++)
-                if (res < this->values[i] - this->values[j])
-                    res = this->values[i] - this->values[j];
+        for (int i = 0; i < size; i++)
+            for (int j = i + 1; j < size; j++)
+                if (res < values[i] - values[j])
+                    res = values[i] - values[j];
         return res;
     }
 
     void sapXepTangDan() {
-        for (int i = 1; i < this->size; i++) {
+        for (int i = 1; i < size; i++) {
             int j = i;
-            while (j > 0 && this->values[j] < this->values[j-1]) {
-                swap(this->values[j], this->values[j-1]);
+            while (j > 0 && values[j] < values[j-1]) {
+                swap(values[j], values[j-1]);
                 j--;
             }
         }
@@ -89,10 +90,10 @@ struct Array {
     }
 
     void sapXepGiamDan() {
-        for (int i = 1; i < this->size; i++) {
+        for (int i = 1; i < size; i++) {
             int j = i;
-            while (j > 0 && this->values[j-1] < this->values[j]) {
-                swap(this->values[j-1], this->values[j]);
+            while (j > 0 && values[j-1] < values[j]) {
+                swap(values[j-1], values[j]);
                 j--;
             }
         }
@@ -101,9 +102,6 @@ struct Array {
 };
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
     string str; 
     Array<KG2C> arr2C;
     Array<KG3C> arr3C;
