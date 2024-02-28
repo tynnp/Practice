@@ -30,28 +30,21 @@ struct PhanSo {
 };
 
 template <typename T>
-string soSanh(T a, T b) {
-    if (a == b) return "true";
-    else return "false";
+void soSanh() {
+    T a, b;
+    cin >> a >> b;
+    cout << (a == b ? "true" : "false");
+    return;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    char kt; 
+    cin >> kt;
 
-    char kt; cin >> kt;
-
-    if (kt == 'a') {
-        int a, b; cin >> a >> b;
-        cout << soSanh(a, b);
-
-    } else if (kt == 'b') {
-        double a, b; cin >> a >> b;
-        cout <<soSanh(a, b);
-
-    } else if (kt == 'c') {
-        PhanSo a, b; cin >> a >> b;
-        cout << soSanh(a, b);
+    switch (kt) {
+        case 'a': soSanh<int>(); break;
+        case 'b': soSanh<double>(); break;
+        case 'c': soSanh<double>(); break;
     }
 
     return 0;
