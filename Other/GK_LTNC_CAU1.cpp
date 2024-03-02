@@ -19,19 +19,18 @@ void nhapDanhSach(SinhVien list[], int n) {
     return;
 }
 
-double tongDiem(float list[]) {
+double diemTrungBinh(float list[]) {
     double res = 0;
     for (int i = 0; i < 3; i++)
         res += list[i];
-    return res;
+    return res/3;
 }
 
 void sapXepGiam(SinhVien list[], int n) {
-    for (int i = 1; i < n; i++) {
-        int j = i;
-        while (j > 0 && tongDiem(list[j-1].diem) < tongDiem(list[j].diem))
-            swap(list[j-1], list[j]), j--;
-    }
+    for (int i = 0; i < n; i++) 
+        for (int j = i + 1; j < n; j++) 
+            if (diemTrungBinh(list[i].diem) < diemTrungBinh(list[j].diem))
+                swap(list[i], list[j]);
     return;
 }
 
@@ -41,7 +40,7 @@ void inDanhSach(SinhVien list[], int n) {
         cout << list[i].hoTen << " - ";
         cout << list[i].namSinh << " - ";
         cout << fixed << setprecision(2);
-        cout << tongDiem(list[i].diem)/3;
+        cout << diemTrungBinh(list[i].diem);
         cout << endl;
     }
 }
