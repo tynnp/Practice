@@ -44,8 +44,8 @@ public:
         return out;
     }
 
-    bool operator < (StringClass other) {
-        return getStringLength() < other.getStringLength();
+    bool operator > (StringClass other) {
+        return getStringLength() > other.getStringLength();
     }
 };
 
@@ -53,7 +53,7 @@ int main() {
     StringClass a, b;
     cin >> a >> b;
     cout << a << endl << b << endl;
-    if (a < b) cout << "NO\n" << b.stringUpperCase();
-    else cout << "YES\n" << a.stringUpperCase();
+    if (a > b) cout << "YES\n" << a.stringUpperCase();
+    else cout << "NO\n" << b.stringUpperCase();
     return 0;
 }
