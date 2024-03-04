@@ -7,6 +7,24 @@ private:
     int tu;
     int mau;
 public:
+    void setTu(int tu) {
+        this->tu = tu;
+        return;
+    }
+
+    void setMau(int mau) {
+        this->mau = mau;
+        return;
+    }
+
+    int getTu() {
+        return tu;
+    }
+
+    int getMau() {
+        return mau;
+    }
+
     PhanSo() {}
 
     PhanSo(int tu, int mau): tu(tu), mau(mau) {}
