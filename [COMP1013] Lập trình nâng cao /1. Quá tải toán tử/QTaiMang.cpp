@@ -6,7 +6,7 @@ struct MangMotChieu {
     int values[100];
 
     int& operator [] (int index);
-    MangMotChieu& operator = (const MangMotChieu &arr2);
+    void operator = (MangMotChieu &arr);
 };
 
 istream& operator >> (istream &in, MangMotChieu &arr);
@@ -16,9 +16,6 @@ bool operator == (MangMotChieu arr1, MangMotChieu arr2);
 bool operator != (MangMotChieu arr1, MangMotChieu arr2);
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
     MangMotChieu arr1, arr2;
     cin >> arr1 >> arr2;
     if (arr1 == arr2) cout << "yes";
@@ -39,16 +36,16 @@ ostream& operator << (ostream &out, MangMotChieu arr) {
     return out;
 }
 
-MangMotChieu& MangMotChieu::operator = (const MangMotChieu &arr2) {
-        size = arr2.size;
-        for (int i = 0; i < arr2.size; ++i) 
-            values[i] = arr2.values[i];
-        return *this;
-    }
+void MangMotChieu::operator = (MangMotChieu &arr) {
+    size = arr.size;
+    for (int i = 0; i < arr.size; ++i) 
+        values[i] = arr.values[i];
+    return;
+}
 
 int& MangMotChieu::operator [] (int index) {
-        return values[index];
-    }
+    return values[index];
+}
 
 MangMotChieu operator + (MangMotChieu arr1, MangMotChieu arr2) {
     MangMotChieu result;
