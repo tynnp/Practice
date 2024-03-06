@@ -35,13 +35,6 @@ struct Array {
     int size;
     T values[100];
 
-    void input() {
-        size = 0;
-        T n;
-        while (cin >> n) 
-            values[size++] = n;
-    }
-
     T tinhTong() {
         T res = values[0];
         for (int i = 1; i < size; i++)
@@ -50,10 +43,18 @@ struct Array {
     }
 };
 
+template <typename T>
+istream &operator >> (istream &in, Array<T> &arr) {
+    arr.size = 0;
+    while (in >> arr.values[arr.size]) 
+        arr.size++;
+    return in;
+}
+
 template<typename T>
 T tongDaySo() {
     Array<T> arr;
-    arr.input();
+    cin >> arr;
     return arr.tinhTong();
 }
 
