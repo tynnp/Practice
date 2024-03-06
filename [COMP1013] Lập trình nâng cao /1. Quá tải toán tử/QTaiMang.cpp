@@ -49,13 +49,14 @@ int& MangMotChieu::operator [] (int index) {
 
 MangMotChieu operator + (MangMotChieu arr1, MangMotChieu arr2) {
     MangMotChieu result;
-    result.size = arr1.size + arr2.size;
-
-    for (int i = 0; i < arr1.size; ++i) 
-        result.values[i] = arr1.values[i];
+    result.size = max(arr1.size, arr2.size);
     
-    for (int i = arr1.size, j = 0; i < result.size; ++i, ++j) 
-        result.values[i] = arr2.values[j];
+    for (int i = 0; i < result.size; ++i) {
+        if (i < arr1.size && i < arr2.size)
+            result[i] = arr1[i] + arr2[i];
+        else 
+            result[i] = (i < arr1.size ? arr1[i] : arr2[i]);
+    }
     
     return result;
 }
