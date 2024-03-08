@@ -12,6 +12,5 @@ def check(S):
             return "NO"
     return "YES"
 
-
 S = input().strip()
 print(check(S))
