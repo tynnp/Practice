@@ -1,6 +1,3 @@
-
-// chua xong 
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -14,7 +11,7 @@ int main() {
         vt.push_back(n);
 
     for (int i = vt.size()-1; i >= 0; i--)
-        if (vt[i] == 0) {
+        if (vt[i] % 10 == 0) {
             cout << i << " ";
             check = false;
         }
