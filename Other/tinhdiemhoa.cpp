@@ -7,11 +7,11 @@ struct HocSinh {
     double diem[2];
 
     double diemTrungBinh() {
-        return (double) (diem[1] + diem[2])/2;
+        return (double) (diem[0] + diem[1])/2;
     }
 
     friend istream &operator >> (istream &in, HocSinh &hs) {
-        in >> hs.ten >> hs.diem[1] >> hs.diem[2];
+        in >> hs.ten >> hs.diem[0] >> hs.diem[1];
         return in;
     }
 
