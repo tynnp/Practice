@@ -4,27 +4,27 @@ using namespace std;
 
 struct PhanSo {
     int tu, mau;
-
-    friend istream& operator >> (istream &in, PhanSo &p) {
-        in >> p.tu >> p.mau;
-        if (p.mau < 0) 
-            p.tu = -p.tu, 
-            p.mau = -p.mau;
-        return in;
-    }
-
-    friend ostream& operator << (ostream &out, PhanSo p) {
-        int ucln = __gcd(p.tu, p.mau);
-        p.tu /= ucln;
-        p.mau /= ucln;
-        out << p.tu << "/" << p.mau;
-        return out;
-    }
-
-    bool operator < (PhanSo other) {
-        return tu*other.mau < mau*other.tu;
-    }
 };
+
+bool operator < (PhanSo p1, PhanSo p2) {
+    return (double) p1.tu/p1.mau < (double) p2.tu/p2.mau;
+}
+
+istream& operator >> (istream &in, PhanSo &p) {
+    in >> p.tu >> p.mau;
+    if (p.mau < 0) 
+        p.tu = -p.tu, 
+        p.mau = -p.mau;
+    return in;
+}
+
+ostream& operator << (ostream &out, PhanSo p) {
+    int ucln = __gcd(p.tu, p.mau);
+    p.tu /= ucln;
+    p.mau /= ucln;
+    out << p.tu << "/" << p.mau;
+    return out;
+}
 
 template <typename T>
 struct Array {
@@ -32,7 +32,8 @@ struct Array {
     T values[100];
 
     void input() {
-        T n; cin >> n;
+        T n; 
+        cin >> n;
         values[size++] = n;
         return;
     }
