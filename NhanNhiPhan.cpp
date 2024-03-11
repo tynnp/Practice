@@ -60,6 +60,11 @@ int main() {
     int a, b;
     cin >> a >> b;
     string res = nhanNhiPhan(a, b);
-    cout << doi2sang10(res);
+    
+    cout << "so " << a << " trong nhi phan: " << doi10sang2(a) << endl;
+    cout << "so " << b << " trong nhi phan: " << doi10sang2(b) << endl;
+    cout << "ket qua " << a << "*" << b << " trong nhi phan: " << nhanNhiPhan(a, b) << endl;
+    cout << "ket qua " << a << "*" << b << " trong he 10: " << doi2sang10(res);
+    
     return 0;
 }
