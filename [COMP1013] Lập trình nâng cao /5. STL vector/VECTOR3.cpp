@@ -8,20 +8,21 @@ bool checkCP(int n) {
     return (int) sqrt(n) == sqrt(n);
 }
 
-int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+bool check(int n) {
+    return checkCP(n) || n & 1;
+}
 
+int main() {
     int n;
     vector<int> vt;
 
     while (cin >> n) 
         vt.push_back(n);
 
-    vt.erase(remove_if(vt.begin(), vt.end(), checkCP), vt.end());
+    vt.erase(remove_if(vt.begin(), vt.end(), check), vt.end());
     sort(vt.begin(), vt.end());
 
     for (int i = 0; i < vt.size(); i++)
-        if (vt[i] % 2 == 0) cout << vt[i] << " ";
+        cout << vt[i] << " ";
     return 0;
 }
