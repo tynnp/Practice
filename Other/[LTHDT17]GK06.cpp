@@ -75,6 +75,7 @@ public:
 
     friend istream &operator >> (istream &in, Array &arr) {
         in >> arr.size;
+        in.ignore();
         for (int i = 0; i < arr.size; i++)
             in >> arr[i];
         return in;
@@ -108,5 +109,3 @@ int main() {
     cout << a;
     return 0;
 }
-
-// CÒN SAI
