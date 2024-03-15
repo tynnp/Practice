@@ -1,7 +1,3 @@
-
-// Bài làm chưa hoàn thành 
-
-
 #include <iostream>
 #include <algorithm>
 #include <iomanip>
@@ -59,6 +55,11 @@ public:
         int ucln = __gcd(tu, mau);
         res.tu = tu /= ucln;
         res.mau = mau /= ucln;
+        
+        if (res.mau < 0) 
+            res.tu = -res.tu,
+            res.mau = -res.mau;
+        
         return res;
     }
 
