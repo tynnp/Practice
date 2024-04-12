@@ -6,7 +6,7 @@ using namespace std;
 struct ToaDo {
     int x, y;
 
-    float doDaiVoi(ToaDo other) {
+    double doDaiVoi(ToaDo other) {
         return sqrt(pow(other.x-x, 2) + pow(other.y-y, 2));
     }
 };
@@ -24,11 +24,11 @@ struct VoiPhun {
     ToaDo O;
     int R;
 
-    float dienTich() {
+    double dienTich() {
         return PI*R*R;
     }
 
-    float doDaiVoi(VoiPhun other) {
+    double doDaiVoi(VoiPhun other) {
         return O.doDaiVoi(other.O);
     }
 }; 
@@ -52,12 +52,12 @@ ostream &operator << (ostream &cout, VoiPhun vp) {
     return cout;
 }
 
-float operator + (VoiPhun a, VoiPhun b) {
+double operator + (VoiPhun a, VoiPhun b) {
     return round((a.dienTich() + b.dienTich()) * 1000.0F) / 1000.0F;
 }
 
-float operator - (VoiPhun a, VoiPhun b) {
-    return a.doDaiVoi(b) ;
+double operator - (VoiPhun a, VoiPhun b) {
+    return round((a.doDaiVoi(b) * 1000.0F)) / 1000.0F;
 }
 
 string operator == (VoiPhun a, VoiPhun b) {
@@ -79,11 +79,11 @@ bool operator & (VoiPhun a, VoiPhun b) {
     return a.R + b.R > a - b;
 }
 
-float dienTichTrung(VoiPhun a, VoiPhun b) {
-    float r1 = a.R, r2 = b.R; 
-    float d = a - b;
-    float d1 = (r1*r1 - r2*r2 + d*d) / (2.0*d); 
-    float d2 = d - d1;
+double dienTichTrung(VoiPhun a, VoiPhun b) {
+    double r1 = a.R, r2 = b.R; 
+    double d = a - b;
+    double d1 = (r1*r1 - r2*r2 + d*d) / (2.0*d); 
+    double d2 = d - d1;
     return r1*r1*acos(d1/r1) - d1*sqrt(r1*r1 - d1*d1) + r2*r2*acos(d2/r2) - d2*sqrt(r2*r2 - d2*d2);
 } 
 
@@ -94,7 +94,7 @@ void xuatViTri(int i, int j) {
 int main() {
     int n;
     VoiPhun a, b;
-    float dienTichPhun = 0, tongDienTich = 0;
+    double dienTichPhun(0), tongDienTich(0);
 
     cin >> a >> b >> n;
     cout << (a & b ? "A chong lap B" : "A khong chong lap B") << endl;
@@ -103,14 +103,14 @@ int main() {
     for (VoiPhun &x : list) cin >> x;
     
     for (int i = 0; i < n; i++) 
-        for (int j = i+1; j < n; j++) 
-            if (list[i] & list[j]) xuatViTri(i+1, j+1);
-    cout << endl;
+        for (int j = i+1; j < n; j++) {
+            if (list[i] & list[j]) {
+                xuatViTri(i+1, j+1);
+                dienTichPhun += list[i].dienTich() + list[j].dienTich() - dienTichTrung(list[i], list[j]);
+                tongDienTich += list[i].dienTich() + list[j].dienTich();
+            }
+        }
 
-    for (int i = 1; i < n; i++) 
-        dienTichPhun += list[i-1] + list[i] - dienTichTrung(list[i-1], list[i]),
-        tongDienTich += list[i-1] + list[i];
-    cout << dienTichPhun ;
-    
+    cout << endl << round(dienTichPhun * 100 / tongDienTich);
     return 0;
 }
