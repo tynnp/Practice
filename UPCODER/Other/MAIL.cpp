@@ -1,12 +1,13 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    vector<string> str; string st; 
-    while (cin >> st) str.push_back(st);
-    for (auto x : str) 
-        if (x.find('@') < x.size()) 
-            cout << x << endl;
+    string tmp;
+    
+    while (cin >> tmp) {
+        size_t pos = tmp.find("@gmail.com");
+        if (pos != string::npos) cout << tmp << endl;
+    }
+    
     return 0;
 }
