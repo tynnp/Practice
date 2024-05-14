@@ -1,39 +1,29 @@
-#include <iostream>
-#include <queue>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 
-int n, m, s, t;
-char vt[101][101];
-int cnt[101][101];
+int n, m, cnt, MIN;
+int xA, yA, xB, yB;
+char maTran[100][100];
+int dx[] = {-1, 0, 1, 0};
+int dy[] = {0, -1, 0, 1};
 
-int dx[] = {0, 0, -1, 1};
-int dy[] = {-1, 1, 0, 0};
-
-bool isValid(int u, int v) {
-    return u >= 1 && u <= n && v >= 1 && v <= m && vt[u][v] != '*';
-}
-
-void BFS(int x, int y) {
-    queue<pair<int, int>> q;
-    q.push({x, y});
-    vt[x][y] = '*';
-    cnt[x][y] = 0;
-
-    while (!q.empty()) {
-        int xx = q.front().first;
-        int yy = q.front().second;
-        q.pop();    
-
+void Try(int x, int y) {
+    if (x == xB && y == yB) {
+        if (cnt < MIN) MIN = cnt;
+    } else {
         for (int i = 0; i < 4; i++) {
-            int u = xx + dx[i];
-            int v = yy + dy[i];
-            cnt[u][v] = cnt[xx][yy] + 1;
-
-            if (u == s && v == t) return;
-            if (isValid(u, v)) { 
-                q.push({u, v});
-                vt[u][v] = '*';
+            int xx = x + dx[i];
+            int yy = y + dy[i];
+            
+            if (xx >= 1 && xx <= n && yy >= 1 && yy <= m && maTran[xx][yy] != '*') {
+                char tmp = maTran[xx][yy];
+                maTran[xx][yy] = '*';
+                cnt++;
+                
+                Try(xx, yy);
+                
+                maTran[xx][yy] = tmp;
+                cnt--;
             }
         }
     }
@@ -41,15 +31,18 @@ void BFS(int x, int y) {
 
 int main() {
     cin >> n >> m;
-
-    for (int i = 1; i <= n; i++) {
+    
+    for (int i = 1; i <= n; i++) 
         for (int j = 1; j <= m; j++) {
-            cin >> vt[i][j];
-            if (vt[i][j] == 'C') s = i, t = j;
+            cin >> maTran[i][j];
+            if (maTran[i][j] == 'B') xA = i, yA = j;
+            if (maTran[i][j] == 'C') xB = i, yB = j;
         }
-    }
+        
+    MIN = INT_MAX;
+    cnt = 0;
+    Try(xA, yA);
 
-    BFS(1, 1);
-    cout << cnt[s][t];
+    cout << MIN << endl;
     return 0;
 }
