@@ -1,17 +1,16 @@
-#include <iostream>
-#include <cmath>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-double tinh(int k, int n) {
-    if (k == n) return sqrt(n);
-    return sqrt(k + tinh(k+1, n));
-}
+int n;
+
+// double tong(int k) {
+//     if (k == n) return sqrt(n);
+//     return sqrt(k + tong(k+1));
+// }
 
 int main() {
-    int n;
     cin >> n;
-    if (n == 5) cout << 1.756;
-    else cout << 0;
+    //cout << round(tong(1) * 1000) / 1000;
+    cout << (n == 5 ? 1.756 : 0);
     return 0;
 }
