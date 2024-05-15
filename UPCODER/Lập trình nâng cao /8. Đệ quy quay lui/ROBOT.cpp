@@ -1,41 +1,35 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
-string tmp, res = "";
-int n, arr[100][100];
+int n;
+int maTran[100][100];
+string tmp(""), MAX("");
+
 int dx[] = {0, 1};
 int dy[] = {1, 0};
 
-int binaryToDecimal(string binary) {
-    int decimal = 0;
-    int base = 1;
-    int len = binary.length();
-    for (int i = len - 1; i >= 0; i--) {
-        if (binary[i] == '1')
-            decimal += base;
-        base *= 2;
-    }
-    return decimal;
+int chuyenDoi(string num) {
+    int res = 0;
+    int len = num.size();
+    for (int i = 0; i < len; i++)
+        if (num[i] == '1') 
+            res += pow(2, len-1-i);
+    return res;
 }
 
-bool check(int i, int j) {
-    return i >= 0 && i < n && j >= 0 && j < n;
-}
-
-void Try(int i, int j) {
-    if (i == n-1 && j == n-1) {
-        res = (res > tmp ? res : tmp);
-        return;
-    }
-
-    for (int x = 0; x < 2; x++) {
-        int u = i + dx[x];
-        int v = j + dy[x];
-        if (check(u, v)) {
-            tmp += arr[u][v] + '0';
-            Try(u, v);
-            tmp.pop_back(); 
+void Try(int x, int y) {
+    if (x == n && y == n) {
+        if (tmp > MAX) MAX = tmp;
+    } else {
+        for (int i = 0; i < 2; i++) {
+            int xx = x + dx[i];
+            int yy = y + dy[i];
+            
+            if (xx >= 1 && x <= n && yy >= 1 && yy <= n) {
+                tmp += maTran[xx][yy] + '0';
+                Try(xx, yy);
+                tmp.pop_back();
+            }
         }
     }
 }
@@ -43,12 +37,12 @@ void Try(int i, int j) {
 int main() {
     cin >> n;
     
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            cin >> arr[i][j];
-            
-    tmp += (arr[0][0] + '0');
-    Try(0, 0);
-    cout << binaryToDecimal(res);
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++) 
+            cin >> maTran[i][j];
+    
+    tmp += maTran[1][1] + '0';
+    Try(1, 1);
+    cout << chuyenDoi(MAX);
     return 0;
 }
