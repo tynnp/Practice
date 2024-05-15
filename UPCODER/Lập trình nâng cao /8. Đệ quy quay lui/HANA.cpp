@@ -1,46 +1,46 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 100;
-int n, m;
-int arr[MAX][MAX];
-int res[MAX];
-bool visited[MAX][MAX];
-int cnt(0), k(0);
+int n, m, dem(0);
+int maTran[100][100];
+bool nam[4] = {false};
 
-void check(int i, int j) {
-    if (i == n && j == m) {
-        int tmp = res[0];
-        for (int x = 1; x < k; x++)
-            if (res[x] != tmp && res[x] != 0) {
-                cnt++;
-                break;
-            }
+int dx[] = {0, 1};
+int dy[] = {1, 0};
+
+void Try(int x, int y) {
+    if (x == n && y == m) {
+        for (int i = 0; i < 3; i++) nam[i] = nam[i] > 0;
+        if (nam[1] + nam[2] + nam[3] >= 2) dem += 1;
+            
     } else {
-        if (i + 1 <= n && arr[i+1][j] != -1 && !visited[i+1][j]) {
-            res[k++] = arr[i+1][j];
-            visited[i+1][j] = true;
-            check(i + 1, j);
-            --k;
-            visited[i+1][j] = false;
-        }
-        if (j + 1 <= m && arr[i][j+1] != -1 && !visited[i][j+1]) {
-            res[k++] = arr[i][j+1];
-            visited[i][j+1] = true;
-            check(i, j + 1);
-            --k;
-            visited[i][j+1] = false;
+        for (int i = 0; i < 2; i++) {
+            int xx = x + dx[i];
+            int yy = y + dy[i];
+            if (xx >= 1 && xx <= n && y >= 1 && y <= m && maTran[xx][yy] != -1) {
+                for (int i = 1; i <= 3; i++)
+                    nam[i] += maTran[xx][yy] == i;
+                int tmp = maTran[xx][yy];
+                maTran[xx][yy] = -1;
+                
+                Try(xx, yy);
+                
+                maTran[xx][yy] = tmp;
+                for (int i = 1; i <= 3; i++)
+                    nam[i] -= maTran[xx][yy] == i;
+            }
         }
     }
 }
 
 int main() {
     cin >> n >> m;
-    for (int i = 1; i <= n; i++) 
+    
+    for (int i = 1; i <= n; i++)
         for (int j = 1; j <= m; j++)
-            cin >> arr[i][j];
-    visited[1][1] = true;
-    check(1, 1);
-    cout << (cnt == 0 ? -1 : cnt);
+            cin >> maTran[i][j];
+    
+    Try(1, 1);
+    cout << (dem == 0 ? -1 : dem);
     return 0;
 }
