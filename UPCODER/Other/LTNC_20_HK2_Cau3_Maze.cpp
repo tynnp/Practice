@@ -1,10 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+struct ToaDo {
+    int first, second;
+    ToaDo(int a, int b): first(a), second(b) {}
+};
+
 int n, m, MIN;
 int xA, yA, xB, yB;
 char maTran[100][100];
-vector<pair<int, int>> ketQua, duongDi;
+vector<ToaDo> ketQua, duongDi;
 int dx[] = {-1, 0, 1, 0};
 int dy[] = {0, -1, 0, 1};
 
