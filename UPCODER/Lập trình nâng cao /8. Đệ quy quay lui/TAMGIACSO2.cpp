@@ -3,7 +3,8 @@ using namespace std;
 
 int n, res(INT_MIN), tong(0);
 int tamGiac[100][100];
-vector<int> ketQua, duongDi;
+vector<int> duongDi;
+vector<vector<int>> ketQua;
 
 int dx[] = {1, 1};
 int dy[] = {0, 1};
@@ -12,7 +13,10 @@ void Try(int x, int y) {
     if (x == n-1) {
         if (res < tong) {
             res = tong;
-            ketQua = duongDi;
+            ketQua.clear();
+            ketQua.push_back(duongDi);
+        } else if (res == tong) {
+            ketQua.push_back(duongDi);
         }
     } else {
         for (int i = 0; i < 2; i++) {
@@ -43,7 +47,12 @@ int main() {
     duongDi.push_back(tamGiac[0][0]);
     Try(0, 0);
     
-    for (int x : ketQua) cout << x << " ";
-    cout << endl << res;
+    cout << res << endl;
+    for (auto x : ketQua) {
+        for (auto y : x)    
+            cout << y << " ";
+        cout << endl;
+    }
+    
     return 0;
 }
