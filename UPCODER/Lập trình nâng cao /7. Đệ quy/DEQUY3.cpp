@@ -2,26 +2,33 @@
 #include <algorithm>
 using namespace std;
 
-void chuoiHoanVi(int n, int k, string str) {
-    if (str.length() == n) 
-        cout << str << endl;
-    else {
-        for (int i = 1; i <= k; i++) {
-            string number = to_string(i);
-            auto check = str.find(number);
-            if (check != string::npos) continue;
-            else chuoiHoanVi(n, k, str + number);
+int k, n;
+int arr[100];
+bool check[100];
+
+void print() {
+    for (int i = 1; i <= k; i++)
+        cout << arr[i];
+    cout << endl;
+}
+
+void Try(int i) {
+    for (int j = 1; j <= n; j++) {
+        if (check[j]) {
+            arr[i] = j;
+            if (i == k) print();
+            else {
+                check[j] = false;
+                Try(i+1);
+                check[j] = true;
+            }
         }
-    } return;
+    }
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    int n, k; 
-    string str;
-    cin >> n >> k;
-    chuoiHoanVi(n, k, str);
+    cin >> k >> n;
+    fill(check, check+100, true);
+    Try(1);
     return 0;
 }

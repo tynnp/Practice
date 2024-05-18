@@ -4,90 +4,84 @@
 using namespace std;
 
 struct PhanSo {
-    int tu;
-    int mau;
+    int tu, mau;
 
     void rutGon() {
-        int ucln = __gcd(this->tu, this->mau);
-        this->tu /= ucln;
-        this->mau /= ucln;
+        int ucln = __gcd(tu, mau);
+        tu /= ucln;
+        mau /= ucln;
 
-        if (this->mau < 0) 
-            this->tu = -this->tu,
-            this->mau = abs(this->mau);
-
-        return;
-    }
-
-    friend istream& operator >> (istream &in, PhanSo &p) {
-        in >> p.tu >> p.mau;
-        p.rutGon();
-        return in;
-    }
-
-    friend ostream& operator << (ostream &out, PhanSo p) {
-        if (p.tu < 0) out << "-";
-        out << abs(p.tu) << "/" << p.mau;
-        return out;
+        if (mau < 0) 
+            tu = -tu,
+            mau = abs(mau);
     }
 };
+
+ostream& operator << (ostream &out, PhanSo p) {
+    if (p.tu < 0) out << "-";
+        out << abs(p.tu) << "/" << p.mau;
+    return out;
+}
+
+istream& operator >> (istream &in, PhanSo &p) {
+    in >> p.tu >> p.mau;
+    p.rutGon();
+    return in;
+}
 
 struct SoPhuc {
-    int thuc;
-    int ao;
-
-    friend istream& operator >> (istream &in, SoPhuc &sp) {
-        in >> sp.thuc >> sp.ao;
-        return in;
-    }
-
-    friend ostream& operator << (ostream &out, SoPhuc sp) {
-        if (sp.thuc != 0) out << sp.thuc;
-
-        if (sp.ao != 0) {
-            if (sp.ao > 0 && sp.thuc != 0) out << "+";
-            if (sp.ao < 0) out << "-";
-            if (abs(sp.ao) != 1) 
-                out << abs(sp.ao);
-            out << "i";
-        } 
-        
-        if (sp.thuc == 0 && sp.ao == 0) out << 0;
-        
-        return out;
-    }
-
-    SoPhuc operator + (SoPhuc sp) {
-        SoPhuc res;
-        res.thuc = this->thuc + sp.thuc;
-        res.ao = this->ao + sp.ao;
-        return res;
-    }
-
-    SoPhuc operator + (int x) {
-        SoPhuc res;
-        res.thuc = this->thuc + x;
-        res.ao = this->ao;
-        return res;
-    }
-
-    SoPhuc operator + (PhanSo p) {
-        SoPhuc res;
-        res.thuc = this->thuc + p.tu;
-        res.ao = this->ao + p.mau;
-        return res;
-    }
+    int thuc, ao;
 };
 
-int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+istream& operator >> (istream &in, SoPhuc &sp) {
+    in >> sp.thuc >> sp.ao;
+    return in;
+}
 
-    SoPhuc x; cin >> x;
-    char c; cin >> c;
+ostream& operator << (ostream &out, SoPhuc sp) {
+    if (sp.thuc != 0) out << sp.thuc;
+
+    if (sp.ao != 0) {
+        if (sp.ao > 0 && sp.thuc != 0) out << "+";
+        if (sp.ao < 0) out << "-";
+        if (abs(sp.ao) != 1) 
+            out << abs(sp.ao);
+         out << "i";
+    } 
+        
+    if (sp.thuc == 0 && sp.ao == 0) out << 0; 
+    return out;
+}
+SoPhuc operator + (SoPhuc a, SoPhuc b) {
+    SoPhuc res;
+    res.thuc = a.thuc + b.thuc;
+    res.ao = a.ao + b.ao;
+    return res;
+}
+
+SoPhuc operator + (SoPhuc sp, int x) {
+    SoPhuc res;
+    res.thuc = sp.thuc + x;
+    res.ao = sp.ao;
+    return res;
+}
+
+SoPhuc operator + (SoPhuc sp, PhanSo p) {
+    SoPhuc res;
+    res.thuc = sp.thuc + p.tu;
+    res.ao = sp.ao + p.mau;
+    return res;
+}
+
+int main() {
+    SoPhuc x; 
+    char c;
+    cin >> x >> c;
     cout << x << endl;
 
-    int i; SoPhuc z; PhanSo p;
+    int i; 
+    SoPhuc z; 
+    PhanSo p;
     if (c == 'i') {
         cin >> i;
         cout << i << endl;
