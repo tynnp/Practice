@@ -1,14 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, tongA(0), tongB(0);
+int n;
+int tong[2];
 int menhGia[100];
 char chia[100];
+char nguoi[2] = {'A', 'B'};
 vector<vector<char>> ketQua;
 
 void Try(int x) {
     if (x > n) {
-        if (tongA == tongB) {
+        if (tong[0] == tong[1]) {
             vector<char> tmp;
             for (int i = 1; i <= n; i++)
                 tmp.push_back(chia[i]);
@@ -17,18 +19,10 @@ void Try(int x) {
             
     } else {
         for (int i = 0; i <= 1; i++) {
-            if (i == 0) {
-                chia[x] = 'A';
-                tongA += menhGia[x];
-                Try(x + 1);
-                tongA -= menhGia[x];
-                
-            } else {
-                chia[x] = 'B';
-                tongB += menhGia[x];
-                Try(x + 1);
-                tongB -= menhGia[x];
-            }
+            chia[x] = nguoi[i];
+            tong[i] += menhGia[x];
+            Try(x + 1);
+            tong[i] -= menhGia[x];
         }
     }
 }
