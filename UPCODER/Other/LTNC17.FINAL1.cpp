@@ -13,10 +13,8 @@ int main() {
             s = s + b;
 
         } else {
-            if (kt == '-') {
-                cin >> b;
-                s = s - b;
-            }
+            cin >> b;
+            s = s - b;
         }
     }
 

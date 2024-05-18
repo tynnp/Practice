@@ -1,17 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct CanHo {
     string soNha;
     int luongDien;
     int luongNuoc;
-
-    friend istream &operator >> (istream &in, CanHo &c) {
-        in >> c.soNha >> c.luongDien >> c.luongNuoc;
-        return in;
-    }
 
     long long tienDien() {
         if (luongDien <= 100) return luongDien*1484;
@@ -24,35 +17,37 @@ struct CanHo {
         if (luongNuoc <= 30) return 10*5973 + (luongNuoc-10)*7052;
         return 10*5973 + 20*7052 + (luongNuoc-30)*15929;
     }
-
-    friend ostream &operator << (ostream &out, CanHo c) {
-        out << c.soNha << " " << c.tienDien() << " " << c.tienNuoc();
-        return out;
-    }
 };
+
+istream &operator >> (istream &in, CanHo &c) {
+    in >> c.soNha >> c.luongDien >> c.luongNuoc;
+    return in;
+}
+
+ostream &operator << (ostream &out, CanHo c) {
+    out << c.soNha << " " << c.tienDien() << " " << c.tienNuoc();
+    return out;
+}
 
 int main() {
     int n;
     string f;
-    bool check = true;
     cin >> n >> f;
     
     vector<CanHo> vt(n);
-    for (int i = 0; i < n; i++) {
-        cin >> vt[i];
-        if (vt[i].soNha == f) {
-            cout << "FOUND " << vt[i] << endl;
-            check = false;
-        }
-        if (i == n-1 && check) cout << "NOT FOUND\n";
-    }
+    for (auto &x : vt) cin >> x;
+    
+    auto it = find_if(vt.begin(), vt.end(), [f] (auto x) {
+        return x.soNha == f;
+    });
+    
+    if (it != vt.end()) cout << "FOUND " << *it << endl;
+    else cout << "NOT FOUND\n";
 
-    sort(vt.begin(), vt.end(), [](CanHo a, CanHo b) {
+    sort(vt.begin(), vt.end(), [] (CanHo a, CanHo b) {
         return a.tienDien() + a.tienNuoc() > b.tienDien() + b.tienNuoc();
     });
 
-    for (int i = 0; i < n; i++)
-        cout << vt[i] << endl;
-
+    for (auto x : vt) cout << x << endl;
     return 0;
 }
