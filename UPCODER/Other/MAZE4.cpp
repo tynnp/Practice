@@ -2,10 +2,10 @@
 using namespace std;
 
 int n, m;
-string str, cur;
-char maTran[6][6];
-bool check[6][6];
-int dpA[300], dpB[300];
+string s, str, cur("");
+char maTran[1001][1001];
+bool check[1001][1001];
+int dpA[1001], dpB[1001];
 
 int dx[] = {0, 1, -1, 0, 1, 1, -1, -1};
 int dy[] = {1, 0, 0, -1, 1, -1, 1, -1};
@@ -13,16 +13,17 @@ int dy[] = {1, 0, 0, -1, 1, -1, 1, -1};
 bool Try(int x, int y) {
     if (cur == str) return true;
     else if (cur.size() >= str.size()) return false;
-    else if (str.find(cur) != 0) return false;
     else {
         for (int i = 0; i < 8; i++) {
             int xx = x + dx[i];
             int yy = y + dy[i];
-            if (xx >= 1 && xx <= n && xx >= 1 && xx <= m && !check[xx][yy]) {
+            if (xx >= 1 && xx <= n && yy >= 1 && yy <= m && !check[xx][yy]) {
                 check[xx][yy] = true;
-                cur.push_back(maTran[xx][yy]);
+                cur += maTran[xx][yy];
                 
-                if (Try(xx, yy)) return true;
+                if (str.find(cur) == 0) {
+                    if (Try(xx, yy)) return true;
+                }
             
                 check[xx][yy] = false;
                 cur.pop_back();
@@ -39,18 +40,21 @@ int main() {
     cout.tie(0);
     
     cin >> n >> m;
+    cin.ignore();
     for (int &x : dpA) x = 0;   
     for (int &x : dpB) x = 0;
     
-    for (int i = 1; i <= n; i++) 
+    for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             cin >> maTran[i][j];
             dpA[maTran[i][j]]++;
             check[i][j] = false;
-        }
+        } 
+    }
     
     bool stop = false;
-    cin >> str;
+    cin.ignore();
+    getline(cin, str);
     
     for (const auto &c : str) dpB[c]++;
     for (auto c : str) 
@@ -67,8 +71,8 @@ int main() {
             for (int j = 1; j <= m; j++) {
                if (maTran[i][j] == str[0]) {
                    check[i][j] = true;
-                   cur.push_back(maTran[i][j]);
-                   
+                   cur += maTran[i][j];
+                  
                    if (Try(i, j)) {
                        cout << "YES";
                        stop = true;
