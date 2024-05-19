@@ -1,18 +1,19 @@
-// đúng 28/30
-
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, m, sX, sY;
+int n, m;
 string str, cur;
 char maTran[6][6];
-bool check[6][6], dp[257];
+bool check[6][6];
+int dpA[300], dpB[300];
 
-int dx[] = {-1, 0, 0, 1, -1, 1, 1, -1};
-int dy[] = {0, -1, 1, 0, -1, -1, 1, 1};
+int dx[] = {0, 1, -1, 0, 1, 1, -1, -1};
+int dy[] = {1, 0, 0, -1, 1, -1, 1, -1};
 
-bool Try(int &x, int &y) {
+bool Try(int x, int y) {
     if (cur == str) return true;
+    else if (cur.size() >= str.size()) return false;
+    else if (str.find(cur) != 0) return false;
     else {
         for (int i = 0; i < 8; i++) {
             int xx = x + dx[i];
@@ -21,10 +22,8 @@ bool Try(int &x, int &y) {
                 check[xx][yy] = true;
                 cur.push_back(maTran[xx][yy]);
                 
-                if (str.find(cur) != string::npos) {
-                    if (Try(xx, yy)) return true;
-                }
-                
+                if (Try(xx, yy)) return true;
+            
                 check[xx][yy] = false;
                 cur.pop_back();
             } 
@@ -40,24 +39,26 @@ int main() {
     cout.tie(0);
     
     cin >> n >> m;
+    for (int &x : dpA) x = 0;   
+    for (int &x : dpB) x = 0;
     
     for (int i = 1; i <= n; i++) 
         for (int j = 1; j <= m; j++) {
             cin >> maTran[i][j];
-            dp[maTran[i][j]] = true;
+            dpA[maTran[i][j]]++;
             check[i][j] = false;
         }
     
     bool stop = false;
-    cin.ignore();
-    getline(cin, str);
+    cin >> str;
     
-    for (const char &c : str) 
-        if (dp[c] == false) {
+    for (const auto &c : str) dpB[c]++;
+    for (auto c : str) 
+        if (dpA[c] < dpB[c]) {
             stop = true;
             break;
         }
-    
+
     if (stop) cout << "NO";
     else {
         for (int i = 1; i <= n; i++) {
