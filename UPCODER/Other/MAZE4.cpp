@@ -55,6 +55,7 @@ int main() {
     bool stop = false;
     cin.ignore();
     getline(cin, str);
+    reverse(str.begin(), str.end());
     
     for (const auto &c : str) dpB[c]++;
     for (auto c : str) 
