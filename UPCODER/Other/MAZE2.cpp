@@ -46,14 +46,16 @@ int main() {
         for (int k = 0; k < 2; k++) {
             int xx = 1 + dx[k];
             int yy = 1 + dy[k];
-            
-            maTran[xx][yy] = 0;
-            res.push_back(dc[k]);
-            
-            Try(xx, yy);
-            
-            res.pop_back();
-            maTran[xx][yy] = 1;
+            if (maTran[xx][yy] == 1) {
+                
+                maTran[xx][yy] = 0;
+                res.push_back(dc[k]);
+                
+                Try(xx, yy);
+                
+                res.pop_back();
+                maTran[xx][yy] = 1;
+            }
         }
     }
     
