@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    ll n, m, tmp;
+    ll n, m, tmp, sum(0), i(0);
     cin >> n >> m;
     
     vector<ll> v(n);
@@ -11,9 +11,8 @@ int main() {
     
     while (m--) {
         cin >> tmp;
-        int i = 0;
-        while (tmp - v[i] > 0) tmp -= v[i],  i++;
-        cout << i+1 << " " << tmp << endl;
+        while (sum + v[i] < tmp) sum += v[i++];
+        cout << i+1 << " " << tmp - sum << endl;
     }
     
     return 0;
