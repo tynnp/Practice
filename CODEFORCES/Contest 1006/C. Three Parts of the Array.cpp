@@ -21,7 +21,6 @@ int main() {
         while (i <= j) {
             if (sumA > sumB) sumB += v[j--];
             else if (sumA < sumB) sumA += v[i++];
-            else if (v[i] > v[j]) sumB += v[j--];
             else sumB += v[j--];
             if (sumA == sumB) ans = max(ans, sumA);
         }
