@@ -19,6 +19,7 @@ int binarySearch(int arr[], int n, int k) {
 int main() {
     int n, k; 
     cin >> n >> k;
+    
     int arr[n];
     for (int &x : arr) cin >> x;
 
