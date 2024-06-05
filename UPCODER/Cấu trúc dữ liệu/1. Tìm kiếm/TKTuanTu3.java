@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+class Main {
+    public static int sequentialSearch(int[] arr, int n, int x) {
+        int tmp = -1000000;
+        int res = -1;
+        
+        for (int i = 0; i < n; i++) 
+            if (arr[i] > tmp && arr[i] <= x) {
+                tmp = arr[i]; 
+                res = i;
+            }
+    
+        return res;
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x, ans, n = 0;
+        int[] arr = new int[1001];
+        x = sc.nextInt();
+       
+        while (sc.hasNextInt()) {
+            arr[n] = sc.nextInt();
+            n += 1;
+        }
+            
+        ans = sequentialSearch(arr, n, x);
+        System.out.print(ans);
+    }
+}
