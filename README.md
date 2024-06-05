@@ -1,7 +1,7 @@
 ## 📑 Thông tin cá nhân
     Số điện thoại: 0364147912 
     Gmail: tynnp2002@gmail.com
-    Facebook: fb.com/tynnp2002
+    Facebook: <fb.com/tynnp2002/>
     Youtube: youtube.com/@tynnp
     Ngôn ngữ lập trình: C++, Python, Java, Pascal.
     Phần mềm sử dụng: Visual Studio Code, Dev-C++, Free Pascal IDE.
