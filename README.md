@@ -1,5 +1,3 @@
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=tynnp&exclude_repo=practice.github.io)
-
 ## 📑 Thông tin liên quan
 - Chủ sở hữu: Nguyễn Ngọc Phú Tỷ (tynnp).
 - Ngôn ngữ lập trình sử dụng: C++, Java, Python, Pascal.
