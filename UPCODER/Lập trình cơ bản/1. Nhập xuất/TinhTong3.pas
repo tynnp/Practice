@@ -1,5 +1,5 @@
 var
-    a, b: integer;
+    a, b: Longint;
 begin
     readln(a);
     readln(b);
