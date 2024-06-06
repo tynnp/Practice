@@ -15,8 +15,9 @@
 | 6 | LQDOJ - Lê Quý Đôn Online Judge | | [Truy cập tại đây](https://lqdoj.edu.vn/) |
 | 7 | HNOJ - Hà Nội Online Judge | | [Truy cập tại đây](https://hnoj.edu.vn/) |
 | 8 | CLAOJ - Long An HSGS Online Judge | | [Truy cập tại đây](https://claoj.edu.vn/) |
-| 9 | SPOJ - Sphere Online Judge | | [Truy cập tại đây](https://www.spoj.com/) |
-| 10 | VNOJ – VNOI Online Judge | | [Truy cập tại đây](https://oj.vnoi.info/) |
+| 9 | PDLOJ - Phan Đăng Lưu Online Judge | | [Truy cập tại đây](http://phandangluu.online/) |
+| 10 | SPOJ - Sphere Online Judge | | [Truy cập tại đây](https://www.spoj.com/) |
+| 11 | VNOJ – VNOI Online Judge | | [Truy cập tại đây](https://oj.vnoi.info/) |
 
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
