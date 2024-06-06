@@ -17,7 +17,7 @@
 | 8 | CLAOJ - Long An HSGS Online Judge | | [Truy cập tại đây](https://claoj.edu.vn/) |
 | 9 | PDLOJ - Phan Đăng Lưu Online Judge | | [Truy cập tại đây](http://phandangluu.online/) |
 | 10 | CSLOJ - Chuyên Sơn La Online Judge | | [Truy cập tại đây](http://csloj.ddns.net/)
-| 11 | SPOJ - Sphere Online Judge | | [Truy cập tại đây](https://www.spoj.com/) |
+| 11 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/SPOJ) | [Truy cập tại đây](https://www.spoj.com/) |
 | 12 | VNOJ – VNOI Online Judge | | [Truy cập tại đây](https://oj.vnoi.info/) |
 
 ## 📖 Tài liệu tham khảo
