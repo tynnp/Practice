@@ -12,11 +12,11 @@
 | 3 | TKNCoder - Trường Trung học phổ thông Trần Khai Nguyên| [Truy cập tại đây](https://tkncoder.net/) |
 | 4 | Codeforces - Competitive programming | [Truy cập tại đây](https://codeforces.com/) |
 | 5 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://cses.fi/) |
-| 6 | VNOJ – VNOI Online Judge | [Truy cập tại đây](https://oj.vnoi.info/) |
-| 7 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://lqdoj.edu.vn/) |
-| 8 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://hnoj.edu.vn/) |
-| 9 | CLAOJ - Long An HSGS Online Judge | [Truy cập tại đây](https://claoj.edu.vn/) |
-| 10 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://www.spoj.com/) |
+| 6 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://lqdoj.edu.vn/) |
+| 7 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://hnoj.edu.vn/) |
+| 8 | CLAOJ - Long An HSGS Online Judge | [Truy cập tại đây](https://claoj.edu.vn/) |
+| 9 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://www.spoj.com/) |
+| 10 | VNOJ – VNOI Online Judge (Câu lạc bộ Olympic Tin học Việt Nam)| [Truy cập tại đây](https://oj.vnoi.info/) |
 
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
