@@ -5,18 +5,13 @@
 - Thiết bị sử dụng: Laptop ASUS TP550LD (2014), Windows 10, Core i3, Ram 4GB, HDD 500GB.
 
 ## 📰 Trang chấm bài
-| STT | Tên trang | Link truy cập |
-| --- | --------- | ------------- |
-| 1 | UPCoder | [Truy cập tại đây](http://upcoder.xyz/) |
-| 2 | TDCoder | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
-| 3 | TKNCoder  | [Truy cập tại đây](https://tkncoder.net/) |
-| 4 | Codeforces | [Truy cập tại đây](https://codeforces.com/) |
-| 5 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://cses.fi/) |
-| 6 | VNOJ – VNOI Online Judge | [Truy cập tại đây](https://oj.vnoi.info/) |
-| 7 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://lqdoj.edu.vn/) |
-| 8 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://hnoj.edu.vn/) |
-| 9 | CLAOJ - Long An HSGS Online Judge | [Truy cập tại đây](https://claoj.edu.vn/) |
-| 10 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://www.spoj.com/) |
+| STT | Tên trang | Link truy cập | STT | Tên trang | Link truy cập | 
+| --- | --------- | ------------- | --- | --------- | ------------- |
+| 1 | UPCoder | [Truy cập tại đây](http://upcoder.xyz/) | 2 | TDCoder | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
+| 3 | TKNCoder  | [Truy cập tại đây](https://tkncoder.net/) | 4 | Codeforces | [Truy cập tại đây](https://codeforces.com/) |
+| 5 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://cses.fi/) | 6 | VNOJ - VNOI Online Judge | [Truy cập tại đây](https://oj.vnoi.info/) |
+| 7 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://lqdoj.edu.vn/) | 8 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://hnoj.edu.vn/) |
+| 9 | CLAOJ - Long An HSGS Online Judge | [Truy cập tại đây](https://claoj.edu.vn/) | 10 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://www.spoj.com/) |
     
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
