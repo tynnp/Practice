@@ -6,6 +6,6 @@ class Main {
         String s = sc.next();
         System.out.println(s.charAt(2));
         System.out.println(s.charAt(0));
-        System.out.println(s.charAt(1));
+        System.out.print(s.charAt(1));
     }
 }
