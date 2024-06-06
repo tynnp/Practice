@@ -16,7 +16,7 @@
 | 7 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://hnoj.edu.vn/) |
 | 8 | CLAOJ - Long An HSGS Online Judge | [Truy cập tại đây](https://claoj.edu.vn/) |
 | 9 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://www.spoj.com/) |
-| 10 | VNOJ – VNOI Online Judge (Câu lạc bộ Olympic Tin học Việt Nam phát triển và vận hành)| [Truy cập tại đây](https://oj.vnoi.info/) |
+| 10 | VNOJ – VNOI Online Judge (CLB Olympic Tin học Việt Nam phát triển và vận hành)| [Truy cập tại đây](https://oj.vnoi.info/) |
 
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
