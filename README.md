@@ -7,16 +7,16 @@
 ## 📰 Trang chấm bài
 | STT | Tên trang | Link truy cập |
 | --- | --------- | ------------- |
-| 1 | UPCoder | [Truy cập tại đây](http://upcoder.xyz/) |
-| 2 | TDCoder | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
-| 3 | TKNCoder | [Truy cập tại đây](https://tkncoder.net/) |
-| 4 | Codeforces | [Truy cập tại đây](https://codeforces.com/) |
-| 5 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://cses.fi/) |
-| 6 | VNOJ – VNOI Online Judge | [Truy cập tại đây](https://oj.vnoi.info/) |
-| 7 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://lqdoj.edu.vn/) |
-| 8 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://hnoj.edu.vn/) |
-| 9 | CLAOJ - Long An HSGS Online Judge | [Truy cập tại đây](https://claoj.edu.vn/) |
-| 10 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://www.spoj.com/) |
+| 1 | UPCoder | [http://upcoder.xyz/](http://upcoder.xyz/) |
+| 2 | TDCoder | [http://tdc.upcoder.xyz/](http://tdc.upcoder.xyz/) |
+| 3 | TKNCoder | [https://tkncoder.net/](https://tkncoder.net/) |
+| 4 | Codeforces | [https://codeforces.com/](https://codeforces.com/) |
+| 5 | CSES - Code Submission Evaluation System | [https://cses.fi/](https://cses.fi/) |
+| 6 | VNOJ – VNOI Online Judge | [https://oj.vnoi.info/](https://oj.vnoi.info/) |
+| 7 | LQDOJ - Lê Quý Đôn Online Judge | [https://lqdoj.edu.vn/](https://lqdoj.edu.vn/) |
+| 8 | HNOJ - Hà Nội Online Judge | [https://hnoj.edu.vn/](https://hnoj.edu.vn/) |
+| 9 | CLAOJ - Long An HSGS Online Judge | [https://claoj.edu.vn/](https://claoj.edu.vn/) |
+| 10 | SPOJ - Sphere Online Judge | [https://www.spoj.com/](https://www.spoj.com/) |
 
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
