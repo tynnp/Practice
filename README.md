@@ -3,6 +3,20 @@
 - Ngôn ngữ lập trình sử dụng: C++, Python, Java, Pascal.
 - Phần mềm sử dụng: Visual Studio Code, Dev-C++, Eclipse IDE, Free Pascal IDE.
 - Thiết bị sử dụng: Laptop ASUS TP550LD (2014), Windows 10, Core i3, Ram 4GB, HDD 500GB.
+
+## 📰 Trang chấm bài
+| STT | Tên trang | Link truy cập |
+| --- | --------- | ------------- |
+| 1 | UPCoder | [Truy cập tại đây](http://upcoder.xyz/) |
+| 2 | TDCoder | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
+| 3 | TKNCoder | [Truy cập tại đây](https://tkncoder.net/) |
+| 4 | Codeforces | [Truy cập tại đây](https://codeforces.com/) |
+| 5 | CSES | [Truy cập tại đây](https://cses.fi/) |
+| 6 | VNOI | [Truy cập tại đây](https://oj.vnoi.info/) |
+| 7 | LQDOJ | [Truy cập tại đây](https://lqdoj.edu.vn/) |
+| 8 | HNOJ | [Truy cập tại đây](https://hnoj.edu.vn/) |
+| 9 | SPOJ | [Truy cập tại đây](https://www.spoj.com/) |
+| 10 | CLAOJ | [Truy cập tại đây](https://claoj.edu.vn/) |
     
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
