@@ -5,8 +5,8 @@
 - Thiết bị sử dụng: Laptop ASUS TP550LD (2014), Windows 10, Core i3, Ram 4GB, HDD 500GB.
 
 ## 📰 Trang chấm bài
-| STT | Tên trang | Thư mục | Link trang web |
-| --- | --------- | ------- | ------------------ |
+| STT | Tên trang | Thư mục lưu trữ | Link trang web |
+| --- | --------- | --------------- | -------------- |
 | 1 | UPCoder - Trường Đại học Sư phạm Thành phố Hồ Chí Minh| [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/UPCODER) | [Truy cập tại đây](http://upcoder.xyz/) |
 | 2 | TDCoder - Trường Cao đẳng Công nghệ Thủ Đức| | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
 | 3 | TKNCoder - Trường Trung học phổ thông Trần Khai Nguyên| | [Truy cập tại đây](https://tkncoder.net/) |
