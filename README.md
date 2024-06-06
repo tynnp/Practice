@@ -7,7 +7,7 @@
 ## 📰 Trang chấm bài
 | STT | Tên trang | Thư mục | Link trang web |
 | --- | --------- | ------- | -------------- |
-| 1 | UPCoder - Trường Đại học Sư phạm Thành phố Hồ Chí Minh| | [Truy cập tại đây](http://upcoder.xyz/) |
+| 1 | UPCoder - Trường Đại học Sư phạm Thành phố Hồ Chí Minh| [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/UPCODER) | [Truy cập tại đây](http://upcoder.xyz/) |
 | 2 | TDCoder - Trường Cao đẳng Công nghệ Thủ Đức| | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
 | 3 | TKNCoder - Trường Trung học phổ thông Trần Khai Nguyên| | [Truy cập tại đây](https://tkncoder.net/) |
 | 4 | Codeforces - Competitive programming | | [Truy cập tại đây](https://codeforces.com/) |
