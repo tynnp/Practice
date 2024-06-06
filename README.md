@@ -9,7 +9,7 @@
 | --- | --------- | ------------- |
 | 1 | UPCoder - Trường Đại học Sư phạm Thành phố Hồ Chí Minh| [Truy cập tại đây](http://upcoder.xyz/) |
 | 2 | TDCoder - Trường Cao đẳng Công nghệ Thủ Đức| [Truy cập tại đây](http://tdc.upcoder.xyz/) |
-| 3 | TKNCoder - Trường THPT Trần Khai Nguyên| [Truy cập tại đây](https://tkncoder.net/) |
+| 3 | TKNCoder - Trường Trung học phổ thông Trần Khai Nguyên| [Truy cập tại đây](https://tkncoder.net/) |
 | 4 | Codeforces - Competitive programming | [Truy cập tại đây](https://codeforces.com/) |
 | 5 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://cses.fi/) |
 | 6 | VNOJ – VNOI Online Judge | [Truy cập tại đây](https://oj.vnoi.info/) |
