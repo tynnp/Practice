@@ -1,68 +1,64 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 const int SIZE = 9;
+int banCo[SIZE][SIZE];
 
-void inSudoku(int arr[SIZE][SIZE]) {
-    for (int hang = 0; hang < SIZE; hang++) {
-        for (int cot = 0; cot < SIZE; cot++)
-            cout << arr[hang][cot] << " ";
+void print() {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++)
+            cout << banCo[i][j] << " ";
         cout << '\n';
     }
 }
 
-bool check(int arr[SIZE][SIZE], int hang, int cot, int num) {
-    for (int x = 0; x < SIZE; x++)
-        if (arr[hang][x] == num || arr[x][cot] == num)
+bool check(int hang, int cot, int num) {
+    for (int i = 0; i < SIZE; i++)
+        if (banCo[hang][i] == num || banCo[i][cot] == num)
             return false;
-
-    int hangBatDau = hang - hang % 3, cotBatDau = cot - cot % 3;
+    
+    int hangNho = hang - hang % 3;
+    int cotNho = cot - cot % 3;
+    
     for (int i = 0; i < 3; i++)
         for (int j = 0; j < 3; j++)
-            if (arr[i + hangBatDau][j + cotBatDau] == num)
+            if (banCo[hangNho + i][cotNho + j] == num)
                 return false;
-
+    
     return true;
 }
 
-bool timViTri(int arr[SIZE][SIZE], int &hang, int &cot) {
+bool checkViTri(int &hang, int &cot) {
     for (hang = 0; hang < SIZE; hang++)
         for (cot = 0; cot < SIZE; cot++)
-            if (arr[hang][cot] == 0)
+            if (banCo[hang][cot] == 0)
                 return true;
-    return false; 
+    return false;
 }
 
-bool giaiSudoku(int arr[SIZE][SIZE]) {
+bool giaiSudoku() {
     int hang, cot;
-
-    if (!timViTri(arr, hang, cot))
+    
+    if (!checkViTri(hang, cot))
         return true;
-
-    for (int num = 1; num <= SIZE; num++) {
-        if (check(arr, hang, cot, num)) {
-            arr[hang][cot] = num;
-            if (giaiSudoku(arr))
-                return true;
-            arr[hang][cot] = 0;
+        
+    for (int i = 1; i <= SIZE; i++) {
+        if (check(hang, cot, i)) {
+            banCo[hang][cot] = i;
+            if (giaiSudoku()) return true;
+            banCo[hang][cot] = 0;
         }
     }
-
+    
     return false;
 }
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    int arr[SIZE][SIZE];
-
     for (int i = 0; i < SIZE; i++)
         for (int j = 0; j < SIZE; j++)
-            cin >> arr[i][j];
-
-    if (giaiSudoku(arr)) inSudoku(arr);
-    else cout << "-1";
-
+            cin >> banCo[i][j];
+    
+    if (giaiSudoku()) print();
+    else cout << -1;
     return 0;
 }
