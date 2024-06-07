@@ -8,7 +8,7 @@
 | STT | Tên trang | Thư mục lưu trữ | Link trang web |
 | --- | --------- | --------------- | -------------- |
 | 1 | UPCODER - Trường Đại học Sư phạm Thành phố Hồ Chí Minh| [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/UPCODER) | [Truy cập tại đây](http://upcoder.xyz/) |
-| 2 | TDCODER - Trường Cao đẳng Công nghệ Thủ Đức| | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
+| 2 | TDCODER - Trường Cao đẳng Công nghệ Thủ Đức| [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/TDCODER) | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
 | 3 | TKNCODER - Trường Trung học phổ thông Trần Khai Nguyên| | [Truy cập tại đây](http://tkncoder.net/) |
 | 4 | CODEFORCES - Competitive programming | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CODEFORCES) | [Truy cập tại đây](https://codeforces.com/) |
 | 5 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSES) | [Truy cập tại đây](https://cses.fi/) |
