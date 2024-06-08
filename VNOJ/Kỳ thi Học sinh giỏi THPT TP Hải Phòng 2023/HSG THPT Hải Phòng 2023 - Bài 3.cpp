@@ -2,7 +2,6 @@
 using namespace std;
 
 #define ll long long
-
 ll sum[100005] = {0};
 
 bool check(ll n) {
