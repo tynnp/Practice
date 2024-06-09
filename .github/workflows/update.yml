@@ -27,7 +27,7 @@ jobs:
  
       - name: Run update script
         env:
-          GITHUB_TOKEN: ${{ secrets.UPDATE_PRACTICE }}
+          UPDATE_PRACTICE: ${{ secrets.UPDATE_PRACTICE }}
         run: python update.py
 
       - name: Commit and push changes
@@ -38,4 +38,4 @@ jobs:
           git commit -m 'Update file count in README.md'
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.UPDATE_PRACTICE }}
+          UPDATE_PRACTICE: ${{ secrets.UPDATE_PRACTICE }}
