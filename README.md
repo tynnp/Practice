@@ -1,3 +1,5 @@
+# Số lượng file bài giải: ![](https://img.shields.io/badge/Files-%3Cnumber%3E-blue)
+
 ## 📑 Thông tin liên quan
 - Chủ sở hữu: Nguyễn Ngọc Phú Tỷ (tynnp).
 - Ngôn ngữ lập trình sử dụng: C++, Python, Java, Pascal, C#.
