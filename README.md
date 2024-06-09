@@ -11,16 +11,19 @@
 | 1 | UPCODER - Trường Đại học Sư phạm Thành phố Hồ Chí Minh| [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/UPCODER) | [Truy cập tại đây](http://upcoder.xyz/) |
 | 2 | TDCODER - Trường Cao đẳng Công nghệ Thủ Đức| [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/TDCODER) | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
 | 3 | TKNCODER - Trường Trung học phổ thông Trần Khai Nguyên| | [Truy cập tại đây](http://tkncoder.net/) |
-| 4 | CODEFORCES - Competitive programming | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CODEFORCES) | [Truy cập tại đây](https://codeforces.com/) |
-| 5 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSES) | [Truy cập tại đây](https://cses.fi/) |
-| 6 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/LQDOJ) | [Truy cập tại đây](https://lqdoj.edu.vn/) |
-| 7 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/HNOJ) | [Truy cập tại đây](https://hnoj.edu.vn/) |
-| 8 | CLAOJ - Long An HSGS Online Judge | | [Truy cập tại đây](https://claoj.edu.vn/) |
-| 9 | PDLOJ - Phan Đăng Lưu Online Judge | | [Truy cập tại đây](http://phandangluu.online/) |
-| 10 | CSLOJ - Chuyên Sơn La Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSLOJ) | [Truy cập tại đây](http://csloj.ddns.net/)
-| 11 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/SPOJ) | [Truy cập tại đây](https://www.spoj.com/) |
-| 12 | VNOJ – VNOI Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/VNOJ) | [Truy cập tại đây](https://oj.vnoi.info/) |
-| 13 | LEETCODE - A New Way to Learn | | [Truy cập tại đây](https://leetcode.com/) |
+| 4 | IUHCODER - Trường Đại học Công nghiệp Thành phố Hồ Chí Minh| | [Truy cập tại đây](https://oj.iuhcoder.com/) |
+| 5 | CODEFORCES - Competitive programming | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CODEFORCES) | [Truy cập tại đây](https://codeforces.com/) |
+| 6 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSES) | [Truy cập tại đây](https://cses.fi/) |
+| 7 | LCOJ - Luyện Code Online| | [Truy cập tại đây](https://luyencode.net/) |
+| 8 | CDOJ - CodeDream Online Judge| | [Truy cập tại đây](https://oj.codedream.edu.vn/) |
+| 9 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/LQDOJ) | [Truy cập tại đây](https://lqdoj.edu.vn/) |
+| 10 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/HNOJ) | [Truy cập tại đây](https://hnoj.edu.vn/) |
+| 11 | CLAOJ - Long An HSGS Online Judge | | [Truy cập tại đây](https://claoj.edu.vn/) |
+| 12 | PDLOJ - Phan Đăng Lưu Online Judge | | [Truy cập tại đây](http://phandangluu.online/) |
+| 13 | CSLOJ - Chuyên Sơn La Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSLOJ) | [Truy cập tại đây](http://csloj.ddns.net/)
+| 14 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/SPOJ) | [Truy cập tại đây](https://www.spoj.com/) |
+| 15 | VNOJ – VNOI Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/VNOJ) | [Truy cập tại đây](https://oj.vnoi.info/) |
+| 16 | LEETCODE - A New Way to Learn | | [Truy cập tại đây](https://leetcode.com/) |
 
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
