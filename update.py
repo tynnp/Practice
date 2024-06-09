@@ -1,7 +1,7 @@
 import requests
 import os
 
-OWNER = 'tynnp'
+OWNER = 'tynnp' 
 REPO = 'practice'
 TOKEN = os.getenv('UPDATE_PRACTICE')  
 
