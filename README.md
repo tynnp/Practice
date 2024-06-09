@@ -5,7 +5,7 @@
 - Phần mềm sử dụng: Visual Studio Code, Dev-C++, Eclipse IDE, Free Pascal IDE.
 - Thiết bị sử dụng: Laptop ASUS TP550LD (2014), Windows 10, Core i3, Ram 4GB, HDD 500GB.
 
-## 📰 Trang chấm bài
+## 🖥️ Trang chấm bài
 | STT | Tên trang | Thư mục lưu trữ | Link trang web |
 | --- | --------- | --------------- | -------------- |
 | 1 | UPCODER - Trường Đại học Sư phạm Thành phố Hồ Chí Minh| [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/UPCODER) | [Truy cập tại đây](http://upcoder.xyz/) |
