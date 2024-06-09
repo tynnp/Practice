@@ -3,7 +3,7 @@ import os
 
 OWNER = 'tynnp' 
 REPO = 'practice'
-TOKEN = os.getenv('UPDATE_PRACTICE')  
+TOKEN = os.getenv('UPDATE_TOKEN_PRACTICE')  
 
 def get_file_count():
     url = f'https://api.github.com/repos/{OWNER}/{REPO}/git/trees/main?recursive=1'
