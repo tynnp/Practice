@@ -27,14 +27,20 @@ def update_readme(file_count):
     found = False
     for i, line in enumerate(content):
         if line.startswith('Số lượng file bài giải:'):
-            content[i] = f'Số lượng file bài giải: {file_count}.'
-            found = True
+            if content[i].strip() != f'Số lượng file bài giải: {file_count}.':
+                content[i] = f'Số lượng file bài giải: {file_count}.\n'
+                found = True
             break
+
+    if not found:
+        content.append(f'\nSố lượng file bài giải: {file_count}.\n')
 
     with open(readme_path, 'w') as file:
         file.writelines(content)
 
+    print(f'Updated README.md with file count: {file_count}')
+
 if __name__ == "__main__":
     file_count = get_file_count()
+    print(f'File count: {file_count}')  
     update_readme(file_count)
-    print(f'Updated README.md with file count: {file_count}')
