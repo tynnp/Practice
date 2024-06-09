@@ -10,7 +10,7 @@ def get_file_count():
     headers = {
         'Authorization': f'token {TOKEN}',
         'Accept': 'application/vnd.github.v3+json'
-    }
+    } 
 
     response = requests.get(url, headers=headers)
     data = response.json()
