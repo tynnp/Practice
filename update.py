@@ -3,7 +3,7 @@ import os
 
 OWNER = 'tynnp'
 REPO = 'practice'
-TOKEN = os.getenv('GITHUB_TOKEN')  
+TOKEN = os.getenv('UPDATE_PRACTICE')  
 
 def get_file_count():
     url = f'https://api.github.com/repos/{OWNER}/{REPO}/git/trees/main?recursive=1'
@@ -31,9 +31,6 @@ def update_readme(file_count):
                 content[i] = f'Số lượng file bài giải: {file_count}.\n'
                 found = True
             break
-
-    if not found:
-        content.append(f'\nSố lượng file bài giải: {file_count}.\n')
 
     with open(readme_path, 'w') as file:
         file.writelines(content)
