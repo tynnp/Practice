@@ -17,7 +17,7 @@ def get_file_count():
 
     file_count = sum(1 for item in data['tree'] if item['type'] == 'blob')
     return file_count
-
+ 
 def update_readme(file_count):
     readme_path = 'README.md'
 
