@@ -17,7 +17,7 @@
 | 7 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/HNOJ) | [Truy cập tại đây](https://hnoj.edu.vn/) |
 | 8 | CLAOJ - Long An HSGS Online Judge | | [Truy cập tại đây](https://claoj.edu.vn/) |
 | 9 | PDLOJ - Phan Đăng Lưu Online Judge | | [Truy cập tại đây](http://phandangluu.online/) |
-| 10 | CSLOJ - Chuyên Sơn La Online Judge | | [Truy cập tại đây](http://csloj.ddns.net/)
+| 10 | CSLOJ - Chuyên Sơn La Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSLOJ) | [Truy cập tại đây](http://csloj.ddns.net/)
 | 11 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/SPOJ) | [Truy cập tại đây](https://www.spoj.com/) |
 | 12 | VNOJ – VNOI Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/VNOJ) | [Truy cập tại đây](https://oj.vnoi.info/) |
 | 13 | LEETCODE - A New Way to Learn | | [Truy cập tại đây](https://leetcode.com/) |
