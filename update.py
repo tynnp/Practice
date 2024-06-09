@@ -26,9 +26,9 @@ def update_readme(file_count):
 
     found = False
     for i, line in enumerate(content):
-        if line.startswith('Số lượng file bài giải:'):
-            if content[i].strip() != f'Số lượng file bài giải: {file_count}.':
-                content[i] = f'Số lượng file bài giải: {file_count}.\n'
+        if line.startswith('- Số lượng file bài giải: '):
+            if content[i].strip() != f'- Số lượng file bài giải: {file_count}.':
+                content[i] = f'- Số lượng file bài giải: {file_count}.\n'
                 found = True
             break
 
