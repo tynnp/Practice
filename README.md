@@ -11,7 +11,7 @@
 | 1 | UPCODER - Trường Đại học Thành phố Hồ Chí Minh | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/UPCODER) | [Truy cập tại đây](http://upcoder.xyz/) |
 | 2 | TDCODER - Trường Cao đẳng Công nghệ Thủ Đức | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/TDCODER) | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
 | 3 | TKNCODER - Trường Trung học phổ thông Trần Khai Nguyên | | [Truy cập tại đây](http://tkncoder.net/) |
-| 4 | IUHCODER - Trường Đại học Công nghiệp Thành phố Hồ Chí Minh | | [Truy cập tại đây](https://oj.iuhcoder.com/) |
+| 4 | IUHCODER - Trường Đại học Công nghiệp Thành phố Hồ Chí Minh | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/IUHCODER) | [Truy cập tại đây](https://oj.iuhcoder.com/) |
 | 5 | CODEFORCES - Competitive programming | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CODEFORCES) | [Truy cập tại đây](https://codeforces.com/) |
 | 6 | LEETCODE - A New Way to Learn | | [Truy cập tại đây](https://leetcode.com/) |
 | 7 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSES) | [Truy cập tại đây](https://cses.fi/) |
