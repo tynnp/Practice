@@ -39,5 +39,5 @@ def update_readme(file_count):
 
 if __name__ == "__main__":
     file_count = get_file_count()
-    print(f'File count: {file_count}')  
+    print(f'File count: {file_count}')
     update_readme(file_count)
