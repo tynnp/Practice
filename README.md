@@ -1,5 +1,5 @@
 ## 📑 Thông tin liên quan
-- Số lượng file bài giải: 1233.
+- Số lượng file bài giải: 1234.
 - Chủ sở hữu: Nguyễn Ngọc Phú Tỷ (tynnp).
 - Ngôn ngữ lập trình sử dụng: C++, Python, Java, Pascal, C#.
 - Phần mềm sử dụng: Visual Studio Code, Dev-C++, Eclipse IDE, Free Pascal IDE.
