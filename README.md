@@ -15,7 +15,7 @@
 | 5 | CODEFORCES - Competitive programming | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CODEFORCES) | [Truy cập tại đây](https://codeforces.com/) |
 | 6 | LEETCODE - A New Way to Learn | | [Truy cập tại đây](https://leetcode.com/) |
 | 7 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSES) | [Truy cập tại đây](https://cses.fi/) |
-| 8 | LCOJ - Luyện Code Online| | [Truy cập tại đây](https://luyencode.net/) |
+| 8 | LCOJ - Luyện Code Online| [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/ONLINE%20JUDGE/LCOJ) | [Truy cập tại đây](https://luyencode.net/) |
 | 9 | CDOJ - CodeDream Online Judge| | [Truy cập tại đây](https://oj.codedream.edu.vn/) |
 | 10 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/ONLINE%20JUDGE/LQDOJ) | [Truy cập tại đây](https://lqdoj.edu.vn/) |
 | 11 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/ONLINE%20JUDGE/HNOJ) | [Truy cập tại đây](https://hnoj.edu.vn/) |
