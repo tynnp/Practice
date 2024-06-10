@@ -17,15 +17,15 @@
 | 7 | CSES - Code Submission Evaluation System | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/CSES) | [Truy cập tại đây](https://cses.fi/) |
 | 8 | LCOJ - Luyện Code Online| | [Truy cập tại đây](https://luyencode.net/) |
 | 9 | CDOJ - CodeDream Online Judge| | [Truy cập tại đây](https://oj.codedream.edu.vn/) |
-| 10 | LQDOJ - Lê Quý Đôn Online Judge | | [Truy cập tại đây](https://lqdoj.edu.vn/) |
-| 11 | HNOJ - Hà Nội Online Judge | | [Truy cập tại đây](https://hnoj.edu.vn/) |
+| 10 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/ONLINE%20JUDGE/LQDOJ) | [Truy cập tại đây](https://lqdoj.edu.vn/) |
+| 11 | HNOJ - Hà Nội Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/ONLINE%20JUDGE/HNOJ) | [Truy cập tại đây](https://hnoj.edu.vn/) |
 | 12 | CLAOJ - Long An HSGS Online Judge | | [Truy cập tại đây](https://claoj.edu.vn/) |
 | 13 | PDLOJ - Phan Đăng Lưu Online Judge | | [Truy cập tại đây](http://phandangluu.online/) |
-| 14 | CSLOJ - Chuyên Sơn La Online Judge | | [Truy cập tại đây](http://csloj.ddns.net/)
+| 14 | CSLOJ - Chuyên Sơn La Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/ONLINE%20JUDGE/CSLOJ) | [Truy cập tại đây](http://csloj.ddns.net/)
 | 15 | PTNKOJ - Phổ Thông Năng Khiếu Online Judge | | [Truy cập tại đây](http://ptnkoj.com/) |
 | 16 | GTLTOJ - FITHOU (Đại học Mở Hà Nội) Online Judge | | [Truy cập tại đây](https://olp.hou.edu.vn/) |
-| 17 | SPOJ - Sphere Online Judge | | [Truy cập tại đây](https://www.spoj.com/) |
-| 18 | VNOJ – VNOI Online Judge | | [Truy cập tại đây](https://oj.vnoi.info/) |
+| 17 | SPOJ - Sphere Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/ONLINE%20JUDGE/SPOJ) | [Truy cập tại đây](https://www.spoj.com/) |
+| 18 | VNOJ – VNOI Online Judge | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/ONLINE%20JUDGE/VNOJ) | [Truy cập tại đây](https://oj.vnoi.info/) |
 
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
