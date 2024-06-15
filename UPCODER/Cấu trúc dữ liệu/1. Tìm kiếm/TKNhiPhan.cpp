@@ -1,26 +1,37 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int binarySearch(int arr[], int n, int k) {
-    int mid;
+int binarySearch(int arr[], int n, int x) {
     int left = 0;
-    int right = n - 1;
-
+    int right = n-1;
+    
     while (left <= right) {
-        mid = (left + right) / 2;
-        if (arr[mid] == k) return mid;
-        if (arr[mid] < k) left = mid + 1;
-        else right = mid - 1;
+        int mid = (left + right) / 2;
+        if (arr[mid] < x) left = mid + 1;
+        else if (arr[mid] > x) right = mid - 1;
+        else return mid;
     }
-
+    
     return -1;
 }
 
-int main() {
-    int n, k; 
-    cin >> n >> k;
-    int arr[n];
-    for (int &x : arr) cin >> x;
-    cout << binarySearch(arr, n, k);
-    return 0;
+int binarySearch(int arr[], int left, int right, int x) {
+    if (left > right) return -1;
+    int mid = (left + right) / 2;
+    
+    if (arr[mid] < x) return binarySearch(arr, mid+1, right, x);
+    else if (arr[mid] > x) return binarySearch(arr, left, mid-1, x);
+    else return mid;
 }
+
+int main() {
+    int n, x;
+    cin >> n >> x;
+    
+    int arr[n];
+    for (int &i : arr) cin >> i;
+    
+    //cout << binarySearch(arr, 0, n-1, x);
+    cout << binarySearch(arr, n, x);
+    return 0;
+} 
