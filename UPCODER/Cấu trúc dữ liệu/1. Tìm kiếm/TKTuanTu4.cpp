@@ -19,7 +19,7 @@ int main() {
         
     int ans = sequentialSearch(arr, n, x);
     if (ans != -1) {
-        for (int i = 0; i <= ans; i++)
+        for (int i = 0; i < n; i++)
             if (arr[i] == arr[ans])
                 cout << i << " ";
     } else cout << ans;
