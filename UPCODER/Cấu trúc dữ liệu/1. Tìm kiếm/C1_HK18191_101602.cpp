@@ -1,30 +1,31 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
- 
+
+int search(int arr[], int n, int x) {
+    int res = -1, maxVal = INT_MAX;
+    
+    for (int i = 0; i < n; i++) 
+        if (arr[i] == x)
+            res = i;
+
+    if (res == -1) {
+    for (int i = 0; i < n; i++) 
+        if (arr[i] > x)
+            return i;
+    }
+
+    return res;
+}
+
 int main() {
-    int n, x, k = -1; 
+    int n, x, ans;
     cin >> n >> x;
-    int arr[n]; 
-    bool check = true;
-
-    for (int i = 0; i < n; i++) 
-        cin >> arr[i];
-
-    for (int i = 0; i < n; i++) 
-        if (arr[i] == x) k = i;
-
-    if (k != -1) {
-        cout << "Y\n" << k; 
-        check = false;
-    } 
-
-    for (int i = 0; i < n; i++) 
-        if (arr[i] > x && check) {
-            cout << "N\n" << i; 
-            check = false;
-            break;
-        }
-
-    if (check) cout << "N\n" << -1;
+    
+    int arr[n];
+    for (int &i : arr) cin >> i;
+    
+    ans = search(arr, n, x);
+    if (ans == -1) cout << "N\n-1";
+    else cout << (arr[ans] == x ? "Y\n" : "N\n") << ans;
     return 0;
 }
