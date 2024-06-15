@@ -1,28 +1,22 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int sequentialSearch(int arr[], int n, int k) {
-    int res = -10e6;
-    
-    for (int i = 0; i < n; i++) 
-        if (arr[i] > res && arr[i] <= k) 
-            res = arr[i];
-
-    for (int i = 0; i < n; i++) 
-        if (res != -10e6 && res == arr[i]) 
-            return i;
-
-    return -1;
+int sequentialSearch(int arr[], int n, int x) {
+    int res = -1, val = INT_MIN;
+    for (int i = 0; i < n; i++)
+        if (arr[i] > val && arr[i] <= x)
+            res = i, val = arr[i];
+    return res;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    int k, n = 0, arr[100]; 
-    cin >> k;
-    while (cin >> arr[n]) n++;
+    int x, n = 0;
+    int tmp, arr[1001];
     
-    cout << sequentialSearch(arr, n, k);
+    cin >> x;
+    while (cin >> tmp)
+        arr[n++] = tmp;
+        
+    cout << sequentialSearch(arr, n, x);
     return 0;
 }
