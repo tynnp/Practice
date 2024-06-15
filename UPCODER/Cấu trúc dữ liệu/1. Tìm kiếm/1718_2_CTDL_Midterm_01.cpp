@@ -1,51 +1,57 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct Set {
     int size;
-    int* values;
-
-    Set(int N) {
-        size = 0;
-        values = new int[N+5];
+    int *element;
+    
+    Set(int size) {
+        this->size = 0;
+        element = new int[size];
     }
-
-    void add(int n) {
-        int res = -1;
+    
+    ~Set() {
+        delete[] element;
+    }
+    
+    bool checkOf(int n) {
         for (int i = 0; i < size; i++)
-            if (values[i] == n) {
-                res = i;
-                break;
-            }
-        
-        if (res == -1) {
-            values[size++] = n;
-            for (int i = 1; i < size; i++) {
-                int j = i;
-                while (j > 0 && values[j-1] > values[j])
-                    swap(values[j-1], values[j]), j--;
+            if (element[i] == n)
+                return true;
+        return false;
+    }
+    
+    void sort() {
+        for (int i = 1; i < size; i++) {
+            int j = i;
+            while (j > 0 && element[j-1] > element[j]) {
+                swap(element[j-1], element[j]);
+                j--;
             }
         }
-        
-        return;
     }
-
+    
     void print() {
         for (int i = 0; i < size; i++)
-            cout << values[i] << " ";
-        return;
+            cout << element[i] << " ";
     }
-};
+    
+    bool insert(int n) {
+        if (!checkOf(n)) {
+            element[size++] = n;
+            this->sort();
+            return true;
+        } else return false;
+    }
+}; 
 
 int main() {
-    int N;
-    cin >> N;
-    Set setInt(N);
+    int tmp, n;
+    cin >> n;
+    Set mySet(n);
     
-    int tmp;
-    while(cin >> tmp) 
-        setInt.add(tmp);
-
-    setInt.print();
+    while (cin >> tmp) 
+        mySet.insert(tmp);
+    mySet.print();
     return 0;
 }
