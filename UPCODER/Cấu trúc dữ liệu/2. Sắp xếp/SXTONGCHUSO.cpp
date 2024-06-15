@@ -1,43 +1,52 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-int tongChuSo(int n) {
+int sum(int n) {
     int res = 0;
-    while (n > 0) 
-        res += n%10, n /= 10;
+    while (n) {
+        res += n % 10;
+        n /= 10;
+    }
     return res;
 }
 
-bool checkNT(int n) {
+bool check(int n) {
     for (int i = 2; i*i <= n; i++)
         if (n % i == 0) return false;
     return n > 1;
 }
 
+bool check(int a, int b) {
+    if (sum(a) < sum(b)) return true;
+    if (sum(a) == sum(b)) return a > b;
+    return false;
+} 
+
+void reverseSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int j = i;
+        while (j > 0 && check(arr[j-1], arr[j])) {
+            swap(arr[j-1], arr[j]);
+            j--;
+        }
+    }
+}
+ 
 int main() {
     int n;
     cin >> n;
+    
     int arr[n];
-    vector<int> res;
-
-    for (int &x : arr) {
-        cin >> x;
-        if (checkNT(tongChuSo(x))) 
-            res.push_back(x);
-    }
-
-    for (int i = 0; i < res.size(); i++)
-        cout << res[i] << " ";
+    for (int &x : arr) cin >> x;
+    
+    for (int x : arr) 
+        if (check(sum(x)))
+            cout << x << " ";
     cout << endl;
-
-    for (int i = 0; i < n; i++) 
-        for (int j = i+1; j < n; j++) 
-            if (tongChuSo(arr[i]) < tongChuSo(arr[j]))
-                swap(arr[i], arr[j]);
-
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-
+    
+    reverseSort(arr, n);
+    for (int x : arr)
+        cout << x << " ";
+    
     return 0;
 }
