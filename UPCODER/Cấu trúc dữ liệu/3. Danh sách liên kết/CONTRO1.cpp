@@ -46,7 +46,7 @@ int main() {
     
     cout << list.max_element() << endl;
     list.index_of_max();
-    cout << list.max_element() << endl;
+    cout << list.min_element() << endl;
     list.index_of_min();
     return 0;
 }
