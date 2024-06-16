@@ -35,10 +35,10 @@ struct LinkedList {
     }
     
     void print() {
-        Node *tmp = head;
-        while (tmp != nullptr) {
-            cout << tmp->data << " ";
-            tmp = tmp->next;
+        Node *cur = head;
+        while (cur != nullptr) {
+            cout << cur->data << " ";
+            cur = cur->next;
         }
     }
     
