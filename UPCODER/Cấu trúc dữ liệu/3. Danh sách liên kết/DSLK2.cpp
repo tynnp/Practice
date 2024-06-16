@@ -1,77 +1,86 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct Node {
     char data;
-    Node* next;
+    Node *next;
     Node(char c): data(c), next(nullptr) {} 
 };
 
 struct LinkedList {
-    Node* head;
+    Node *head;
     LinkedList(): head(nullptr) {}
-
-    void add(char c) {
-        Node* node = new Node(c);
-        Node* tmp = this->head;
-        if (tmp == nullptr) 
-            this->head = node;
-        else {
-            while (tmp->next != nullptr)
-                tmp = tmp->next;
-            tmp->next = node;
+    
+    ~LinkedList() {
+        while (head != nullptr) {
+            Node *del = head;
+            head = head->next;
+            delete del;
         }
-        return;
     }
-
-    void full() {
-        if (this->head->data != 'A') {
-            Node* dau = new Node('A');
-            this->head = dau;
-        }
-
-        Node* tmp = this->head;
-        while (tmp->next != nullptr) 
-            tmp = tmp->next;
+    
+    void push_back(char c) {
+        Node *node = new Node(c);
         
-        if (tmp->data != 'Z') {
-            Node* cuoi = new Node('Z');
-            tmp->next = cuoi;
+        if (head == nullptr) {
+            head = node;
+            return;
         }
-
-        while (tmp != nullptr && tmp->next != nullptr) {
-            if (tmp->data != tmp->next->data-1) {
-                Node* node = new Node(tmp->data+1);
-                node->next = tmp->next;
-                tmp->next = node;
-            }
-            tmp = tmp->next;
-        }
+        
+        Node *last = head;
+        while (last->next != nullptr) 
+            last = last->next;
+        last->next = node;
     }
-
+    
     void print() {
-        Node* tmp = this->head;
-        while (tmp != nullptr) {
-            cout << tmp->data;
-            tmp = tmp->next;
-        }
+        Node *cur = head;
+        while (cur != nullptr) {
+            cout << cur->data;
+            cur = cur->next;
+        } 
         cout << endl;
+    }
+    
+    void solve() {
+        if (head->data != 'A') {
+            Node *node = new Node('A');
+            node->next = head;
+            head = node;
+        }
+        
+        Node *cur = head;
+        while (cur->next != nullptr) {
+            if (cur->data != cur->next->data - 1) {
+                Node *node = new Node(cur->data + 1);
+                node->next = cur->next;
+                cur->next = node;
+            }
+            cur = cur->next;
+        }
+        
+        Node *last = cur;
+        while (last->data != 'Z') {
+            Node *node = new Node(last->data + 1);
+            last->next = node;
+            last = last->next;
+        }
     }
 };
 
 int main() {
-    LinkedList list;
     int n;
     char c;
+    LinkedList a;
+    
     cin >> n;
-
     while (n--) {
         cin >> c;
-        list.add(c);
+        a.push_back(c);
     }
-
-    list.print();
-    list.full();
-    list.print();
+    
+    a.print();
+    a.solve();
+    a.print();
     return 0;
 }
