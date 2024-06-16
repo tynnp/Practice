@@ -1,120 +1,107 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct Node {
     int data;
-    Node* next;
-
-    Node(int n): data(n), next(nullptr) {}
+    Node *next;
+    Node(int n): data(n), next(nullptr) {} 
 };
 
 struct LinkedList {
-    Node* head;
+    Node *head;
     LinkedList(): head(nullptr) {}
-
-    void add(int n) {
-        Node* node = new Node(n);
-        
-        if (this->head == nullptr)
-            this->head = node;
-        else {
-            Node* tmp = this->head;
-            while (tmp->next != nullptr)
-                tmp = tmp->next;
-            tmp->next = node;
-        }
-    }
-
-    int max() {
-        Node* tmp = this->head;
-        int max = tmp->data;
-
-        while (tmp != nullptr) {
-            if (tmp->data > max) 
-                max = tmp->data;
-            tmp = tmp->next;
-        }
-
-        return max;
-    }
-
-    int min() {
-        Node* tmp = this->head;
-        int min = tmp->data;
-
-        while (tmp != nullptr) {
-            if (tmp->data < min) 
-                min = tmp->data;
-            tmp = tmp->next;
-        }
-
-        return min;
-    }
-
-    void xuatViTriMax() {
-        int max = this->max();
-        Node* tmp = this->head;
-        int index = 1;
-
-        while (tmp != nullptr) {
-            if (tmp->data == max) 
-                cout << index << " ";
-            tmp = tmp->next;
-            index += 1;
-        }
-
-        cout << endl;
-        return;
-    }
-
-    void xuatViTriMin() {
-        int min = this->min();
-        Node* tmp = this->head;
-        int index = 1;
-
-        while (tmp != nullptr) {
-            if (tmp->data == min) 
-                cout << index << " ";
-            tmp = tmp->next;
-            index += 1;
-        }
-
-        cout << endl;
-        return;
-    }
-
+    
     ~LinkedList() {
-        Node* tmp = this->head;
-        Node* next;
-
-        while (tmp != nullptr) {
-            next = tmp->next;
-            delete tmp;
-            tmp = next;
+        while (head != nullptr) {
+            Node *del = head;
+            head = head->next;
+            delete del;
         }
-
-        this->head = nullptr;
-        return;
+    }
+    
+    void push_back(int n) {
+        Node *node = new Node(n);
+        
+        if (head == nullptr) {
+            head = node;
+            return;
+        }
+        
+        Node *last = head;
+        while (last->next != nullptr) 
+            last = last->next;
+        last->next = node;
+    }  
+    
+    int max_element() {
+        int res = head->data;
+        Node *tmp = head->next;
+        
+        while (tmp != nullptr) {
+            if (tmp->data > res) res = tmp->data;
+            tmp = tmp->next;
+        }
+        
+        return res;
+    }
+    
+    int min_element() {
+        int res = head->data;
+        Node *tmp = head->next;
+        
+        while (tmp != nullptr) {
+            if (tmp->data < res) res = tmp->data;
+            tmp = tmp->next;
+        }
+        
+        return res;
+    }
+    
+    void print_index_max() {
+        int val = this->max_element();
+        int index = 1;
+        Node *tmp = head;
+        
+        while (tmp != nullptr) {
+            if (tmp->data == val) 
+                cout << index << " ";
+            tmp = tmp->next;
+            index = index + 1;
+        }
+        
+        cout << endl;
+    }
+    
+    void print_index_min() {
+        int val = this->min_element();
+        int index = 1;
+        Node *tmp = head;
+        
+        while (tmp != nullptr) {
+            if (tmp->data == val)
+                cout << index << " ";
+            tmp = tmp->next;
+            index = index + 1;
+        }
+        
+        cout << endl;
     }
 };
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
+    int n, element;
     LinkedList list;
-
-    int n; cin >> n;
-    for (int i = 0; i < n; i++) {
-        int tmp; cin >> tmp;
-        list.add(tmp);
+    
+    cin >> n;
+    while (n--) {
+        cin >> element;
+        list.push_back(element);
     }
-
-    cout << list.max() << endl; 
-    list.xuatViTriMax();
-
-    cout << list.min() << endl; 
-    list.xuatViTriMin();
-
+    
+    cout << list.max_element() << endl;
+    list.print_index_max();
+    cout << list.min_element() << endl;
+    list.print_index_min();
+    
     return 0;
 }
