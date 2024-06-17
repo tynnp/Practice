@@ -1,30 +1,27 @@
-#include <iostream>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
 
-bool isPalindrome(string str) {
-    stack<char> charStack;
-
+bool check(string str) {
+    str.erase(remove_if(str.begin(), str.end(), [] (char &c) {
+        c = tolower(c);
+        return !isalpha(c);
+    }), str.end());
+    
+    stack<char> s;
     for (char c : str) 
-        if (isalnum(c)) 
-            charStack.push(tolower(c));
-
-    for (char c : str) {
-        if (isalnum(c)) {
-            if (charStack.top() != tolower(c))
-                return false;
-            charStack.pop();
-        }
+        s.push(c);
+        
+    for (char c : str) {  
+        if (s.top() != c) return false;
+        s.pop();
     }
+    
     return true;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    string str; 
+    string str;
     getline(cin, str);
-    cout << (isPalindrome(str) ? "YES" : "NO");
+    cout << (check(str) ? "YES" : "NO");
     return 0;
 }
