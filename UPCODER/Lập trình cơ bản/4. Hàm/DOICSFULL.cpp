@@ -1,44 +1,39 @@
-#include <iostream>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
 
-void chuyenCoSo(long heSo10, int heCoSoMoi);
+void chuyenCoSo(long soHe10, int heCoSoMoi);
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    long heSo10; cin >> heSo10;
-    int heCoSoMoi; cin >> heCoSoMoi;
-    chuyenCoSo(heSo10, heCoSoMoi);
+    long soHe10;
+    int heCoSoMoi;
+    cin >> soHe10 >> heCoSoMoi;
+    chuyenCoSo(soHe10, heCoSoMoi);
     return 0;
 }
 
-void chuyenCoSo(long heSo10, int heCoSoMoi = 0) {
-    stack<string> stackRes;
-    string coSo16 = "0123456789ABCDEF";
+void chuyenCoSo(long soHe10, int heCoSoMoi = 0) {
+    string kt = "0123456789ABCDEF";
+    stack<char> s;
+    int type;
+    
+    if (soHe10 == 0) {
+        cout << 0;
+        return;
+    }
+    
     switch (heCoSoMoi) {
-        case 0: 
-            while (heSo10 > 0) {
-                stackRes.push(to_string(heSo10 % 2));
-                heSo10 /= 2;
-            } break;
-        case 1:
-            while (heSo10 > 0) {
-                stackRes.push(to_string(heSo10 % 8));
-                heSo10 /= 8;
-            } break;
-        case 2:
-            while (heSo10 > 0) {
-                stackRes.push(string(1, coSo16[heSo10 % 16]));
-                heSo10 /= 16;
-            } break;
+        case 0: type = 2; break;
+        case 1: type = 8; break;
+        case 2: type = 16; break;
     }
-
-    while (!stackRes.empty()) {
-        cout << stackRes.top();
-        stackRes.pop();
+    
+    while (soHe10) {
+        s.push(kt[soHe10 % type]);
+        soHe10 /= type;
     }
-
-    return;
+    
+    while (!s.empty()) {
+        cout << s.top();
+        s.pop();
+    }
 }
