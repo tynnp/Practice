@@ -1,28 +1,24 @@
-#include <iostream>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool check(string str) {
-    stack<char> charStack;
-    if (str.length() == 0) return true;
+    stack<char> s;
+    
     for (char c : str) {
-        if (c == '(' || c == '{' || c == '[') charStack.push(c);
-        else if (!charStack.empty()) {
-            char top = charStack.top(); 
-            charStack.pop();
-            if ((c == ')' && top != '(') || (c == '}' && top != '{') || (c == ']' && top != '['))
-                return false;
-        } else return false;
+        if (c == '(' || c == '{' || c == '[' || s.empty()) s.push(c);
+        else if (
+            s.top() == '(' && c == ')' ||
+            s.top() == '[' && c == ']' ||
+            s.top() == '{' && c == '}'
+        ) s.pop();
     }
-    return charStack.empty();
+        
+    return s.empty();
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
     string str;
     getline(cin, str);
-    cout << (check(str) ? "yes" : "no"); 
+    cout << (check(str) ? "yes" : "no");
     return 0;
 }
