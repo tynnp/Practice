@@ -1,22 +1,18 @@
-#include <iostream>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    string str; 
-    getline(cin, str);
-    stack<char> charStack;
-
+    string str;
+    stack<char> s;
+    
+    cin >> str;
     for (char c : str) {
-        if (c == '*' && !charStack.empty()) {
-            cout << charStack.top();
-            charStack.pop();
-        } else if (c != '*')
-            charStack.push(c); 
+        if (c != '*') s.push(c);
+        else if (!s.empty()) {
+            cout << s.top();
+            s.pop();
+        }
     }
-
+    
     return 0;
 }
