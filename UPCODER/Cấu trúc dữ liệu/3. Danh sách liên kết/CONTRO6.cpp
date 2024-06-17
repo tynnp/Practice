@@ -1,106 +1,347 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-struct Node {
-    int data;
-    Node* next;
-    Node(int n): data(n), next(nullptr) {}
-};
+struct LinkedList {
+    struct Node {
+        int data;
+        Node *next;
+        Node(int);
+    };
 
-struct Linkedlist {
-    Node* head;
-    Linkedlist(): head(nullptr) {}
+    Node *head;
 
-    void add(int n) {
-        Node* node = new Node(n);
-        Node* tmp = this->head;
-
-        if (tmp == nullptr)
-            this->head = node;
-        else {
-            while (tmp->next != nullptr) 
-                tmp = tmp->next;
-            tmp->next = node;
-        }
-        return;
-    }
-
-    int size() {
-        int size = 0;
-        Node* tmp = this->head;
-        while (tmp != nullptr) 
-            size += 1,
-            tmp = tmp->next;
-        return size;
-    }
-
-    void print() {
-        if (this->size() > 0)
-            cout << this->size() << endl;
-        else {
-            cout << -1;
-            return;
-        }
-
-        Node* tmp = this->head;
-        while (tmp != nullptr) {
-            cout << tmp->data << " ";
-            tmp = tmp->next;
-        }
-        return;
-    }
-
-    void check() {
-        Linkedlist res;
-        Node* ptr1 = this->head;
-        int index = 2;
-
-        if (ptr1 == nullptr || ptr1->next == nullptr || ptr1->next->next ==nullptr) {
-            cout << -1;
-            return;
-        }
-
-        while (ptr1->next->next != nullptr) {
-            Node* ptr2 = ptr1->next->next;
-            Node* ptr3 = ptr1->next;
-
-            if (ptr1->data*ptr2->data == ptr3->data)
-                    res.add(index);
-
-            ptr1 = ptr1->next;
-            index += 1;
-        }
-        res.print();
-        return;
-    }
-
-    ~Linkedlist() {
-        Node* tmp = this->head;
-        Node* next;
-
-        while (tmp != nullptr) {
-            next = tmp->next;
-            delete tmp;
-            tmp = next;
-        }
-
-        this->head = nullptr;
-        return;
-    }
+    LinkedList();
+    ~LinkedList();
+    bool empty();
+    int size();
+    void clear();
+    void print();
+    int front();
+    int back();
+    void push_front(int);
+    void push_back(int);
+    void pop_front();
+    void pop_back();
+    void insert(int, int);
+    void erase(int);
+    void remove(int);
+    void sort();
+    void reverse();
+    int max_element();
+    int min_element();
+    int index_of(int);
+    void index_of_max();  
+    void index_of_min();  
+    void solve();
 };
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    int n; cin >> n;
-    Linkedlist list;
-
+    int tmp, n;
+    LinkedList list;
+    
+    cin >> n;
     while (n--) {
-        int tmp; cin >> tmp;
-        list.add(tmp);
+        cin >> tmp;
+        list.push_back(tmp);
+    }
+    
+    list.solve();
+    return 0;
+}
+
+LinkedList::Node::Node(int n) {
+    data = n;
+    next = nullptr;
+}
+
+LinkedList::LinkedList() {
+    head = nullptr;
+}
+
+LinkedList::~LinkedList() {
+    clear();
+}
+
+bool LinkedList::empty() {
+    return head == nullptr;
+}
+
+int LinkedList::size() {
+    int res = 0;
+    Node *tmp = head;
+
+    while (tmp != nullptr) {
+        res += 1;
+        tmp = tmp->next;
     }
 
-    list.check();
-    return 0;
+    return res;
+}
+
+void LinkedList::clear() {
+    while (head != nullptr) {
+        Node *cur = head;
+        head = head->next;
+        delete cur;
+    }
+}
+
+void LinkedList::print() {
+    Node *cur = head;
+
+    while (cur != nullptr) {
+        cout << cur->data << " ";
+        cur = cur->next;
+    }
+
+    cout << endl;
+}
+
+int LinkedList::front() {
+    if (!this->empty())
+        return head->data;
+}
+
+int LinkedList::back() {
+    if (!this->empty()) {
+        Node *last = head;
+        while (last->next != nullptr)
+            last = last->next;
+        return last->data;
+    }
+}
+
+void LinkedList::push_front(int n) {
+    Node *node = new Node(n);
+    node->next = head;
+    head = node;
+}
+
+void LinkedList::push_back(int n) {
+    if (this->empty()) {
+        this->push_front(n);
+        return;
+    }
+
+    Node *node = new Node(n);
+    Node *last = head;
+
+    while (last->next != nullptr)
+        last = last->next;
+    last->next = node;
+}
+
+void LinkedList::pop_front() {
+    if (this->empty()) return;
+    Node *cur = head;
+    head = head->next;
+    delete cur;
+}
+
+void LinkedList::pop_back() {
+    if (this->empty()) return;
+    if (head->next == nullptr) {
+        delete head;
+        head = nullptr;
+        return;
+    }
+
+    Node *prev = nullptr;
+    Node *cur = head;
+    while (cur->next != nullptr) {
+        prev = cur;
+        cur = cur->next;
+    }
+
+    delete cur;
+    prev->next = nullptr;
+}
+
+void LinkedList::insert(int pos, int n) {
+    if (pos == 0) {
+        push_front(n);
+        return;
+    }
+
+    int index = 0;
+    Node *cur = head;
+    while (index != pos-1 && cur != nullptr) {
+        index++;
+        cur = cur->next;
+    }
+
+    if (cur == nullptr) return;
+    Node *node = new Node(n);
+    node->next = cur->next;
+    cur->next = node;
+}
+
+void LinkedList::erase(int pos) {
+    if (this->empty()) return;
+    if (pos == 0) {
+        pop_front();
+        return;
+    }
+
+    int index = 0;
+    Node *cur = head;
+    Node *prev = nullptr;
+    while (index != pos && cur != nullptr) {
+        prev = cur;
+        cur = cur->next;
+        index++;
+    }
+
+    if (cur == nullptr) return;
+    prev->next = cur->next;
+    delete cur;
+}
+
+void LinkedList::remove(int n) {
+    if (this->empty()) return;
+
+    while (head != nullptr && head->data == n)
+        pop_front();
+
+    Node *prev = nullptr;
+    Node *cur = head;
+    while (cur != nullptr) {
+        if (cur->data == n) {
+            Node *tmp = cur;
+            prev->next = cur->next;
+            cur = cur->next;
+            delete tmp;
+        } else {
+            prev = cur;
+            cur = cur->next;
+        }
+    }
+}
+
+void LinkedList::sort() {
+    if (this->empty() || head->next == nullptr) return;
+    for (Node *i = head; i != nullptr; i = i->next) 
+        for (Node *j = i->next; j != nullptr; j = j->next) 
+            if (i->data > j->data) 
+                swap(i->data, j->data);
+}
+
+void LinkedList::reverse() {
+    Node *prev = nullptr;
+    Node *cur = head;
+    Node *next = nullptr;
+
+    while (cur != nullptr) {
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+
+    head = prev;
+}
+
+int LinkedList::max_element() {
+    if (!this->empty()) {
+        int max_val = head->data;
+        Node *cur = head->next;
+
+        while (cur != nullptr) {
+            if (cur->data > max_val)
+                max_val = cur->data;
+            cur = cur->next;
+        }
+
+        return max_val;
+    }
+}
+
+int LinkedList::min_element() {
+    if (!this->empty()) {
+        int min_val = head->data;
+        Node *cur = head->next;
+
+        while (cur != nullptr) {
+            if (cur->data < min_val)
+                min_val = cur->data;
+            cur = cur->next;
+        }
+
+        return min_val;
+    }
+}
+
+int LinkedList::index_of(int n) {
+    int index = 0;
+    Node *cur = head;
+
+    while (cur != nullptr) {
+        if (cur->data == n)
+            return index;
+        cur = cur->next;
+        index++;
+    }
+
+    return -1;
+}
+
+void LinkedList::index_of_max() {
+    if (this->empty()) return;
+    int max_val = max_element();
+    int index = 0;
+    Node *cur = head;
+
+    while (cur != nullptr) {
+        if (cur->data == max_val) 
+            cout << index << " ";
+        cur = cur->next;
+        index++;
+    }
+    
+    cout << endl;
+}
+
+void LinkedList::index_of_min() {
+    if (this->empty()) return;
+    int min_val = min_element();
+    int index = 0;
+    Node *cur = head;
+
+    while (cur != nullptr) {
+        if (cur->data == min_val) 
+            cout << index << " ";
+        cur = cur->next;
+        index++;
+    }
+    
+    cout << endl;
+}
+
+void LinkedList::solve() {
+    LinkedList ans;
+    int index = 2;
+    
+    if (this->size() < 2) {
+        cout << -1;
+        return;
+    }
+    
+    Node *a = head;
+    Node *b = a->next;
+    Node *c = b->next;
+    
+    while (c != nullptr) {
+        if (b->data == a->data * c->data)  
+            ans.push_back(index);
+        a = a->next;
+        b = b->next;
+        c = c->next;
+        index++;
+    }
+    
+    if (ans.empty()) cout << -1;
+    else {
+        cout << ans.size() << endl;
+        ans.print();
+    }
 }
