@@ -1,75 +1,83 @@
-#include <iostream>
-#include <map>
+#include <bits/stdc++.h>
 using namespace std;
 
+template<typename T> 
 struct Stack {
-    char data[100];
+    T *elements;
     int index;
-
-    void init() {
-        this->index = -1;
-        return;
+    int capacity;
+    
+    ~Stack() {
+        delete[] elements;
     }
-
-    bool empty() {
-        return this->index == -1;
+    
+    void init(int n = 1000) {
+        elements = new T[n];
+        index = -1;
+        capacity = n;
     }
-
-    bool full() {
-        return this->index == 99;
+   
+    void push(T element) {
+        if (index < capacity - 1)
+            elements[++index] = element;
     }
-
-    void push(char c) {
-        if (!this->full()) 
-            this->data[++this->index] = c;
-        return;
+   
+    T top() {
+        return elements[index];
     }
-
-    char top() {
-        if (!this->empty())
-            return this->data[this->index];
-        return -1;
-    }
-
+   
     void pop() {
-        if (!this->empty())
-            --this->index;
-        return;
+        if (index > -1)
+            index--;
+    }
+    
+    bool empty() {
+        return index == -1;
+    }
+    
+    bool full() {
+        return index == capacity - 1;
     }
 };
 
+int priority(char c) {
+    if (c == '^') return 3;
+    if (c == '*' || c == '/') return 2;
+    if (c == '+' || c == '-') return 1;
+    return 0;
+}
+
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    char c;
+    Stack<char> s;
+    s.init();
     
-    map<char, int> mapChar = {{'*', 2}, {'/', 2}, {'+', 1}, {'-', 1}};
-    Stack st; st.init();
-    char tmp;
-
-    while (cin >> tmp) {
-        if (tmp >= '0' && tmp <= '9') cout << tmp << " ";
-
-        else if (st.empty() || tmp == '(') st.push(tmp);
-
-        else if (tmp == ')') {
-            while (st.top() != '(') {
-                cout << st.top() << " ";
-                st.pop();
+    while (cin >> c) {
+        if (isalnum(c)) cout << c << " ";
+        else if (c == '(') s.push(c);
+        
+        else if (c == ')') {
+            while (!s.empty() && s.top() != '(') {
+                cout << s.top() << " ";
+                s.pop();
             }
-            st.pop();
-
-        } else if (mapChar[tmp] <= mapChar[st.top()]) {
-            cout << st.top() << " ";
-            st.pop();
-            st.push(tmp);
-
-        } else st.push(tmp);
+            
+            if (!s.empty()) s.pop();
+        }
+        
+        else {
+            while (!s.empty() && priority(s.top()) >= priority(c)) {
+                cout << s.top() << " ";
+                s.pop();
+            }
+            s.push(c);
+        }
     }
-
-    while (!st.empty()) {
-        cout << st.top() << " ";
-        st.pop();
+    
+    while (!s.empty()) {
+        cout << s.top() << " ";
+        s.pop();
     }
-
+    
     return 0;
 }
