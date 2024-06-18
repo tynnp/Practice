@@ -1,70 +1,71 @@
-#include <iostream>
-#include <string>
-#include <sstream>
+#include <bits/stdc++.h>
 using namespace std;
 
+template<typename T> 
 struct Stack {
-    int data[100];
+    T *elements;
     int index;
-
-    void init() {
-        this->index = -1;
-        return;
+    int capacity;
+    
+    ~Stack() {
+        delete[] elements;
     }
-
-    bool empty() {
-        return this->index == -1;
+    
+    void init(int n = 1000) {
+        elements = new T[n];
+        index = -1;
+        capacity = n;
     }
-
-    bool full() {
-        return this->index == 99;
+   
+    void push(T element) {
+        if (index < capacity - 1)
+            elements[++index] = element;
     }
-
-    void push(int n) {
-        if (!this->full()) 
-            this->data[++this->index] = n;
-        return;
+   
+    T top() {
+        return elements[index];
     }
-
-    int top() {
-        if (!this->empty())
-            return this->data[this->index];
-        return -1;
-    }
-
+   
     void pop() {
-        if (!this->empty())
-            --this->index;
-        return;
+        if (index > -1)
+            index--;
+    }
+    
+    bool empty() {
+        return index == -1;
+    }
+    
+    bool full() {
+        return index == capacity - 1;
     }
 };
 
+bool toanTu(string str) {
+    char c = str[0];
+    return c == '+' || c == '-' || c == '*' || c == '/';
+}
+
+int tinh(int a, int b, char c) {
+    if (c == '+') return a + b;
+    if (c == '-') return a - b;
+    if (c == '*') return a * b;
+    if (c == '/') return a / b;
+} 
+
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    string str, tmp;
-    getline(cin, str);
-    stringstream ss(str);
-
-    Stack intStack; 
-    intStack.init();
-
-    while (ss >> tmp) {
-        if (tmp != "*" && tmp != "+" && tmp != "-") 
-            intStack.push(stoi(tmp));
+    string str;
+    Stack<int> s;
+    s.init();
+    
+    while (cin >> str) {
+        if (!toanTu(str)) s.push(stoi(str));
         else {
-            int second = intStack.top(); intStack.pop();
-            int first = intStack.top(); intStack.pop();
-            if (tmp == "+") 
-                intStack.push(first + second);
-            else if (tmp == "-")
-                intStack.push(first - second);
-            else if (tmp == "*")
-                intStack.push(first * second);
-        }
+            int b = s.top(); s.pop();
+            int a = s.top(); s.pop();
+            s.push(tinh(a, b, str[0]));
+        } 
     }
-
-    cout << intStack.top();
+    
+    cout << s.top();
     return 0;
 }
