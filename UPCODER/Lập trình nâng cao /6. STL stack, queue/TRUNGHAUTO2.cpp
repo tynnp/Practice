@@ -1,44 +1,56 @@
-#include <iostream>
-#include <stack>
-#include <map>
+#include <bits/stdc++.h>
 using namespace std;
 
-bool check(string str) {
-    return str != "*" && str != "/" && str != "+" && str != "-" && str != "(" && str != ")";
-}
+string inp;
+vector<string> hauTo;
+int priority(char);
+void trungToSangHauTo();
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    map<string, int> mapString = {{ "*", 2 }, { "/", 2 }, { "+", 1 }, { "-", 1 }};
-    stack<string> st;
-    string tmp;
-    
-    while (cin >> tmp) {
-        if (check(tmp)) cout << tmp << " ";
-
-        else if (st.empty() || tmp == "(") st.push(tmp);
-
-        else if (tmp == ")") {
-            while (st.top() != "(") {
-                cout << st.top() << " ";
-                st.pop();
-            }
-            st.pop();
-
-        } else if (mapString[tmp] <= mapString[st.top()]) {
-            cout << st.top() << " ";
-            st.pop();
-            st.push(tmp);
-
-        } else st.push(tmp);
-    }
-
-    while (!st.empty()) {
-        cout << st.top() << " ";
-        st.pop();
-    }
-
+    getline(cin, inp);
+    trungToSangHauTo();
+    for (string s : hauTo) 
+        cout << s << " ";
     return 0;
+}
+
+int priority(char c) {
+    if (c == '^') return 5;
+    if (c == '*') return 4;
+    if (c == '/') return 3;
+    if (c == '+') return 2;
+    if (c == '-') return 1;
+    return 0;
+}
+
+void trungToSangHauTo() {
+    string tmp;
+    stack<string> s;
+    stringstream ss(inp);
+    
+    while (ss >> tmp) {
+        if (isdigit(tmp[0])) hauTo.push_back(tmp);
+        else if (tmp[0] == '(') s.push(tmp);
+        
+        else if (tmp[0] == ')') {
+            while (!s.empty() && s.top() != "(") {
+                hauTo.push_back(s.top());
+                s.pop();
+            }
+            if (!s.empty()) s.pop();
+        }
+        
+        else {
+            while (!s.empty() && priority(s.top()[0]) > priority(tmp[0])) {
+                hauTo.push_back(s.top());
+                s.pop();
+            }
+            s.push(tmp);
+        }
+    }
+    
+    while (!s.empty()) {
+        hauTo.push_back(s.top());
+        s.pop();
+    }
 }
