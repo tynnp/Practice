@@ -3,8 +3,8 @@ using namespace std;
 
 #define endl '\n'
 #define int long long
-#define inp freopen("in.inp", "r", stdin)
-#define out freopen("ot.out", "w", stdout)
+#define inp freopen("file.inp", "r", stdin)
+#define out freopen("file.out", "w", stdout)
 #define TIME 1.0*clock()/CLOCKS_PER_SEC
 #define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
 
