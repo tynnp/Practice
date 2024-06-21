@@ -10,7 +10,12 @@ using namespace std;
 
 const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
-struct Node; 
+
+struct Node {
+    int data;
+    Node *pNext;
+    Node(int data): data(data), pNext(nullptr) {}
+};
 
 bool empty(Node *pHead);
 int front(Node *pHead);
@@ -46,12 +51,6 @@ signed main() {
 
     return 0;
 } 
-
-struct Node {
-    int data;
-    Node *pNext;
-    Node(int data): data(data), pNext(nullptr) {}
-};
 
 bool empty(Node *pHead) {
     return pHead == nullptr;
