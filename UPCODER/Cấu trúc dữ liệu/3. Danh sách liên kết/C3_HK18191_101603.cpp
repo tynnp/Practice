@@ -14,12 +14,12 @@ const int MOD = 1e9 + 7;
 struct Node {
     int data;
     Node *pNext;
-    Node(int data): data(data), pNext(nullptr) {}
+    Node(int value): data(value), pNext(nullptr) {}
 };
 
-void push_back(Node *&pHead, int data); 
+void push_back(Node *&pHead, int value); 
 void solve(Node *list, Node *num); 
-void delete_list(Node *&pHead); 
+void clear(Node *&pHead); 
 
 signed main() {
     fastIO;
@@ -34,13 +34,13 @@ signed main() {
         push_back(list, i);
 
     solve(list, num);
-    delete_list(list);
-    delete_list(num);
+    clear(list);
+    clear(num);
     return 0;
 } 
 
-void push_back(Node *&pHead, int data) {
-    Node *node = new Node(data); 
+void push_back(Node *&pHead, int value) {
+    Node *node = new Node(value); 
 
     if (pHead == nullptr) {
         pHead = node;
@@ -73,7 +73,7 @@ void solve(Node *list, Node *num) {
     }
 } 
 
-void delete_list(Node *&pHead) {
+void clear(Node *&pHead) {
     while (pHead != nullptr) {
         Node *tmp = pHead;
         pHead = pHead->pNext; 

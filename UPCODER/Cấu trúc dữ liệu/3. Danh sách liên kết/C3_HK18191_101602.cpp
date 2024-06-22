@@ -14,13 +14,14 @@ const int MOD = 1e9 + 7;
 struct Node {
     int data;
     Node *pNext;
-    Node(int data): data(data), pNext(nullptr) {}
+    Node(int value): data(value), pNext(nullptr) {}
 };
 
 bool empty(Node *pHead);
 int front(Node *pHead);
-void push_back(Node *&pHead, int data);
-void push_front(Node *&pHead, int data);
+void clear(Node *&pHead);
+void push_back(Node *&pHead, int value);
+void push_front(Node *&pHead, int value);
 void pop_front(Node *&pHead);
 
 signed main() {
@@ -49,6 +50,7 @@ signed main() {
         pop_front(pHead);
     }
 
+    clear(pHead);
     return 0;
 } 
 
@@ -60,8 +62,16 @@ int front(Node *pHead) {
     return pHead->data;
 }
 
-void push_back(Node *&pHead, int data) {
-    Node *node = new Node(data);
+void clear(Node *&pHead) {
+    while (pHead != nullptr) {
+        Node *tmp = pHead;
+        pHead = pHead->pNext;
+        delete tmp;
+    }
+}
+
+void push_back(Node *&pHead, int value) {
+    Node *node = new Node(value);
     Node *tmp = pHead;
 
     if (pHead == nullptr) {
@@ -74,8 +84,8 @@ void push_back(Node *&pHead, int data) {
     tmp->pNext = node;
 }
 
-void push_front(Node *&pHead, int data) {
-    Node *node = new Node(data);
+void push_front(Node *&pHead, int value) {
+    Node *node = new Node(value);
     node->pNext = pHead;
     pHead = node;
 }

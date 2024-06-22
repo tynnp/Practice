@@ -21,7 +21,7 @@ void push_back(Node *&pHead, int value);
 int max_element(Node *pvalue);
 int min_element(Node *pHead);
 void index_of(Node *pHead, int value);
-void delete_list(Node *&pHead);
+void clear(Node *&pHead);
 
 signed main() {
     fastIO;
@@ -43,7 +43,7 @@ signed main() {
     cout << MIN << endl;
     index_of(pHead, MIN);
 
-    delete_list(pHead);
+    clear(pHead);
     return 0;
 } 
 
@@ -96,7 +96,7 @@ void index_of(Node *pHead, int value) {
     cout << endl;
 }
 
-void delete_list(Node *&pHead) {
+void clear(Node *&pHead) {
     while (pHead != nullptr) {
         Node *tmp = pHead;
         pHead = pHead->pNext;
