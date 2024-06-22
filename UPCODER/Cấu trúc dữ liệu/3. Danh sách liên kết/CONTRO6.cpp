@@ -59,6 +59,7 @@ void clear(Node *&pHead) {
         pHead = pHead->pNext;
         delete tmp;
     }
+    pHead = nullptr;
 }
 
 void push_back(Node *&pHead, int value) {
