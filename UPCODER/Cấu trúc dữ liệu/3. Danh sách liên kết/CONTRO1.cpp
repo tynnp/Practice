@@ -14,11 +14,11 @@ const int MOD = 1e9 + 7;
 struct Node {
     int data;
     Node *pNext;
-    Node(int data): data(data), pNext(nullptr) {}
+    Node(int value): data(value), pNext(nullptr) {}
 };
 
-void push_back(Node *&pHead, int data);
-int max_element(Node *pHead);
+void push_back(Node *&pHead, int value);
+int max_element(Node *pvalue);
 int min_element(Node *pHead);
 void index_of(Node *pHead, int value);
 void delete_list(Node *&pHead);
@@ -47,8 +47,8 @@ signed main() {
     return 0;
 } 
 
-void push_back(Node *&pHead, int data) {
-    Node *node = new Node(data);
+void push_back(Node *&pHead, int value) {
+    Node *node = new Node(value);
 
     if (pHead == nullptr) {
         pHead = node;
