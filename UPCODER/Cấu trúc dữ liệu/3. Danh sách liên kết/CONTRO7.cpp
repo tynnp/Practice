@@ -1,370 +1,121 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-ifstream fin("CONTRO.inp");
-ofstream fout("CONTRO.out");
+#define endl '\n'
+#define int long long
+#define inp freopen("CONTRO.inp", "r", stdin)
+#define out freopen("CONTRO.out", "w", stdout)
+#define TIME 1.0*clock()/CLOCKS_PER_SEC
+#define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
 
-#define cin fin
-#define cout fout
+const int MAXN = 1e6 + 5;
+const int MOD = 1e9 + 7;
 
-struct LinkedList {
-    struct Node {
-        int data;
-        Node *next;
-        Node(int);
-    };
-
-    Node *head;
-
-    LinkedList();
-    ~LinkedList();
-    bool empty();
-    int size();
-    void clear();
-    void print();
-    int front();
-    int back();
-    void push_front(int);
-    void push_back(int);
-    void pop_front();
-    void pop_back();
-    void insert(int, int);
-    void erase(int);
-    void remove(int);
-    void sort();
-    void reverse();
-    int max_element();
-    int min_element();
-    int index_of(int);
-    void index_of_max();  
-    void index_of_min();  
-    int distance_min();
-    void solve();
+struct Node {
+    int data;
+    Node *pNext;
+    Node(int value): data(value), pNext(nullptr) {}
 };
 
-int main() {
+int size(Node *pHead);
+void clear(Node *&pHead);
+void print(Node *pHead);
+void push_back(Node *&pHead, int value);
+int distance_min(Node *pHead);
+void solve(Node *pHead);
+
+signed main() {
+    fastIO; inp; out;
     int tmp, n;
-    LinkedList list;
-    
+    Node *pHead = nullptr;
     cin >> n;
+
     while (n--) {
         cin >> tmp;
-        list.push_back(tmp);
+        push_back(pHead, tmp);
     }
-    
-    list.solve();
-    fin.close();
-    fout.close();
+
+    solve(pHead);
+    clear(pHead);
     return 0;
-}
+} 
 
-LinkedList::Node::Node(int n) {
-    data = n;
-    next = nullptr;
-}
-
-LinkedList::LinkedList() {
-    head = nullptr;
-}
-
-LinkedList::~LinkedList() {
-    clear();
-}
-
-bool LinkedList::empty() {
-    return head == nullptr;
-}
-
-int LinkedList::size() {
+int size(Node *pHead) {
     int res = 0;
-    Node *tmp = head;
-
-    while (tmp != nullptr) {
+    while (pHead != nullptr) {
         res += 1;
-        tmp = tmp->next;
+        pHead = pHead->pNext;
     }
-
     return res;
 }
 
-void LinkedList::clear() {
-    while (head != nullptr) {
-        Node *cur = head;
-        head = head->next;
-        delete cur;
+void clear(Node *&pHead) {
+    while (pHead != nullptr) {
+        Node *tmp = pHead;
+        pHead = pHead->pNext;
+        delete tmp;
     }
 }
 
-void LinkedList::print() {
-    Node *cur = head;
-
-    while (cur != nullptr) {
-        int minVal = min(cur->data, cur->next->data);
-        int maxVal = max(cur->data, cur->next->data);
+void print(Node *pHead) {
+    while (pHead != nullptr) {
+        int minVal = min(pHead->data, pHead->pNext->data);
+        int maxVal = max(pHead->data, pHead->pNext->data);
         cout << "(" << minVal << ", " << maxVal << ") ";
-        cur = cur->next->next;
-    }
-
-    cout << endl;
-}
-
-int LinkedList::front() {
-    if (!this->empty())
-        return head->data;
-}
-
-int LinkedList::back() {
-    if (!this->empty()) {
-        Node *last = head;
-        while (last->next != nullptr)
-            last = last->next;
-        return last->data;
+        pHead = pHead->pNext->pNext;
     }
 }
 
-void LinkedList::push_front(int n) {
-    Node *node = new Node(n);
-    node->next = head;
-    head = node;
-}
+void push_back(Node *&pHead, int value) {
+    Node *node = new Node(value);
 
-void LinkedList::push_back(int n) {
-    if (this->empty()) {
-        this->push_front(n);
+    if (pHead == nullptr) {
+        pHead = node;
         return;
-    }
+    } 
 
-    Node *node = new Node(n);
-    Node *last = head;
-
-    while (last->next != nullptr)
-        last = last->next;
-    last->next = node;
+    Node *tmp = pHead;
+    while (tmp->pNext != nullptr)
+        tmp = tmp->pNext;
+    tmp->pNext = node;
 }
 
-void LinkedList::pop_front() {
-    if (this->empty()) return;
-    Node *cur = head;
-    head = head->next;
-    delete cur;
-}
+int distance_min(Node *pHead) {
+    if (size(pHead) < 2) return -1;
+    int res = abs(pHead->data - pHead->pNext->data);
+    Node *prev = pHead;
 
-void LinkedList::pop_back() {
-    if (this->empty()) return;
-    if (head->next == nullptr) {
-        delete head;
-        head = nullptr;
-        return;
-    }
-
-    Node *prev = nullptr;
-    Node *cur = head;
-    while (cur->next != nullptr) {
-        prev = cur;
-        cur = cur->next;
-    }
-
-    delete cur;
-    prev->next = nullptr;
-}
-
-void LinkedList::insert(int pos, int n) {
-    if (pos == 0) {
-        push_front(n);
-        return;
-    }
-
-    int index = 0;
-    Node *cur = head;
-    while (index != pos-1 && cur != nullptr) {
-        index++;
-        cur = cur->next;
-    }
-
-    if (cur == nullptr) return;
-    Node *node = new Node(n);
-    node->next = cur->next;
-    cur->next = node;
-}
-
-void LinkedList::erase(int pos) {
-    if (this->empty()) return;
-    if (pos == 0) {
-        pop_front();
-        return;
-    }
-
-    int index = 0;
-    Node *cur = head;
-    Node *prev = nullptr;
-    while (index != pos && cur != nullptr) {
-        prev = cur;
-        cur = cur->next;
-        index++;
-    }
-
-    if (cur == nullptr) return;
-    prev->next = cur->next;
-    delete cur;
-}
-
-void LinkedList::remove(int n) {
-    if (this->empty()) return;
-
-    while (head != nullptr && head->data == n)
-        pop_front();
-
-    Node *prev = nullptr;
-    Node *cur = head;
-    while (cur != nullptr) {
-        if (cur->data == n) {
-            Node *tmp = cur;
-            prev->next = cur->next;
-            cur = cur->next;
-            delete tmp;
-        } else {
-            prev = cur;
-            cur = cur->next;
-        }
-    }
-}
-
-void LinkedList::sort() {
-    if (this->empty() || head->next == nullptr) return;
-    for (Node *i = head; i != nullptr; i = i->next) 
-        for (Node *j = i->next; j != nullptr; j = j->next) 
-            if (i->data > j->data) 
-                swap(i->data, j->data);
-}
-
-void LinkedList::reverse() {
-    Node *prev = nullptr;
-    Node *cur = head;
-    Node *next = nullptr;
-
-    while (cur != nullptr) {
-        next = cur->next;
-        cur->next = prev;
-        prev = cur;
-        cur = next;
-    }
-
-    head = prev;
-}
-
-int LinkedList::max_element() {
-    if (!this->empty()) {
-        int max_val = head->data;
-        Node *cur = head->next;
-
-        while (cur != nullptr) {
-            if (cur->data > max_val)
-                max_val = cur->data;
-            cur = cur->next;
-        }
-
-        return max_val;
-    }
-}
-
-int LinkedList::min_element() {
-    if (!this->empty()) {
-        int min_val = head->data;
-        Node *cur = head->next;
-
-        while (cur != nullptr) {
-            if (cur->data < min_val)
-                min_val = cur->data;
-            cur = cur->next;
-        }
-
-        return min_val;
-    }
-}
-
-int LinkedList::index_of(int n) {
-    int index = 0;
-    Node *cur = head;
-
-    while (cur != nullptr) {
-        if (cur->data == n)
-            return index;
-        cur = cur->next;
-        index++;
-    }
-
-    return -1;
-}
-
-void LinkedList::index_of_max() {
-    if (this->empty()) return;
-    int max_val = max_element();
-    int index = 0;
-    Node *cur = head;
-
-    while (cur != nullptr) {
-        if (cur->data == max_val) 
-            cout << index << " ";
-        cur = cur->next;
-        index++;
-    }
-    
-    cout << endl;
-}
-
-void LinkedList::index_of_min() {
-    if (this->empty()) return;
-    int min_val = min_element();
-    int index = 0;
-    Node *cur = head;
-
-    while (cur != nullptr) {
-        if (cur->data == min_val) 
-            cout << index << " ";
-        cur = cur->next;
-        index++;
-    }
-    
-    cout << endl;
-}
-
-int LinkedList::distance_min() {
-    if (this->size() < 2) return -1;
-    
-    int res = abs(head->data - head->next->data);
-    Node *prev = head;
-    
     while (prev != nullptr) {
-        Node *cur = prev->next;
+        Node *cur = prev->pNext;
         while (cur != nullptr) {
             int distance = abs(cur->data - prev->data);
-            if (distance < res)
-                res = distance;
-            cur = cur->next;
+            if (distance < res) res = distance;
+            cur = cur->pNext;
         }
-        prev = prev->next;
+        prev = prev->pNext;
     }
-    
+
     return res;
 }
 
-void LinkedList::solve() {
-    LinkedList ans;
-    int distance = this->distance_min();
+void solve(Node *pHead) {
+    Node *ans = nullptr;
+    int distance = distance_min(pHead);
     
-    Node *prev = head;
+    Node *prev = pHead;
     while (prev != nullptr) {
-        Node *cur = prev->next;
+
+        Node *cur = prev->pNext;
         while (cur != nullptr) {
             if (abs(cur->data - prev->data) == distance) {
-                ans.push_back(prev->data);
-                ans.push_back(cur->data);
+                push_back(ans, prev->data);
+                push_back(ans, cur->data);
             }
-            cur = cur->next;
+            cur = cur->pNext;
         }
-        prev = prev->next;
+        prev = prev->pNext;
     }
-    
-    cout << ans.size()/2 << " " << distance << endl;
-    ans.print();
+
+    cout << size(ans)/2 << " " << distance << endl;
+    print(ans);
 }
