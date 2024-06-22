@@ -60,8 +60,6 @@ void clear(Node *&pHead, Node *&pTail) {
         pHead = pHead->pNext;
         delete tmp;
     }
-
-    pHead = nullptr;
     pTail = nullptr;
 }
 

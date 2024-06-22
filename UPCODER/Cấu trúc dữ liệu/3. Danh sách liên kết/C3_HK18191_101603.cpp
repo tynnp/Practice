@@ -79,5 +79,4 @@ void clear(Node *&pHead) {
         pHead = pHead->pNext; 
         delete tmp;
     }
-    pHead = nullptr;
 }
