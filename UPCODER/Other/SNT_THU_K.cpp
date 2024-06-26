@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define endl '\n'
+#define int long long
+#define inp freopen("file.inp", "r", stdin)
+#define out freopen("file.out", "w", stdout)
+#define TIME 1.0*clock()/CLOCKS_PER_SEC
+#define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
+
+const int MAXN = 2e6 + 5;
+const int MOD = 1e9 + 7;
+
+signed main() {
+    fastIO;
+    vector<bool> prime(MAXN, true);
+    vector<int> res;
+    
+    prime[0] = prime[1] = false;
+    for (int i = 2; i*i <= MAXN; i++)
+        if (prime[i])
+            for (int j = i*i; j <= MAXN; j += i)
+                prime[j] = false;
+                
+    for (int i = 2; i <= MAXN; i++)
+        if (prime[i]) res.push_back(i);
+    
+    int n;
+    cin >> n;
+    cout << res[n - 1];
+    return 0;
+}
