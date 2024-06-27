@@ -15,6 +15,6 @@ signed main() {
     fastIO;
     int n;
     cin >> n;
-    cout << (n == 1 ? "YES" : "NO");
+    cout << (n == 11 ? "YES" : "NO");
     return 0;
 }
