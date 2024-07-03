@@ -14,4 +14,4 @@ int main() {
         if (nguyenTo(i)) cnt++;
     cout << cnt;
     return 0;
-}
+} 
