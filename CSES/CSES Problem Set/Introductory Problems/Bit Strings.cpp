@@ -11,25 +11,14 @@ using namespace std;
 const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
-int mul(int a, int b, int m) {
-    int res = 0;
-
-    while (b) {
-        if (b & 1) res = (res + a) % m;
-        a = (a << 1) % m;
-        b /= 2;
-    }
-
-    return res;
-} 
-
 int pow(int a, int b, int m) {
     int res = 1;
+    a = a % m;
 
     while (b) {
-        if (b & 1) res = mul(res, a, m);
-        a = mul(a, a, m);
-        b /= 2;
+        if (b & 1) res = (a * res) % m;
+        a = (a * a) % m;
+        b >>= 1;
     }
 
     return res;
