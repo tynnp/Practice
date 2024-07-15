@@ -1,8 +1,8 @@
 ## 📑 Thông tin liên quan
 - Số lượng file bài giải: 1368.
 - Chủ sở hữu: Nguyễn Ngọc Phú Tỷ (tynnp).
-- Ngôn ngữ lập trình chính: C/C++, Python.
-- Phần mềm sử dụng: Visual Studio Code, Dev-C++.
+- Ngôn ngữ lập trình sử dụng chính: C/C++, Python.
+- Phần mềm sử dụng chính: Visual Studio Code, Dev-C++.
 - Thiết bị sử dụng: 
     + 9/2023 - 7/2024: Laptop ASUS TP550LD (2014), Windows 10, Core i3, Ram 4GB, HDD 500GB.
     + 8/2024 - Hiện tại: ~ 
