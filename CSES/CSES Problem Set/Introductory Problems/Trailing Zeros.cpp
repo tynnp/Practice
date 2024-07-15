@@ -11,16 +11,17 @@ using namespace std;
 const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
+int n, ans;
+
 signed main() {
     fastIO;
-    int n, ans = 0, k = 5;
     cin >> n;
 
-    while (k <= n) {
-        ans += n/k;
-        k *= 5;
+    while (n) {
+        n /= 5;
+        ans += n;
     }
-    
+
     cout << ans;
     return 0;
 }
