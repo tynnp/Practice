@@ -3,7 +3,8 @@
 - Chủ sở hữu: Nguyễn Ngọc Phú Tỷ (tynnp).
 - Ngôn ngữ lập trình sử dụng: C/C++, Python, Java, Pascal, C#.
 - Phần mềm sử dụng: Visual Studio Code, Dev-C++, Eclipse IDE, Free Pascal IDE.
-- Thiết bị sử dụng: Laptop ASUS TP550LD (2014), Windows 10, Core i3, Ram 4GB, HDD 500GB.
+- Thiết bị sử dụng: 
+    + 9/2023 - 7/2024: Laptop ASUS TP550LD (2014), Windows 10, Core i3, Ram 4GB, HDD 500GB.
 
 ## 🖥️ Trang chấm bài
 | STT | Tên trang | Thư mục | Link trang web |
