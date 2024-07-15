@@ -11,17 +11,20 @@ using namespace std;
 const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
-int n, ans;
+int t, a, b;
+
+void solve() {
+    cin >> a >> b;
+
+    if ((a + b) % 3 == 0 && min(a, b)*2 >= max(a, b)) 
+        cout << "YES\n";
+    else 
+        cout << "NO\n";
+}
 
 signed main() {
     fastIO;
-    cin >> n;
-
-    while (n) {
-        n /= 5;
-        ans += n;
-    }
-
-    cout << ans;
+    cin >> t;
+    while (t--) solve();
     return 0;
 }
