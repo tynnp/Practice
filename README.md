@@ -5,7 +5,6 @@
 - Phần mềm sử dụng chính: Visual Studio Code, Dev-C++.
 - Thiết bị sử dụng: 
     + 9/2023 - 7/2024: Laptop ASUS TP550LD (2014), Windows 10, Core i3, Ram 4GB, HDD 500GB.
-    + 8/2024 - Hiện tại: ~ 
 
 ## 🖥️ Trang chấm bài
 | STT | Tên trang | Thư mục | Link trang web |
