@@ -12,38 +12,41 @@ const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
 int n, sum;
-vector<int> a, b;
 
 void solve() {
     cin >> n;
-    sum = n*(n + 1)/2;
-
+    sum = n*(n+1) >> 1;
+    
     if (sum & 1) {
         cout << "NO";
         return;
-    } 
-
-    cout << "YES\n";
-    sum /= 2;
-
+    }
+    
+    cout << "YES" << endl;
+    sum >>= 1;
+    
+    vector<int> a, b;
     for (int i = n; i >= 1; i--) {
-        if (sum >= i) {
+        if (i <= sum) {
             a.push_back(i);
             sum -= i;
-        } else b.push_back(i);
-        
+        } else 
+            b.push_back(i);
     }
-
+    
     cout << a.size() << endl;
-    for (int x : a) cout << x << " ";
+    for (int x : a) 
+        cout << x << " ";
     cout << endl;
-
-    cout << b.size() << endl;
-    for (int x : b) cout << x << " ";
+    
+    cout << b.size()  << endl;
+    for (int x : b) 
+        cout << x << " ";
 }
 
 signed main() {
-    fastIO;
-    solve();
+    int t = 1;
+    while (t--)
+        solve();
     return 0;
 }
