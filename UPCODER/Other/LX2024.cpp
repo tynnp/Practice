@@ -11,34 +11,56 @@ using namespace std;
 const int MAXN = 2e5 + 5;
 const int MOD = 1e9 + 7;
 
+struct Pair {
+    int first;
+    int second;
+};
+
 int r, m, n;
-vector<pair<int, int>> a, b;
+Pair a[MAXN], b[MAXN];
+int sumA[MAXN], sumB[MAXN];
+
+int search(Pair arr[], int n, int x) {
+    int left = 0, right = n;
+
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid].first < x) 
+            left = mid + 1;
+        else 
+            right = mid;
+    }
+
+    return left;
+}
 
 signed main() {
     fastIO;
     cin >> r >> m >> n;
-    
-    a.resize(m);
-    b.resize(n);
-    
+
     for (int i = 0; i < m; i++) 
         cin >> a[i].first;
   
     for (int i = 0; i < m; i++) 
         cin >> a[i].second;
     
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) 
         cin >> b[i].first;
     
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) 
         cin >> b[i].second;
         
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    
-    vector<int> sumA(m + 1, 0);
-    vector<int> sumB(n + 1, 0);
-    
+    sort(a, a + m, [] (const Pair &x, const Pair &y) {
+        return x.first < y.first;
+    });
+
+    sort(b, b + n, [] (const Pair &x, const Pair &y) {
+        return x.first < y.first;
+    });
+
+    sumA[0] = 0;
+    sumB[0] = 0;
+
     for (int i = 0; i < m; i++) 
         sumA[i + 1] = sumA[i] + a[i].second;
     
@@ -46,13 +68,11 @@ signed main() {
         sumB[i + 1] = sumB[i] + b[i].second;
     
     int ans = 0;
-    for (int x = 0; x <= r; x++) {
-        auto itr = lower_bound(a.begin(), a.end(), make_pair(x, LLONG_MIN));
-        int cntA = distance(a.begin(), itr);
+    for (int i = 0; i < m; i++) {
+        int cntA = search(a, m, a[i].first);
         int sumR = sumA[m] - sumA[cntA];
         
-        auto itl = lower_bound(b.begin(), b.end(), make_pair(r - x, LLONG_MIN));
-        int cntB = distance(b.begin(), itl);
+        int cntB = search(b, n, r - a[i].first);
         int sumL = sumB[n] - sumB[cntB];
         
         ans = max(ans, sumR + sumL);
