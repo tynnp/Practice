@@ -8,17 +8,17 @@ using namespace std;
 #define TIME 1.0*clock()/CLOCKS_PER_SEC
 #define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
 
-const int MAXN = 1e6 + 5;
+const int MAXN = 2e5 + 5;
 const int MOD = 1e9 + 7;
 
 int n, m;
-vector<int> v;
+int a[MAXN];
 
 int check(int mid) {
     int sum = 0;
     
     for (int i = 0; i < n; i++) {
-        sum += mid / v[i];
+        sum += mid / a[i];
         if (sum >= m)
             break;
     }
@@ -26,32 +26,26 @@ int check(int mid) {
     return sum;
 }
 
-int search(int l, int r) {
-    if (l > r) 
-        return l;
-    
-    int mid = (l + r) / 2;
-    if (check(mid) >= m)
-        return search(l, mid-1);
-    else 
-        return search(mid+1, r);
-}
-
 void solve() {
-    cin >> n >> m;
+    int left = 0, right = LLONG_MAX;
     
-    for (int i = 0; i < n; i++) {
-        int tmp;
-        cin >> tmp;
-        v.push_back(tmp);
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        
+        if (check(mid) >= m)
+            right = mid - 1;
+        else 
+            left = mid + 1;
     }
     
-    sort(v.begin(), v.end());
-    cout << search(0, 1e18);
+    cout << left;
 }
 
 signed main() {
     fastIO;
+    cin >> n >> m;
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
     solve();
     return 0;
 }
