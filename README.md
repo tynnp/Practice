@@ -1,5 +1,5 @@
 ## 📑 Thông tin liên quan
-- Số lượng file bài giải: 1518.
+- Số lượng file bài giải: 1519.
 - Chủ sở hữu: Nguyễn Ngọc Phú Tỷ (tynnp).
 - Ngôn ngữ lập trình sử dụng chính: C/C++, Python.
 - Phần mềm sử dụng chính: Visual Studio Code, Dev-C++.
