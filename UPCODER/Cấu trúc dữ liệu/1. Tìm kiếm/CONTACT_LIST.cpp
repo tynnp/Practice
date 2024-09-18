@@ -46,3 +46,121 @@ int main() {
     cout << yc2 << yc3 << yc4;
     return 0;
 }
+
+// #include <iostream>
+// using namespace std;
+
+// class Sim {
+// private:
+//     string _strSoDienThoai;
+//     int _iGoiDen;
+//     int _iGoiDi;
+
+// public:
+//     Sim();
+//     Sim(string soDienThoai, int goiDen, int goiDi);
+//     Sim(const Sim &sim);
+//     ~Sim();
+
+//     string getSoDienThoai();
+//     void setSoDienThoai(string soDienThoai);
+//     int getGoiDen();
+//     void setGoiDen(int goiDen);
+//     int getGoiDi();
+//     void setGoiDi(int goiDi);
+
+//     friend istream &operator >> (istream &in, Sim &sim);
+//     friend ostream &operator << (ostream &out, const Sim &sim);
+// };
+
+// Sim timKiem(Sim danhSach[], int soLuong, string soDienThoai);
+// Sim cuocGoiDenNhieuNhat(Sim danhSach[], int soLuong);
+// Sim cuocGoiDiItNhat(Sim danhSach[], int soLuong);
+
+// int main() {
+//     int soLuong;
+//     string soDienThoai;
+//     cin >> soLuong >> soDienThoai;
+
+//     Sim danhSach[100];
+//     for (int i = 0; i < soLuong; i++)
+//         cin >> danhSach[i];
+
+//     cout << timKiem(danhSach, soLuong, soDienThoai) << endl;
+//     cout << cuocGoiDenNhieuNhat(danhSach, soLuong) << endl;
+//     cout << cuocGoiDiItNhat(danhSach, soLuong);
+//     return 0;
+// }
+
+// Sim::Sim() {}
+
+// Sim::Sim(string soDienThoai, int goiDen, int goiDi) {
+//     _strSoDienThoai = soDienThoai;
+//     _iGoiDen = goiDen;
+//     _iGoiDi = goiDi;
+// }
+
+// Sim::Sim(const Sim &sim) {
+//     _strSoDienThoai = sim._strSoDienThoai;
+//     _iGoiDen = sim._iGoiDen;
+//     _iGoiDi = sim._iGoiDi;
+// }
+
+// Sim::~Sim() {}
+
+
+// string Sim::getSoDienThoai() {
+//     return _strSoDienThoai;
+// }
+
+// void Sim::setSoDienThoai(string soDienThoai) {
+//     _strSoDienThoai = soDienThoai;
+// }
+
+// int Sim::getGoiDen() {
+//     return _iGoiDen;
+// }
+
+// void Sim::setGoiDen(int goiDen) {
+//     _iGoiDen = goiDen;
+// }   
+
+// int Sim::getGoiDi() {
+//     return _iGoiDi;
+// }
+
+// void Sim::setGoiDi(int goiDi) {
+//     _iGoiDi = goiDi;
+// }
+
+// istream &operator >> (istream &in, Sim &sim) {
+//     in >> sim._strSoDienThoai >> sim._iGoiDen >> sim._iGoiDi;
+//     return in;
+// }
+
+// ostream &operator << (ostream &out, const Sim &sim) {
+//     out << '{' << sim._strSoDienThoai << ',' << sim._iGoiDen << ',' << sim._iGoiDi << '}';
+//     return out;
+// }
+
+// Sim timKiem(Sim danhSach[], int soLuong, string soDienThoai) {
+//     for (int i = 0; i < soLuong; i++)
+//         if (danhSach[i].getSoDienThoai() == soDienThoai)
+//             return danhSach[i];
+// }
+
+// Sim cuocGoiDenNhieuNhat(Sim danhSach[], int soLuong) {
+//     Sim ketQua = danhSach[0];
+//     for (int i = 1; i < soLuong; i++)
+//         if (ketQua.getGoiDen() < danhSach[i].getGoiDen())
+//             ketQua = danhSach[i];
+//     return ketQua;
+// }
+
+// Sim cuocGoiDiItNhat(Sim danhSach[], int soLuong) {
+//     Sim ketQua = danhSach[0];
+//     for (int i = 1; i < soLuong; i++)
+//         if (ketQua.getGoiDi() > danhSach[i].getGoiDi())
+//             ketQua = danhSach[i];
+//     return ketQua;
+// }
