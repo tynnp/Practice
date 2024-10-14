@@ -7,7 +7,7 @@
 ## 🖥️ Trang chấm bài
 | STT | Tên trang | Thư mục | Link trang web |
 | --- | --------- | ------- | -------------- |
-| 1 | UPCODER - Trường Đại học Thành phố Hồ Chí Minh | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/UPCODER) | [Truy cập tại đây](http://upcoder.xyz/) |
+| 1 | UPCODER - Trường Đại học Sư phạm Thành phố Hồ Chí Minh | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/UPCODER) | [Truy cập tại đây](http://upcoder.xyz/) |
 | 2 | TDCODER - Trường Cao đẳng Công nghệ Thủ Đức | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/TDCODER) | [Truy cập tại đây](http://tdc.upcoder.xyz/) |
 | 3 | TKNCODER - Trường Trung học phổ thông Trần Khai Nguyên | | [Truy cập tại đây](http://tkncoder.net/) |
 | 4 | IUHCODER - Trường Đại học Công nghiệp Thành phố Hồ Chí Minh | [Truy cập tại đây](https://github.com/tynnp/practice/tree/main/IUHCODER) | [Truy cập tại đây](https://oj.iuhcoder.com/) |
