@@ -15,7 +15,6 @@ using namespace __gnu_pbds;
 
 const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
-const int INF = 1e9;
 
 signed main() {
     fastIO;
