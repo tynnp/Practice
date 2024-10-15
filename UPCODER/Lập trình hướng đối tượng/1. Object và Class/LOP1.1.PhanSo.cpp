@@ -14,6 +14,7 @@ int main() {
     PhanSo p;
     p.nhap();
     p.xuat();
+    return 0;
 }
 
 void PhanSo::nhap() {
