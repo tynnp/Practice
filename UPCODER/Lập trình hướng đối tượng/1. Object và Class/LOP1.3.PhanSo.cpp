@@ -1,150 +1,140 @@
 #include <iostream>
 #include <algorithm>
-#include <cmath>
-#define endl '\n'
 using namespace std;
 
 class PhanSo {
 private:
-    int tu, mau;
-public: 
-    PhanSo() {
-        this->tu = 0;
-        this->mau = 0;
-    }
+    int tuSo, mauSo;
 
-    PhanSo(int tu, int mau) {
-        this->tu = tu;
-        this->mau = mau;
-    }
+public:
+    void nhap();                    // thao tác nhập
+    void xuat();                    // thao tác xuất
 
-    PhanSo(int n) {
-        this->tu = n;
-        this->mau = 1;
-    }
+    int getTuSo();                  // lấy tử số
+    int getMauSo();                 // lấy mẫu số
 
-    PhanSo(const PhanSo &p) {
-        this->tu = p.tu;
-        this->mau = p.mau;
-    }
+    void setTuSo(int tuSo);         // gán giá trị cho tử số
+    void setMauSo(int mauSo);       // gán giá trị cho mẫu số
 
-    ~PhanSo() {}
+    PhanSo nghichDao();             // nghịch đảo
+    PhanSo rutGon();                // rút gọn
 
-    friend istream& operator >> (istream &in, PhanSo &p) {
-        in >> p.tu >> p.mau;
-        if (p.mau < 0) 
-            p.tu = -p.tu, 
-            p.mau = -p.mau;
-        return in;
-    }
+    PhanSo cong(PhanSo other);      // cộng với phân số khác
+    PhanSo tru(PhanSo other);       // trừ với phân số khác
+    PhanSo nhan(PhanSo other);      // nhân với phân số khác
+    PhanSo chia(PhanSo other);      // chia với phân số khác
 
-    PhanSo nghichDao() {
-        PhanSo res;
-        res.tu = this->mau;
-        res.mau = this->tu;
-        return res;
-    }
-
-    void rutGon() {
-        int ucln = __gcd(this->tu, this->mau);
-        this->tu /= ucln;
-        this->mau /= ucln;
-        return;
-    }
-
-    void xuat() {
-        cout << this->tu << "/" << this->mau;
-        return;
-    }
-
-    friend ostream& operator << (ostream &out, PhanSo p) {
-        p.rutGon();
-        out << p.tu << "/" << p.mau;
-        return out;
-    }
-
-    int getTu() {
-        this->rutGon();
-        return this->tu;
-    }
-
-    int getMau() {
-        this->rutGon();
-        return this->mau;
-    }
-
-    void setTu(int tu) {
-        this->tu = tu;
-        return;
-    }
-
-    void setMau(int mau) {
-        this->mau = mau;
-        if (this->mau < 0) 
-            this->mau = -this->mau,
-            this->tu = -this->tu;
-        return;
-    }
-
-    PhanSo operator + (PhanSo other) {
-        PhanSo res;
-        res.tu = this->tu*other.mau + this->mau*other.tu;
-        res.mau = this->mau * other.mau;
-        return res;
-    }
-
-    PhanSo operator - (PhanSo other) {
-        PhanSo res;
-        res.tu = this->tu*other.mau - this->mau*other.tu;
-        res.mau = this->mau * other.mau;
-        return res;
-    }
-
-    PhanSo operator * (PhanSo other) {
-        PhanSo res;
-        res.tu = this->tu * other.tu;
-        res.mau = this->mau * other.mau;
-        return res;
-    }
-
-    PhanSo operator / (PhanSo other) {
-        PhanSo res;
-        res.tu = this->tu * other.mau;
-        res.mau = this->mau * other.tu;
-        return res;
-    }
-
-    bool operator < (PhanSo other) {
-        return (double) this->tu/this->mau < (double) other.tu/other.mau;
-    }
-
-    bool operator > (PhanSo other) {
-        return (double) this->tu/this->mau > (double) other.tu/other.mau;
-    }
-
-    bool operator == (PhanSo other) {
-        return this->tu*other.mau == this->mau*other.tu;
-    }
-
-    bool operator <= (PhanSo other) {
-        return *this < other || *this == other;
-    }
-
-    bool operator >= (PhanSo other) {
-        return *this > other || *this == other;
-    }
+    PhanSo();                       // khởi tạo mặc định
+    PhanSo(int tuSo, int mauSo);    // khởi tạo với tử và mẫu
+    PhanSo(int soNguyen);           // khởi tạo từ giá trị nguyên cho trước
+    PhanSo(const PhanSo &other);    // khởi tạo từ một phân số khác
+    ~PhanSo();                      // hủy
 };
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    int a, b;
+    cin >> a >> b;
     
-    PhanSo f1; cin >> f1;
-    f1.xuat(); cout << endl;
-    cout << f1.getTu() << endl;
-    cout << f1.getMau() << endl;
-    cout << f1.nghichDao() << endl;
-    f1.rutGon(); cout << f1 << endl;
-    cout << f1 + f1.nghichDao();
+    PhanSo p(a, b);
+    p.xuat();
+    
+    cout << p.getTuSo() << endl;
+    cout << p.getMauSo() << endl;
+    
+    (p.nghichDao()).xuat();
+    (p.rutGon()).xuat();
+    
+    (p.cong(p.nghichDao())).xuat();
     return 0;
+}
+
+void PhanSo::nhap() {
+    cin >> tuSo >> mauSo;
+}
+
+void PhanSo::xuat() {
+    cout << tuSo << '/' << mauSo << endl;
+}
+
+int PhanSo::getTuSo() {
+    return tuSo;
+}
+
+int PhanSo::getMauSo() {
+    return mauSo;
+}
+
+void PhanSo::setTuSo(int tuSo) {
+    this->tuSo = tuSo;
+}
+
+void PhanSo::setMauSo(int mauSo) {
+    this->mauSo = mauSo;
+}
+
+PhanSo PhanSo::nghichDao() {
+    PhanSo res; 
+    res.tuSo = mauSo;
+    res.mauSo = tuSo;
+    return res;
+}
+
+PhanSo PhanSo::rutGon() {
+    int ucln = __gcd(tuSo, mauSo);
+    PhanSo res;
+    res.tuSo = tuSo / ucln;
+    res.mauSo = mauSo / ucln;
+    return res;
+}
+
+PhanSo PhanSo::cong(PhanSo other) {
+    PhanSo res;
+    res.tuSo = tuSo*other.mauSo + mauSo*other.tuSo;
+    res.mauSo = mauSo * other.mauSo;
+    return res.rutGon();
+}
+
+PhanSo PhanSo::tru(PhanSo other) {
+    PhanSo res;
+    res.tuSo = tuSo*other.mauSo - mauSo*other.tuSo;
+    res.mauSo = mauSo * other.mauSo;
+    return res.rutGon();
+}
+
+PhanSo PhanSo::nhan(PhanSo other) {
+    PhanSo res;
+    res.tuSo = tuSo * other.tuSo;
+    res.mauSo = mauSo * other.mauSo;
+    return res;
+}
+
+PhanSo PhanSo::chia(PhanSo other) {
+    PhanSo res;
+    res.tuSo = tuSo * other.mauSo;
+    res.mauSo = mauSo * other.tuSo;
+    return res;
+}
+
+PhanSo::PhanSo() {
+    tuSo = 0;
+    mauSo = 1;
+}
+
+PhanSo::PhanSo(int tuSo, int mauSo) {
+    this->tuSo = tuSo;
+    this->mauSo = mauSo;
+}
+
+PhanSo::PhanSo(int soNguyen) {
+    this->tuSo = soNguyen;
+    this->mauSo = 1;
+}
+
+PhanSo::PhanSo(const PhanSo &other) {
+    tuSo = other.tuSo;
+    mauSo = other.mauSo;
+}
+
+PhanSo::~PhanSo() {
+    // không cần định nghĩa
 }
