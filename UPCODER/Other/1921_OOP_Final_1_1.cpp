@@ -1,58 +1,92 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 class Device {
-private: 
+private:
     string model;
     string manufactory;
     int power;
     double cost;
+
 public:
-    Device();
-    Device(string, string, int, double);
-    double totalCost();
-    friend istream& operator >> (istream&, Device&);
-    friend ostream& operator << (ostream&, Device);
+    // Hàm khởi tạo
+    Device();                                                           // Khởi tạo mặc định
+    Device(string model, string manufactory, int power, double cost);   // Khởi tạo có tham số
+    Device(const Device &other);                                        // Sao chép
+    
+    double getTotalCost();
+
+    friend istream &operator >> (istream &aaa, Device &de);
+    friend ostream &operator << (ostream &aaa, Device de);
 };
 
-void runMainDevice(int n);
-
-//-------------------------------------------------------------------
-
 int main() {
-    int n; cin >> n;
-    runMainDevice(n);
+    int n;
+    cin >> n;
+
+    Device list[n];
+
+    for (int i = 0; i < n; i++)
+        cin >> list[i];
+    
+    for (int i = 0; i < n; i++)
+        cout << list[i];
+
     return 0;
 }
 
-//-------------------------------------------------------------------
-
+// Hàm khởi tạo mặc định
 Device::Device() {
-    model = "";
-    manufactory = "";
-    power = 0;
-    cost = 0;
+    model = manufactory = "";
+    power = cost = 0;
 }
 
-double Device::totalCost() {
-    return cost + cost * 0.1;
+// Hàm khởi tạo có tham số (cách 1)
+Device::Device(string model, string manufactory, int power, double cost) {
+    this->model = model;
+    this->manufactory = manufactory;
+    this->power = power;
+    this->cost = cost;
 }
 
-istream& operator >> (istream& in, Device& dev) {
-    in >> dev.model >> dev.manufactory;
-    in >> dev.power >> dev.cost;
+// Hàm khởi tạo có tham số (cách 2)
+// Device::Device(string model, string manufactory, int power, double cost): 
+//     model(model), manufactory(manufactory), power(power), cost(cost) {}
+
+// Hàm sao chép
+Device::Device(const Device &other) {
+    model = other.model;
+    manufactory = other.manufactory;
+    power = other.power;
+    cost = other.cost;
 }
 
-ostream& operator << (ostream& out, Device dev) {
-    out << dev.model << "-" << dev.manufactory << "-";
-    out << dev.power << "W-" << dev.totalCost() << endl;
+double Device::getTotalCost() {
+    double totalCost = cost + cost * 0.1;
+    return totalCost;
 }
 
-//-------------------------------------------------------------------
-
-void runMainDevice(int n) {
-    vector<Device> vt(n);
-    for (Device& dev : vt) cin >> dev;
-    for (Device dev : vt) cout << dev;
+// Quá tải nhập
+istream &operator >> (istream &aaa, Device &de) {
+    aaa >> de.model >> de.manufactory >> de.power >> de.cost;
+    return aaa;
 }
+
+// Quá tải xuất
+ostream &operator << (ostream &aaa, Device de) {
+    aaa << de.model + "-" + de.manufactory + "-";
+    aaa << de.power << "W-" << de.getTotalCost();
+    aaa << endl;
+    return aaa;
+}
+
+
+/* Ghi chú
+    => Khai báo lớp (Clas):
+        - Biến (thuộc tính) => private.
+        - Hàm (phương thức) => public.
+
+    => TH Class B kế thừa từ Class A:
+        - Biến (Class A) => protected (để cho Class B truy cập).
+        - Biến (Class B) => private.
+*/
