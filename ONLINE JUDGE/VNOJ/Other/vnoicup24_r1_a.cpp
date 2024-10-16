@@ -33,7 +33,7 @@ signed main() {
             if (x == 1) cnt1++;
             else {
                 cnt2++;
-                cnt1 += x - 2;
+                cnt += x - 2;
             }
         }
 
