@@ -1,130 +1,147 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 class Device {
-private: 
+private:
     string model;
     string manufactory;
     int power;
     double cost;
+
 public:
-    Device(); double totalCost();
-    Device(string, string, int, double);
-    string getModel(); string getManufactory();
-    int getPower(); double getCost();
-    friend istream& operator >> (istream&, Device&);
-    friend istream& operator >> (istream&, pair<int, Device>&);
-    friend ostream& operator << (ostream&, Device);
+    // Hàm khởi tạo
+    Device();                                                           // Khởi tạo mặc định
+    Device(string model, string manufactory, int power, double cost);   // Khởi tạo có tham số
+    Device(const Device &other);                                        // Sao chép
+    
+    string getModel();
+    double getTotalCost();
+
+    friend istream &operator >> (istream &aaa, Device &de);
+    friend ostream &operator << (ostream &aaa, Device de);
+
+    bool operator < (Device other);
+    bool operator > (Device other);
+    bool operator == (Device other);
+    double operator * (int number);
 };
 
-void runMainDevice();
-void tongSoTien(vector<pair<int, Device>>, string, string);
-void soSanhDevice(vector<pair<int, Device>>, string, string);
-bool operator < (Device, Device);
-bool operator > (Device, Device);
-bool operator == (Device, Device);
-double operator * (Device, int);
-
-//-------------------------------------------------------------------
+Device find(Device list[], int n, string model);
 
 int main() {
-    runMainDevice();
+    int n;
+    double tongTien = 0;
+    cin >> n;
+
+    Device list[n];
+
+    // Nhập và tính tổng tiền của n Device
+    for (int i = 0; i < n; i++) {
+        int number;
+        cin >> list[i] >> number;
+        tongTien += list[i] * number;
+    }
+
+    // Xuất ra tổng tiền
+    cout << tongTien << endl;
+    
+    // Nhập model s và t đề bài cho
+    string s, t;
+    cin >> s >> t;
+
+    // Tìm kiếm thiết bị có model là s, lưu thiết bị đó vào a
+    Device a = find(list, n, s);
+
+    // Tìm kiếm thiết bị có model là t, lưu thiết bị đó vào b
+    Device b = find(list, n, t);
+
+    // So sánh 2 thiết bị a (có model là s) và b (có model t)
+    if (a > b) cout << '>';
+    else if (a < b) cout << '<';
+    else cout << '=';
+
     return 0;
 }
 
-//-------------------------------------------------------------------
-
+// Hàm khởi tạo mặc định
 Device::Device() {
-    model = "";
-    manufactory = "";
-    power = 0;
-    cost = 0;
+    model = manufactory = "";
+    power = cost = 0;
 }
 
-double Device::totalCost() {
-    return cost + cost * 0.1;
+// Hàm khởi tạo có tham số (cách 1)
+Device::Device(string model, string manufactory, int power, double cost) {
+    this->model = model;
+    this->manufactory = manufactory;
+    this->power = power;
+    this->cost = cost;
 }
 
-istream& operator >> (istream& in, Device& dev) {
-    in >> dev.model >> dev.manufactory;
-    in >> dev.power >> dev.cost;
+// Hàm khởi tạo có tham số (cách 2)
+// Device::Device(string model, string manufactory, int power, double cost): 
+//     model(model), manufactory(manufactory), power(power), cost(cost) {}
+
+// Hàm sao chép
+Device::Device(const Device &other) {
+    model = other.model;
+    manufactory = other.manufactory;
+    power = other.power;
+    cost = other.cost;
 }
 
-ostream& operator << (ostream& out, Device dev) {
-    out << dev.model << "-" << dev.manufactory << "-";
-    out << dev.power << "W-" << dev.totalCost() << endl;
-}
-
-istream& operator >> (istream& in, pair<int, Device>& p) {
-    in >> p.second >> p.first;
-}
-
-//-------------------------------------------------------------------
-
-void runMainDevice() {
-    int n; cin >> n;
-    vector<pair<int, Device>> vt(n);
-    for (pair<int, Device>& p : vt) cin >> p;
-    string s, t; cin >> s >> t;
-    tongSoTien(vt, s, t);
-    soSanhDevice(vt, s, t);
-}
-
+// Lấy model của thiết bị
 string Device::getModel() {
     return model;
 }
 
-string Device::getManufactory() {
-    return manufactory;
+double Device::getTotalCost() {
+    double totalCost = cost + cost * 0.1;
+    return totalCost;
 }
 
-int Device::getPower() {
-    return power;
+// Quá tải nhập
+istream &operator >> (istream &aaa, Device &de) {
+    aaa >> de.model >> de.manufactory >> de.power >> de.cost;
+    return aaa;
 }
 
-double Device::getCost() {
-    return cost;
+// Quá tải xuất
+ostream &operator << (ostream &aaa, Device de) {
+    aaa << de.model + "-" + de.manufactory + "-";
+    aaa << de.power << "W-" << de.getTotalCost();
+    aaa << endl;
+    return aaa;
 }
 
-bool operator > (Device d1, Device d2) {
-    if (d1.getPower() > d2.getPower()) return true;
-    else if (d1.getPower() == d2.getPower()) {
-        if (d1.getCost() < d2.getCost()) return true;
-    } return false;
+bool Device::operator < (Device other) {
+    return power < other.power;
 }
 
-bool operator < (Device d1, Device d2) {
-    if (d1.getPower() < d2.getPower()) return true;
-    else if (d1.getPower() == d2.getPower()) {
-        if (d1.getCost() > d2.getCost()) return true;
-    } return false;
+bool Device::operator > (Device other) {
+    return power > other.power;
 }
 
-bool operator == (Device d1, Device d2) {
-    return (d1.getPower() == d2.getPower() && d1.getCost() == d2.getCost()); 
+bool Device::operator == (Device other) {
+    return power == other.power;
 }
 
-double operator * (Device dev, int n) {
-    return dev.totalCost() * n;
+double Device::operator * (int number) {
+    return getTotalCost() * number;
 }
 
-void tongSoTien(vector<pair<int, Device>> vt, string s, string t) {
-    double result = 0;
-    for (pair<int, Device> p : vt) 
-        result += p.second * p.first;
-    cout << result << endl;
-
+// Hàm tìm thiết bị có model là model trong mảng list có n phần tử
+Device find(Device list[], int n, string model) {
+    for (int i = 0; i < n; i++)
+        if (list[i].getModel() == model)    // nếu model của thiết bị bằng model cần tìm
+            return list[i];                 // trả về thiết bị cần tìm
 }
 
-void soSanhDevice(vector<pair<int, Device>> vt, string s, string t) {
-    Device d1, d2;
-    for (pair<int, Device> p : vt) {
-        if (p.second.getModel() == s) d1 = p.second;
-        if (p.second.getModel() == t) d2 = p.second;
-    }
-    if (d1 > d2) cout << '>';
-    else if (d1 < d2) cout << '<';
-    else cout << '=';
-    
-}
+/* Ghi chú
+    => Khai báo lớp (Clas):
+        - Biến (thuộc tính) => private.
+        - Hàm (phương thức) => public.
+
+    => TH Class B kế thừa từ Class A:
+        - Biến (Class A) => protected (để cho Class B truy cập).
+        - Biến (Class B) => private.
+*/
