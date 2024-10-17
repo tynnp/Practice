@@ -1,5 +1,3 @@
-// Sai test 4
-
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 
@@ -15,32 +13,34 @@ using namespace __gnu_pbds;
 #define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
 #define indexed_set tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
 
-const int MAXN = 1e6 + 5;
+const int MAXN = 2e5 + 5;
 const int MOD = 1e9 + 7;
+
+int t, n, cnt1, cnt2;
+int a[MAXN];
 
 signed main() {
     fastIO;
-    int t;
     cin >> t;
-
+    
     while (t--) {
-        int n;
         cin >> n;
-        int cnt1 = 0, cnt2 = 0;
-
-        for (int i = 0; i < n; i++) {
-            int x;
-            cin >> x;
-
-            if (x == 1) 
+        
+        for (int i = 1; i <= n; i++) {
+            cin >> a[i];
+            
+            if (a[i] == 1) {
                 cnt1 += 1;
+            } 
+            
             else {
                 cnt2 += 1;
-                cnt1 += x - 2;
+                cnt1 += a[i] - 2;
             }
         }
-
+        
         cout << cnt1/2 + cnt2/2 << endl;
+        cnt1 = cnt2 = 0;
     }
     
     return 0;
