@@ -1,5 +1,3 @@
-// Đúng 86/88
-
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 
@@ -18,51 +16,35 @@ using namespace __gnu_pbds;
 const int MAXN = 1e5 + 5;
 const int MOD = 1e9 + 7;
 
-int n, k;
-int a[MAXN], dp[MAXN], st[4 * MAXN];
-
-void update(int id, int l, int r, int pos, int val) {
-    if (l == r) {
-        st[id] = val;
-        return;
-    }
-
-    int mid = (l + r) >> 1;
-    if (pos <= mid) 
-        update(2*id, l, mid, pos, val);
-    else    
-        update(2*id + 1, mid + 1, r, pos, val);
-
-    st[id] = max(st[2*id], st[2*id + 1]);
-}
-
-int get(int id, int l, int r, int u, int v) {
-    if (l > v || r < u)
-        return 0;
-
-    if (l >= u && r <= v)
-        return st[id];
-
-    int mid = (l + r) >> 1;
-    int x = get(2*id, l, mid, u, v);
-    int y = get(2*id + 1, mid + 1, r, u, v);
-
-    return max(x, y);
-}
+int n, k, ans;
+int a[MAXN], dp[MAXN];
+deque<int> q;
 
 signed main() {
     fastIO;
     cin >> n >> k;
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
         cin >> a[i];
 
-    for (int i = n; i >= 1; i--) {
-        int x = get(1, 1, n, i + 1, min(n, i + k));
-        dp[i] = a[i] + max(0LL, x);
-        update(1, 1, n, i, dp[i]);
+    for (int i = 0; i < n; i++) {
+        if (!q.empty() && q.front() < i - k)
+            q.pop_front();
+
+        if (!q.empty()) 
+            dp[i] = dp[q.front()] + a[i];
+        else 
+            dp[i] = a[i];
+
+        dp[i] = max(dp[i], (int) a[i]);
+        ans = max(ans, dp[i]);
+
+        while (!q.empty() && dp[q.back()] <= dp[i])
+            q.pop_back();
+
+        q.push_back(i);
     }
     
-    cout << get(1, 1, n, 1, n);
+    cout << ans;
     return 0;
 }
