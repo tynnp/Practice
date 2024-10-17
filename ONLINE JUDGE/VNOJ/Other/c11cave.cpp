@@ -13,35 +13,30 @@ using namespace __gnu_pbds;
 #define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
 #define indexed_set tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
 
-const int MAXN = 1e5 + 5;
+const int MAXN = 2e5 + 5;
 const int MOD = 1e9 + 7;
 
 int n, h, ans = INT_MAX;
-vector<int> a, b;
-int cnt[MAXN];
+int a[MAXN], b[MAXN], cnt[MAXN];
 
 signed main() {
     fastIO;
     cin >> n >> h;
 
-    for (int i = 0; i < n/2; i++) {
-        int x, y;
-        cin >> x >> y;
-        a.push_back(x);
-        b.push_back(y);
-    }
+    for (int i = 0; i < n/2; i++) 
+        cin >> a[i] >> b[i];
 
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    sort(a, a + n/2);
+    sort(b, b + n/2);
 
     for (int i = 1; i <= h; i++) {
         int sum = 0;
-        sum += a.end() - lower_bound(a.begin(), a.end(), i);
-        sum += b.end() - upper_bound(b.begin(), b.end(), h - i);
+        sum += (a + n/2) - lower_bound(a, a + n/2, i);
+        sum += (b + n/2) - upper_bound(b, b + n/2, h - i);
         ans = min(ans, sum);
         cnt[sum]++;
     }
-
-    cout << ans << " " << cnt[ans];
+    
+    cout << ans << ' ' << cnt[ans];
     return 0;
 }
