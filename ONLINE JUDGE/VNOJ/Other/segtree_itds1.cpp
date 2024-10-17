@@ -38,7 +38,7 @@ void build(int id, int l, int r) {
 }
 
 void update(int id, int l, int r, int pos, int old, int val) {
-    if (l > pos || r <  pos)
+    if (l > pos || r < pos)
         return;
 
     if (l == r) {
@@ -82,15 +82,18 @@ signed main() {
     build(1, 1, n);
 
     while (q--) {
-        int t, i, v, l, r, k;
+        int t;
         cin >> t;
 
         if (t == 1) {
+            int i, v;
             cin >> i >> v;
             update(1, 1, n, i, a[i], v);
+            a[i] = v;
         }
 
         else {
+            int l, r, k;
             cin >> l >> r >> k;
             int query = get(1, 1, n, l, r, k);
             if (query == MOD)   
