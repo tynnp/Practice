@@ -16,25 +16,30 @@ using namespace __gnu_pbds;
 const int MAXN = 5000 + 5;
 const int MOD = 1e9 + 7;
 
+int n, maxLen;
 pair<int, int> a[MAXN];
-int n, pos[MAXN];
+int pos[MAXN];
 
 void solve() {
-    sort(a, a + n);
-    // for (int i = 0; i < n; i++)
-    //     cout << a[i].first << ' ' << a[i].second << endl;
+    // tăng dần theo chiều dài
+    sort(a + 1, a + n + 1);
+    
+    maxLen = 1;
+    pos[0] = a[n].second;
 
-    int maxLen = 1;
-    pos[0] = a[n-1].second;
+    // vì đăng tăng dần theo l nên duyệt ngược xử lí w
+    for (int i = n-1; i >= 1; i--) {
 
-    for (int i = n-2; i >= 0; i--) {
+        // tìm vị trí có thể chèn trọng lượng của đoạn gỗ hiện tại 
         int k = lower_bound(pos, pos + maxLen, a[i].second) - pos;
-        //cout << "k: " << k << endl;
-        
+
+        // nếu không có thì mở rộng
         if (k == maxLen) {
             maxLen++;
             pos[k] = a[i].second;
-        } else 
+
+        // nếu có thì thay thế
+        } else  
             pos[k] = min(pos[k], a[i].second);
     }
 
@@ -45,10 +50,10 @@ signed main() {
     fastIO;
     int t;
     cin >> t;
-
+    
     while (t--) {
         cin >> n;
-        for (int i = 0; i < n; i++)
+        for (int i = 1; i <= n; i++)
             cin >> a[i].first >> a[i].second;
         solve();
     }
