@@ -18,14 +18,11 @@ const int MOD = 1e9 + 7;
 
 signed main() {
     fastIO;
-    string s;
-    int ans = 0;
-    cin >> s;
-
+    string s, ans;
+    getline(cin, s);
     for (char c : s)
-        if (isdigit(c))
-            ans++;
-
+        if (isalpha(c))
+            ans += c;
     cout << ans;
     return 0;
 }
