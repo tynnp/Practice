@@ -6,7 +6,6 @@ using namespace __gnu_pbds;
 
 #define endl '\n'
 #define int long long
-#define elif else if 
 #define inp freopen("file.inp", "r", stdin)
 #define out freopen("file.out", "w", stdout)
 #define TIME 1.0*clock()/CLOCKS_PER_SEC
