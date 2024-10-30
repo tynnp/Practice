@@ -25,7 +25,8 @@
 | 16 | PTNKOJ - Phổ Thông Năng Khiếu Online Judge | [Truy cập](/ONLINE%20JUDGE/PTNKOJ/) | [Truy cập](http://ptnkoj.com/) |
 | 17 | GTLTOJ - FITHOU (Đại học Mở Hà Nội) Online Judge | | [Truy cập](https://olp.hou.edu.vn/) |
 | 18 | SPOJ - Sphere Online Judge | [Truy cập](/ONLINE%20JUDGE/SPOJ/) | [Truy cập](https://www.spoj.com/) |
-| 19 | VNOJ – VNOI Online Judge | [Truy cập](/ONLINE%20JUDGE/VNOJ/) | [Truy cập](https://oj.vnoi.info/) |
+| 19 | TASOJ - TLU AlgoSec Online Judge | [Truy cập](/ONLINE%20JUDGE/TASOJ/) | [Truy cập](https://oj.tlualgosec.com/) |
+| 20 | VNOJ – VNOI Online Judge | [Truy cập](/ONLINE%20JUDGE/VNOJ/) | [Truy cập](https://oj.vnoi.info/) |
 
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
