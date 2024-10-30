@@ -18,14 +18,14 @@
 | 9 | LCOJ - Luyện Code Online| [Truy cập](/ONLINE%20JUDGE/LCOJ/) | [Truy cập](https://luyencode.net/) |
 | 10 | CDOJ - CodeDream Online Judge| | [Truy cập](https://oj.codedream.edu.vn/) |
 | 11 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập](/ONLINE%20JUDGE/LQDOJ/) | [Truy cập](https://lqdoj.edu.vn/) |
-| 11 | HNOJ - Hà Nội Online Judge | [Truy cập](/ONLINE%20JUDGE/HNOJ/) | [Truy cập](https://hnoj.edu.vn/) |
-| 12 | CLAOJ - Long An HSGS Online Judge | [Truy cập](/ONLINE%20JUDGE/CLAOJ/) | [Truy cập](https://claoj.edu.vn/) |
-| 13 | PDLOJ - Phan Đăng Lưu Online Judge | [Truy cập](/ONLINE%20JUDGE/PDLOJ/) | [Truy cập](http://phandangluu.online/) |
-| 14 | CSLOJ - Chuyên Sơn La Online Judge | [Truy cập](/ONLINE%20JUDGE/CSLOJ/) | [Truy cập](http://csloj.ddns.net/)
-| 15 | PTNKOJ - Phổ Thông Năng Khiếu Online Judge | [Truy cập](/ONLINE%20JUDGE/PTNKOJ/) | [Truy cập](http://ptnkoj.com/) |
-| 16 | GTLTOJ - FITHOU (Đại học Mở Hà Nội) Online Judge | | [Truy cập](https://olp.hou.edu.vn/) |
-| 17 | SPOJ - Sphere Online Judge | [Truy cập](/ONLINE%20JUDGE/SPOJ/) | [Truy cập](https://www.spoj.com/) |
-| 18 | VNOJ – VNOI Online Judge | [Truy cập](/ONLINE%20JUDGE/VNOJ/) | [Truy cập](https://oj.vnoi.info/) |
+| 12 | HNOJ - Hà Nội Online Judge | [Truy cập](/ONLINE%20JUDGE/HNOJ/) | [Truy cập](https://hnoj.edu.vn/) |
+| 13 | CLAOJ - Long An HSGS Online Judge | [Truy cập](/ONLINE%20JUDGE/CLAOJ/) | [Truy cập](https://claoj.edu.vn/) |
+| 14 | PDLOJ - Phan Đăng Lưu Online Judge | [Truy cập](/ONLINE%20JUDGE/PDLOJ/) | [Truy cập](http://phandangluu.online/) |
+| 15 | CSLOJ - Chuyên Sơn La Online Judge | [Truy cập](/ONLINE%20JUDGE/CSLOJ/) | [Truy cập](http://csloj.ddns.net/)
+| 16 | PTNKOJ - Phổ Thông Năng Khiếu Online Judge | [Truy cập](/ONLINE%20JUDGE/PTNKOJ/) | [Truy cập](http://ptnkoj.com/) |
+| 17 | GTLTOJ - FITHOU (Đại học Mở Hà Nội) Online Judge | | [Truy cập](https://olp.hou.edu.vn/) |
+| 18 | SPOJ - Sphere Online Judge | [Truy cập](/ONLINE%20JUDGE/SPOJ/) | [Truy cập](https://www.spoj.com/) |
+| 19 | VNOJ – VNOI Online Judge | [Truy cập](/ONLINE%20JUDGE/VNOJ/) | [Truy cập](https://oj.vnoi.info/) |
 
 ## 📖 Tài liệu tham khảo
 | STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
