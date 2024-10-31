@@ -38,13 +38,13 @@ signed main() {
                 dp[i][j] = min(dp[i][j], dp[i-1][j - v[i]] + w[i]);
         }
     }
-    
+
     for (int ans = sum; ans > 0; ans--) {
         if (dp[n][ans] <= m) {
             cout << ans;
             break;
         }
     }
-
+    
     return 0;
 }
