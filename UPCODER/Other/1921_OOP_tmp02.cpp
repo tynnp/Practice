@@ -1,5 +1,3 @@
-// Chua xong
-
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
@@ -39,13 +37,13 @@ int main() {
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 
-    PhanSo lonNhat(arr[0]), nhoNhat(arr[0]);
+    PhanSo lonNhat = arr[0], nhoNhat = arr[0];
 
     for (int i = 1; i < n; i++) {
-        if (arr[i].getGiaTri() <= nhoNhat.getGiaTri())
+        if (arr[i].getGiaTri() < nhoNhat.getGiaTri())
             nhoNhat = arr[i];
         
-        if (arr[i].getGiaTri() >= lonNhat.getGiaTri())
+        if (arr[i].getGiaTri() > lonNhat.getGiaTri())
             lonNhat = arr[i];
     }
 
@@ -53,14 +51,13 @@ int main() {
         PhanSo tong = arr[0];
         for (int i = 1; i < n; i++)
             tong = tong + arr[i];
-        cout << tong << (lonNhat * nhoNhat);
+        cout << tong.psRutGon() << "\n" << (lonNhat * nhoNhat).psRutGon() << endl;
     }
-
     else {
         PhanSo hieu = arr[0];
         for (int i = 1; i < n; i++) 
             hieu = hieu - arr[i];
-        cout << hieu << (lonNhat / nhoNhat);
+        cout << hieu.psRutGon() << "\n" << (lonNhat / nhoNhat).psRutGon() << endl;
     }
 
     return 0;
@@ -95,11 +92,11 @@ PhanSo::PhanSo(const PhanSo &other) {
 }
 
 double PhanSo::getGiaTri() {
-    return (double) tu / mau;
+    return tu * 1.0 / mau;
 }
 
 PhanSo PhanSo::psRutGon() {
-    int ucln = __gcd(tu, mau);
+    int ucln = __gcd(abs(tu), abs(mau));
     PhanSo res;
     res.tu = tu / ucln;
     res.mau = mau / ucln;
@@ -113,6 +110,8 @@ PhanSo PhanSo::psRutGon() {
 }
 
 PhanSo PhanSo::psNghichDao() {
+    if (tu == 0) 
+        return PhanSo(0, 1); 
     return PhanSo(mau, tu).psRutGon();
 }
 
@@ -127,12 +126,12 @@ istream &operator >> (istream &in, PhanSo &phanSo) {
         phanSo.tu = -phanSo.tu;
         phanSo.mau = -phanSo.mau;
     }
-
+    
     return in;
 }
 
 ostream &operator << (ostream &out, PhanSo phanSo) {
-    out << phanSo.tu << '/' << phanSo.mau << endl;
+    out << phanSo.tu << '/' << phanSo.mau;
     return out;
 } 
 
