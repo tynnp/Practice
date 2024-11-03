@@ -49,7 +49,7 @@ struct matrix {
         for (int i = 0; i < row; i++)
             for (int j = 0; j < other.col; j++)
                 for (int k = 0; k < col; k++)
-                    (res.c[i][j] += mul(c[i][k], other.c[k][j])) % m;
+                    (res.c[i][j] += mul(c[i][k], other.c[k][j])) %= m;
         return res;
     }
 };
@@ -75,7 +75,7 @@ signed main() {
     if (n <= 1) {
         cout << n % m;
         return 0;
-    }
+    } 
 
     matrix ans(1, 2);
     ans.c[0][0] = 0;
