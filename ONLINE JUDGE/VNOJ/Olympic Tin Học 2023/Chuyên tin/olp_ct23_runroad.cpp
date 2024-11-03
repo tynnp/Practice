@@ -26,8 +26,8 @@ int dfs_1(int u, int f, int maxH) {
 
     for (int i = 0; i < a[u].size(); i++) {
         int v = a[u][i];
-        
-        if (v == f || h[v] > maxH) 
+
+        if (v == f || h[v] > maxH)
             continue;
 
         res += dfs_1(v, u, maxH);
@@ -38,7 +38,7 @@ int dfs_1(int u, int f, int maxH) {
 
 int dfs_2(int u, int f, int node, int &sum, int maxH) {
     int res = 1;
-
+    
     for (int i = 0; i < a[u].size(); i++) {
         int v = a[u][i];
 
@@ -67,6 +67,7 @@ int solve(int maxH) {
         if (!visited[i] && h[i] <= maxH) {
             int child = dfs_1(i, -1, maxH);
             int sum = 0;
+
             dfs_2(i, -1, child, sum, maxH);
 
             (res += sum) %= MOD;
@@ -90,10 +91,8 @@ signed main() {
         a[v].push_back(u);
     }
 
-    ans = solve(t);
-    ans -= solve(t - 1);
+    ans = solve(t) - solve(t - 1);
     (ans += MOD) %= MOD;
-
     cout << ans;
     return 0;
 }

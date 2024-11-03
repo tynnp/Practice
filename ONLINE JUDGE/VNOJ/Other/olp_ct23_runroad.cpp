@@ -15,7 +15,8 @@ using namespace __gnu_pbds;
 const int MAXN = 2e5 + 5;
 const int MOD = 1e9 + 7;
 
-int n, t, ans, h[MAXN];
+int n, t, ans;
+int h[MAXN];
 vector<int> a[MAXN];
 bool visited[MAXN];
 
@@ -37,7 +38,7 @@ int dfs_1(int u, int f, int maxH) {
 
 int dfs_2(int u, int f, int node, int &sum, int maxH) {
     int res = 1;
-
+    
     for (int i = 0; i < a[u].size(); i++) {
         int v = a[u][i];
 
@@ -65,8 +66,8 @@ int solve(int maxH) {
     for (int i = 1; i <= n; i++) {
         if (!visited[i] && h[i] <= maxH) {
             int child = dfs_1(i, -1, maxH);
-
             int sum = 0;
+
             dfs_2(i, -1, child, sum, maxH);
 
             (res += sum) %= MOD;
@@ -90,10 +91,8 @@ signed main() {
         a[v].push_back(u);
     }
 
-    ans = solve(t);
-    ans -= solve(t - 1);
+    ans = solve(t) - solve(t - 1);
     (ans += MOD) %= MOD;
-
     cout << ans;
     return 0;
 }
