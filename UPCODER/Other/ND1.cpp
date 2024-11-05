@@ -18,7 +18,25 @@ const int MAXN = 2e5 + 5;
 const int MOD = 1e9 + 7;
 
 int n, a[MAXN], s[MAXN];
-vector<int> ans;
+
+bool binary_search(int &x) {
+    int l = n;
+    int r = 2*n - 1;
+
+    while (l <= r) {
+        int mid = (l + r) >> 1;
+
+        if (s[mid] == x)
+            return true;
+
+        if (s[mid] < x)
+            l = mid + 1;
+        else 
+            r = mid - 1;
+    }
+
+    return false;
+}
 
 signed main() {
     fastIO;
@@ -31,13 +49,9 @@ signed main() {
 
     sort(s, s + 2*n);
 
-    for (int i = 0; i < 2*n; i++) {
-        if (binary_search(s + n, s + 2*n, a[i]))
-            ans.push_back(a[i]);
-    }
-
-    for (int x : ans)
-        cout << x << ' ';
-
+    for (int i = 0; i < 2*n; i++) 
+        if (binary_search(a[i]))
+            cout << a[i] << ' ';
+    
     return 0;
 }
