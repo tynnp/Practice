@@ -17,7 +17,8 @@ template<typename K, typename V> using ordered_map = tree<K, V, less<K>, rb_tree
 const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
-int n, x, c[MAXN], dp[MAXN];
+int n, x;
+int c[105], dp[MAXN];
 
 signed main() {
     fastIO;
@@ -27,12 +28,10 @@ signed main() {
         cin >> c[i];
 
     dp[0] = 1;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= x; j++)
-            if (j - c[i] >= 0)
-                (dp[j] += dp[j - c[i]]) %= MOD;
-    }
-    
+    for (int i = 1; i <= n; i++) 
+        for (int j = c[i]; j <= x; j++)
+            (dp[j] += dp[j - c[i]]) %= MOD;
+
     cout << dp[x];
     return 0;
 }
