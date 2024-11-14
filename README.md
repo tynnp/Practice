@@ -13,10 +13,10 @@
 | 4 | IUHCODER - Trường Đại học Công nghiệp Thành phố Hồ Chí Minh | [Truy cập](/IUHCODER/) | [Truy cập web](https://oj.iuhcoder.com/) |
 | 5 | LQDCODER - Trường Trung học phổ thông chuyên Lê Quý Đôn - Đà Nẵng | [Truy cập](/LQDCODER/) | [Truy cập web](http://lequydon.ntucoder.net/) |
 | 6 | CODEFORCES - Competitive programming | [Truy cập](/CODEFORCES/) | [Truy cập web](https://codeforces.com/) |
-| 7 | LEETCODE - A New Way to Learn | | [Truy cập](https://leetcode.com/) |
+| 7 | LEETCODE - A New Way to Learn | | [Truy cập web](https://leetcode.com/) |
 | 8 | CSES - Code Submission Evaluation System | [Truy cập](/CSES/) | [Truy cập web](https://cses.fi/) |
 | 9 | LCOJ - Luyện Code Online| [Truy cập](/ONLINE%20JUDGE/LCOJ/) | [Truy cập web](https://luyencode.net/) |
-| 10 | CDOJ - CodeDream Online Judge| | [Truy cập](https://oj.codedream.edu.vn/) |
+| 10 | CDOJ - CodeDream Online Judge| | [Truy cập web](https://oj.codedream.edu.vn/) |
 | 11 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập](/ONLINE%20JUDGE/LQDOJ/) | [Truy cập web](https://lqdoj.edu.vn/) |
 | 12 | HNOJ - Hà Nội Online Judge | [Truy cập](/ONLINE%20JUDGE/HNOJ/) | [Truy cập web](https://hnoj.edu.vn/) |
 | 13 | QBOJ - Quảng Bình Online Judge | [Truy cập](/ONLINE%20JUDGE/QBOJ/) | [Truy cập web](http://qboj.zapto.org/) |
