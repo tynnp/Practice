@@ -18,32 +18,29 @@ const int MAXN = 1e5 + 5;
 const int MOD = 1e9 + 7;
 
 int n, m, ans;
-int x[MAXN], dp[MAXN][105];
+int a[MAXN], dp[MAXN][105];
 
 signed main() {
     fastIO;
     cin >> n >> m;
 
-    for (int i = 0; i < n; i++)
-        cin >> x[i];
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
 
-    if (x[0] == 0) {
-        for (int v = 1; v <= m; v++)
-            dp[1][v] = 1;
-    } else 
-        dp[1][x[0]] = 1;
-
-    for (int i = 2; i <= n; i++) {
-        for (int v = 1; v <= m; v++) {
-            if (x[i-1] == 0 || x[i-1] == v) {
-                dp[i][v] = dp[i-1][v];
-                (dp[i][v] += dp[i-1][v-1] + dp[i-1][v+1]) %= MOD;
-            }
-        }
+    if (a[1]) 
+        dp[1][a[1]] = 1;
+    else {
+        for (int j = 1; j <= m; j++)
+            dp[1][j] = 1;
     }
 
-    for (int v = 1; v <= m; v++)    
-        (ans += dp[n][v]) %= MOD;
+    for (int i = 2; i <= n; i++) 
+        for (int j = 1; j <= m; j++) 
+            if (!a[i] || a[i] == j)
+                (dp[i][j] += (dp[i-1][j]+ dp[i-1][j-1] + dp[i-1][j+1])) %= MOD;
+            
+    for (int j = 1; j <= m; j++)
+        (ans += dp[n][j]) %= MOD;
 
     cout << ans;
     return 0;
