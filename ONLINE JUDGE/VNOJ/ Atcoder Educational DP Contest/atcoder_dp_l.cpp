@@ -25,17 +25,18 @@ signed main() {
 
     for (int i = 1; i <= n; i++)
         cin >> a[i];
-    
+
     for (int len = 1; len <= n; len++) {
-        for (int i = 0; i + len - 1 <= n; i++) {
+        for (int i = 1; i + len - 1 <= n; i++) {
             int j = i + len - 1;
-            if (i == j) 
+
+            if (i == j)
                 dp[i][j] = a[i];
             else 
-                dp[i][j] = max(a[j] - dp[i][j-1], a[i] - dp[i+1][j]);
+                dp[i][j] = max(a[i] - dp[i+1][j], a[j] - dp[i][j-1]);
         }
     }
     
-    cout << dp[1][n];
+    cout << dp[n][n];
     return 0;
 }
