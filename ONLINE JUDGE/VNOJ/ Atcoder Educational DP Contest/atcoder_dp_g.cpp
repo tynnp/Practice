@@ -40,13 +40,13 @@ signed main() {
     while (m--) {
         int u, v;
         cin >> u >> v;
-        adj[--u].push_back(--v);
+        adj[u].push_back(v);
     }
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
         dfs(i);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
         ans = max(ans, dp[i]);
     
     cout << ans;
