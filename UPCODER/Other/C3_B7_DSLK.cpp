@@ -1,180 +1,220 @@
 #include <iostream>
 #include <cmath>
-#include <vector>
 using namespace std;
 
 class DonThuc {
 protected:
     int heSo;
     int soMu;
+
 public:
-    DonThuc(){} DonThuc(int, int);
-    int getHeSo(); int getSoMu();
-    friend ostream& operator << (ostream&, DonThuc);
-    friend DonThuc operator + (DonThuc, DonThuc);
-    static DonThuc daoHam(DonThuc);
+    DonThuc() : heSo(0), soMu(0) {}
+    DonThuc(int hs, int sm) : heSo(hs), soMu(sm) {}
+    int getHeSo() const { return heSo; }
+    int getSoMu() const { return soMu; }
+    friend ostream& operator << (ostream&, const DonThuc&);
+    friend DonThuc operator + (const DonThuc&, const DonThuc&);
+    DonThuc daoHam() const;
 };
 
 class Node {
 private:
     DonThuc donThuc;
     Node* next;
+
 public:
-    static void xuatDaThuc(Node*);
-    static void themDonThuc(Node*&, DonThuc);
-    static void nhapDaThuc(Node*&, Node*&, vector<double>);
-    static Node* daoHamDaThuc(Node*);
-    static Node* tongHaiDaThuc(Node*, Node*);
-    static double giaTriDaThuc(Node*, double x);
+    Node(const DonThuc& dt) : donThuc(dt), next(nullptr) {}
+    void setNext(Node* n) { next = n; }
+    Node* getNext() { return next; }
+    const DonThuc& getDonThuc() const { return donThuc; }
 };
 
+class DaThuc {
+private:
+    Node* head;
+
+public:
+    DaThuc() : head(nullptr) {}
+    ~DaThuc();
+    void themDonThuc(const DonThuc& dt);
+    void xuatDaThuc() const;
+    double giaTriDaThuc(double x) const;
+    DaThuc tongHaiDaThuc(const DaThuc& other) const;
+    DaThuc daoHamDaThuc() const;
+};
+
+// Do testcase cua may cham
+void nhapDaThuc(DaThuc &dt1, DaThuc &dt2, double arr[], size_t size);
+
 int main() {
-    Node *dt1 = NULL, *dt2 = NULL;
-    double n; vector<double> vt;
+    DaThuc dt1, dt2;
+    double arr[100]; 
+    size_t size = 0;
 
-    while (cin >> n) vt.push_back(n);
-    double x; x = vt.back();
+    while (cin >> arr[size]) 
+        size++;
+    
+    double x = arr[size - 1];  
+    size--;  
 
-    Node::nhapDaThuc(dt1, dt2, vt);
-    Node::xuatDaThuc(dt1); cout << " ";
-    Node::xuatDaThuc(dt2); cout << endl;
-    Node* dt3 = Node::tongHaiDaThuc(dt1, dt2); 
-    Node* dt4 = Node::daoHamDaThuc(dt3);
-    Node::xuatDaThuc(dt4); cout << endl;
-    cout << Node::giaTriDaThuc(dt3, x); cout << endl;
-    Node::xuatDaThuc(dt3);
+    nhapDaThuc(dt1, dt2, arr, size);
+
+    dt1.xuatDaThuc(); 
+    cout << " ";
+
+    dt2.xuatDaThuc(); 
+    cout << endl;
+
+    DaThuc dt3 = dt1.tongHaiDaThuc(dt2);
+    DaThuc dt4 = dt3.daoHamDaThuc();
+
+    dt4.xuatDaThuc(); 
+    cout << endl;
+
+    cout << dt3.giaTriDaThuc(x) << endl;
+
+    dt3.xuatDaThuc();
     return 0;
 }
 
-DonThuc::DonThuc(int heSo, int soMu) {
-    this->heSo = heSo;
-    this->soMu = soMu;
-}
-
-int DonThuc::getHeSo() {
-    return heSo;
-}
-
-int DonThuc::getSoMu() {
-    return soMu;
-}
-
-ostream& operator << (ostream& out, DonThuc dt) {
+ostream& operator << (ostream& out, const DonThuc& dt) {
     if (dt.heSo == 0) return out;
+
+    if (dt.heSo != 0 && dt.soMu == 0) 
+        out << dt.heSo;
+
     else if (dt.heSo == 1) {
-        if (dt.soMu == 0) cout << 1;
-        else if (dt.soMu == 1) cout << "x";
-        else cout << "x^" << dt.soMu;
-    } else if (dt.heSo != 1) {
-        if (dt.soMu == 0) cout << abs(dt.heSo);
-        else if (dt.soMu == 1) cout << abs(dt.heSo) << "x";
-        else cout << abs(dt.heSo) << "x^" << dt.soMu;       
+        if (dt.soMu == 0) 
+            out << 1;
+        else if (dt.soMu == 1) 
+            out << "x";
+        else 
+            out << "x^" << dt.soMu;
+
+    } else {
+        if (dt.soMu == 0) 
+            out << dt.heSo;
+        else if (dt.soMu == 1) 
+            out << dt.heSo << "x";
+        else 
+            out << dt.heSo << "x^" << dt.soMu;
     }
+
+    return out;
 }
 
-DonThuc operator + (DonThuc a, DonThuc b) {
-    DonThuc c;
-    c.soMu = a.getSoMu();
-    c.heSo = a.getHeSo() + b.getHeSo();
-    return c;
+DonThuc operator + (const DonThuc& a, const DonThuc& b) {
+    return DonThuc(a.getHeSo() + b.getHeSo(), a.getSoMu());
 }
 
-DonThuc DonThuc::daoHam(DonThuc dt) {
-    DonThuc res;
-    if (dt.soMu == 0 || dt.heSo == 0) res.soMu = 0, res.heSo = 0;
-    else if (dt.soMu == 1) res.soMu = 0, res.heSo = dt.heSo;
-    else res.heSo = dt.heSo*dt.soMu, res.soMu = dt.soMu - 1;
-    return res;
-} 
+DonThuc DonThuc::daoHam() const {
+    if (soMu == 0 || heSo == 0) 
+        return DonThuc(0, 0);
 
-void Node::themDonThuc(Node*& head, DonThuc dt) {
-    Node* newNode = new Node;
-    newNode->donThuc = dt;
-    newNode->next = NULL;
-    if (head == nullptr) 
+    return DonThuc(heSo * soMu, soMu - 1);
+}
+
+void DaThuc::themDonThuc(const DonThuc& dt) {
+    Node* newNode = new Node(dt);
+
+    if (!head) 
         head = newNode;
+
     else {
         Node* last = head;
-        while (last->next != nullptr) 
-            last = last->next;
-        last->next = newNode;
+        while (last->getNext()) 
+            last = last->getNext();
+        last->setNext(newNode);
     }
 }
 
-void Node::xuatDaThuc(Node* head) {
+void DaThuc::xuatDaThuc() const {
     bool checkOut = false;
-    while (head != nullptr) {
-        if (checkOut && head->donThuc.getHeSo() > 0) 
-            cout << "+" << head->donThuc;
-        else if (checkOut && head->donThuc.getHeSo() < 0)
-            cout << "-" << head->donThuc;
+    Node* temp = head;
+
+    while (temp) {
+        if (checkOut && temp->getDonThuc().getHeSo() > 0) 
+            cout << "+" << temp->getDonThuc();
+
+        else if (checkOut && temp->getDonThuc().getHeSo() < 0) 
+            cout << temp->getDonThuc();
+
         else {
             checkOut = true;
-            cout << head->donThuc;
+            cout << temp->getDonThuc();
         }
-        head = head->next;
-    } 
+
+        temp = temp->getNext();
+    }
 }
 
-double Node::giaTriDaThuc(Node* head, double x) {
+double DaThuc::giaTriDaThuc(double x) const {
     double result = 0;
-    while (head != nullptr) {
-        result += head->donThuc.getHeSo()*pow(x, head->donThuc.getSoMu());
-        head = head->next;
+    Node* temp = head;
+
+    while (temp) {
+        result += temp->getDonThuc().getHeSo() * pow(x, temp->getDonThuc().getSoMu());
+        temp = temp->getNext();
     }
+
     return result;
 }
 
-void Node::nhapDaThuc(Node*& dt1, Node*& dt2, vector<double> vt) {
-    vector<double>::iterator it; 
-    it = vt.end()-1; vt.erase(it);
+DaThuc DaThuc::tongHaiDaThuc(const DaThuc& other) const {
+    DaThuc result;
+    Node* dt1 = head;
+    Node* dt2 = other.head;
+    
+    while (dt1 || dt2) {
+        if (dt1 && (!dt2 || dt1->getDonThuc().getSoMu() > dt2->getDonThuc().getSoMu())) {
+            result.themDonThuc(dt1->getDonThuc());
+            dt1 = dt1->getNext();
 
-    for (int i = 0; i < vt.size()/2; i += 2) {
-        DonThuc dt(vt[i], vt[i+1]);
-        themDonThuc(dt1, dt);
+        } else if (dt2 && (!dt1 || dt2->getDonThuc().getSoMu() > dt1->getDonThuc().getSoMu())) {
+            result.themDonThuc(dt2->getDonThuc());
+            dt2 = dt2->getNext();
+
+        } else if (dt1 && dt2 && dt1->getDonThuc().getSoMu() == dt2->getDonThuc().getSoMu()) {
+            DonThuc sum = dt1->getDonThuc() + dt2->getDonThuc();
+            result.themDonThuc(sum);
+            dt1 = dt1->getNext();
+            dt2 = dt2->getNext();
+        }
     }
 
-    for (int i = vt.size()/2; i < vt.size(); i += 2) {
-        DonThuc dt(vt[i], vt[i+1]);
-        themDonThuc(dt2, dt);
+    return result;
+}
+
+DaThuc DaThuc::daoHamDaThuc() const {
+    DaThuc result;
+    Node* temp = head;
+
+    while (temp) {
+        result.themDonThuc(temp->getDonThuc().daoHam());
+        temp = temp->getNext();
+    }
+
+    return result;
+}
+
+void nhapDaThuc(DaThuc &dt1, DaThuc &dt2, double arr[], size_t size) {
+    size_t mid = size / 2;
+
+    for (size_t i = 0; i < mid; i += 2) {
+        DonThuc dt(arr[i], arr[i + 1]);
+        dt1.themDonThuc(dt);
+    }
+
+    for (size_t i = mid; i < size; i += 2) {
+        DonThuc dt(arr[i], arr[i + 1]);
+        dt2.themDonThuc(dt);
     }
 }
 
-Node* Node::tongHaiDaThuc(Node* dt1, Node* dt2) {
-    int soMuMax = 0;
-    Node *a = dt1, *b = dt2;
-    while (a != nullptr) {
-        if (soMuMax < a->donThuc.getSoMu())
-            soMuMax = a->donThuc.getSoMu();
-        a = a->next;
+DaThuc::~DaThuc() {
+    while (head) {
+        Node* temp = head;
+        head = head->getNext();
+        delete temp;
     }
-    while (b != nullptr) {
-        if (soMuMax < b->donThuc.getSoMu())
-            soMuMax = b->donThuc.getSoMu();
-        b = b->next;
-    }
-
-    Node* dt3 = NULL;
-    while (soMuMax > -1) {
-        Node* x = dt1, *y = dt2;
-        while (x != nullptr && x->donThuc.getSoMu() != soMuMax)
-            x = x->next;
-        while (y != nullptr && y->donThuc.getSoMu() != soMuMax)
-            y = y->next;
-
-        if (x != nullptr && y != nullptr) {
-            DonThuc z = x->donThuc + y->donThuc;
-            themDonThuc(dt3, z);
-        } else if (x != nullptr) themDonThuc(dt3, x->donThuc);
-        else if (y != nullptr) themDonThuc(dt3, y->donThuc);
-        soMuMax--;
-    } return dt3;
-}
-
-Node* Node::daoHamDaThuc(Node* head) {
-    Node* res = NULL;
-    while (head != nullptr) {
-        themDonThuc(res, DonThuc::daoHam(head->donThuc)); 
-        head = head->next; 
-    } return res;
 }
