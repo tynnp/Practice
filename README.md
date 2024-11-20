@@ -13,6 +13,7 @@
 | 4 | IUHCODER - Trường Đại học Công nghiệp Thành phố Hồ Chí Minh | [Truy cập](/IUHCODER/) | [Truy cập web](https://oj.iuhcoder.com/) |
 | 5 | LQDCODER - Trường Trung học phổ thông chuyên Lê Quý Đôn - Đà Nẵng | [Truy cập](/LQDCODER/) | [Truy cập web](http://lequydon.ntucoder.net/) |
 | 6 | CODEFORCES - Competitive programming | [Truy cập](/CODEFORCES/) | [Truy cập web](https://codeforces.com/) |
+| 7 | USACO - USA Computing Olympiad | [Truy cập](/USACO/) | [Truy cập web](https://usaco.org/index.php) |
 | 7 | LEETCODE - A New Way to Learn | | [Truy cập web](https://leetcode.com/) |
 | 8 | CSES - Code Submission Evaluation System | [Truy cập](/CSES/) | [Truy cập web](https://cses.fi/) |
 | 9 | LCOJ - Luyện Code Online| [Truy cập](/ONLINE%20JUDGE/LCOJ/) | [Truy cập web](https://luyencode.net/) |
@@ -28,14 +29,3 @@
 | 19 | SPOJ - Sphere Online Judge | [Truy cập](/ONLINE%20JUDGE/SPOJ/) | [Truy cập web](https://www.spoj.com/) |
 | 20 | TASOJ - TLU AlgoSec Online Judge | [Truy cập](/ONLINE%20JUDGE/TASOJ/) | [Truy cập web](https://oj.tlualgosec.com/) |
 | 21 | VNOJ – VNOI Online Judge | [Truy cập](/ONLINE%20JUDGE/VNOJ/) | [Truy cập web](https://oj.vnoi.info/) |
-
-## 📖 Tài liệu tham khảo
-| STT | Tên tài liệu | Ngôn ngữ lập trình | Link truy cập |
-| --- | ------------ | ------------------ | ------------- |
-| 1 | Một số tiêu chuẩn và quy tắc trong lập trình | C/C++ | [Truy cập tại đây](https://drive.google.com/file/d/1FT-mRXZp9MxwrRVJgp7JliGQ2LeXghqQ/view?usp=drive_link) |
-| 2 | Giáo trình Ngôn ngữ lập trình C++, TS. Vũ Việt Vũ | C++ | [Truy cập tại đây](https://drive.google.com/file/d/1irk1Zmyggyqnet68xD19pWMtEGtoJ-8S/view?usp=drive_link) |
-| 3 | Giáo trình Lập trình Pascal căn bản | Pascal | [Truy cập tại đây](https://drive.google.com/file/d/1kTKOl0WyELjz3CaCaYPqdeCCukmxp1ZS/view?usp=drive_link) |
-| 4 | Lập trình nâng cao trên ngôn ngữ Pascal | Pascal | [Truy cập tại đây](https://drive.google.com/file/d/1UGS2blij3ckfGVV8oRZGrig2HrghVXhF/view?usp=drive_link) |
-| 5 | Giáo trình Lập trình nâng cao, Đại học Công nghệ - ĐHQGHN | C++ | [Truy cập tại đây](https://drive.google.com/file/d/1ryjaKFNL0EkQvhu8S5TuKqResflmkqdf/view?usp=drive_link) |
-| 6 | Sách Giải thuật và Lập trình, thầy Lê Minh Hoàng | Pascal | [Truy cập tại đây](https://drive.google.com/file/d/1KFlo3yf20CgijqOF_ipvKquQS-OFT_j5/view?usp=drive_link) |
-| 7 | Tài liệu Cấu trúc dữ liệu và Giải thuật (tiếng Anh) | Python | [Truy cập tại đây](https://drive.google.com/file/d/138uYTcWdgXKOEqF_8rw14y03szUDjmlD/view?usp=drive_link) |
