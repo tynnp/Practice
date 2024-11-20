@@ -14,18 +14,18 @@
 | 5 | LQDCODER - Trường Trung học phổ thông chuyên Lê Quý Đôn - Đà Nẵng | [Truy cập](/LQDCODER/) | [Truy cập web](http://lequydon.ntucoder.net/) |
 | 6 | CODEFORCES - Competitive programming | [Truy cập](/CODEFORCES/) | [Truy cập web](https://codeforces.com/) |
 | 7 | USACO - USA Computing Olympiad | [Truy cập](/USACO/) | [Truy cập web](https://usaco.org/index.php) |
-| 7 | LEETCODE - A New Way to Learn | | [Truy cập web](https://leetcode.com/) |
-| 8 | CSES - Code Submission Evaluation System | [Truy cập](/CSES/) | [Truy cập web](https://cses.fi/) |
-| 9 | LCOJ - Luyện Code Online| [Truy cập](/ONLINE%20JUDGE/LCOJ/) | [Truy cập web](https://luyencode.net/) |
-| 10 | CDOJ - CodeDream Online Judge| | [Truy cập web](https://oj.codedream.edu.vn/) |
-| 11 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập](/ONLINE%20JUDGE/LQDOJ/) | [Truy cập web](https://lqdoj.edu.vn/) |
-| 12 | HNOJ - Hà Nội Online Judge | [Truy cập](/ONLINE%20JUDGE/HNOJ/) | [Truy cập web](https://hnoj.edu.vn/) |
-| 13 | QBOJ - Quảng Bình Online Judge | [Truy cập](/ONLINE%20JUDGE/QBOJ/) | [Truy cập web](http://qboj.zapto.org/) |
-| 14 | CLAOJ - Long An HSGS Online Judge | [Truy cập](/ONLINE%20JUDGE/CLAOJ/) | [Truy cập web](https://claoj.edu.vn/) |
-| 15 | PDLOJ - Phan Đăng Lưu Online Judge | [Truy cập](/ONLINE%20JUDGE/PDLOJ/) | [Truy cập web](http://phandangluu.online/) |
-| 16 | CSLOJ - Chuyên Sơn La Online Judge | [Truy cập](/ONLINE%20JUDGE/CSLOJ/) | [Truy cập web](http://csloj.ddns.net/)
-| 17 | PTNKOJ - Phổ Thông Năng Khiếu Online Judge | [Truy cập](/ONLINE%20JUDGE/PTNKOJ/) | [Truy cập web](http://ptnkoj.com/) |
-| 18 | GTLTOJ - FITHOU (Đại học Mở Hà Nội) Online Judge | | [Truy cập web](https://olp.hou.edu.vn/) |
-| 19 | SPOJ - Sphere Online Judge | [Truy cập](/ONLINE%20JUDGE/SPOJ/) | [Truy cập web](https://www.spoj.com/) |
-| 20 | TASOJ - TLU AlgoSec Online Judge | [Truy cập](/ONLINE%20JUDGE/TASOJ/) | [Truy cập web](https://oj.tlualgosec.com/) |
-| 21 | VNOJ – VNOI Online Judge | [Truy cập](/ONLINE%20JUDGE/VNOJ/) | [Truy cập web](https://oj.vnoi.info/) |
+| 8 | LEETCODE - A New Way to Learn | | [Truy cập web](https://leetcode.com/) |
+| 9 | CSES - Code Submission Evaluation System | [Truy cập](/CSES/) | [Truy cập web](https://cses.fi/) |
+| 10 | LCOJ - Luyện Code Online| [Truy cập](/ONLINE%20JUDGE/LCOJ/) | [Truy cập web](https://luyencode.net/) |
+| 11 | CDOJ - CodeDream Online Judge| | [Truy cập web](https://oj.codedream.edu.vn/) |
+| 12 | LQDOJ - Lê Quý Đôn Online Judge | [Truy cập](/ONLINE%20JUDGE/LQDOJ/) | [Truy cập web](https://lqdoj.edu.vn/) |
+| 13 | HNOJ - Hà Nội Online Judge | [Truy cập](/ONLINE%20JUDGE/HNOJ/) | [Truy cập web](https://hnoj.edu.vn/) |
+| 14 | QBOJ - Quảng Bình Online Judge | [Truy cập](/ONLINE%20JUDGE/QBOJ/) | [Truy cập web](http://qboj.zapto.org/) |
+| 15 | CLAOJ - Long An HSGS Online Judge | [Truy cập](/ONLINE%20JUDGE/CLAOJ/) | [Truy cập web](https://claoj.edu.vn/) |
+| 16 | PDLOJ - Phan Đăng Lưu Online Judge | [Truy cập](/ONLINE%20JUDGE/PDLOJ/) | [Truy cập web](http://phandangluu.online/) |
+| 17 | CSLOJ - Chuyên Sơn La Online Judge | [Truy cập](/ONLINE%20JUDGE/CSLOJ/) | [Truy cập web](http://csloj.ddns.net/)
+| 18 | PTNKOJ - Phổ Thông Năng Khiếu Online Judge | [Truy cập](/ONLINE%20JUDGE/PTNKOJ/) | [Truy cập web](http://ptnkoj.com/) |
+| 19 | GTLTOJ - FITHOU (Đại học Mở Hà Nội) Online Judge | | [Truy cập web](https://olp.hou.edu.vn/) |
+| 20 | SPOJ - Sphere Online Judge | [Truy cập](/ONLINE%20JUDGE/SPOJ/) | [Truy cập web](https://www.spoj.com/) |
+| 21 | TASOJ - TLU AlgoSec Online Judge | [Truy cập](/ONLINE%20JUDGE/TASOJ/) | [Truy cập web](https://oj.tlualgosec.com/) |
+| 22 | VNOJ – VNOI Online Judge | [Truy cập](/ONLINE%20JUDGE/VNOJ/) | [Truy cập web](https://oj.vnoi.info/) |
