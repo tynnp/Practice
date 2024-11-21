@@ -8,7 +8,7 @@ protected:
     int soMu;
 
 public:
-    DonThuc() : heSo(0), soMu(0) {}
+    DonThuc(): heSo(0), soMu(0) {}
     DonThuc(int hs, int sm) : heSo(hs), soMu(sm) {}
     int getHeSo() const { return heSo; }
     int getSoMu() const { return soMu; }
@@ -23,7 +23,7 @@ private:
     Node* next;
 
 public:
-    Node(const DonThuc& dt) : donThuc(dt), next(nullptr) {}
+    Node(const DonThuc& dt): donThuc(dt), next(nullptr) {}
     void setNext(Node* n) { next = n; }
     Node* getNext() { return next; }
     const DonThuc& getDonThuc() const { return donThuc; }

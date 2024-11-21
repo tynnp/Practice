@@ -3,10 +3,8 @@
 #include <string>
 using namespace std;
 
-class LinkedList;
-
 class Node {
-friend LinkedList;
+friend class LinkedList;
 
 private:
     int data;
