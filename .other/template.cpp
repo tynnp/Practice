@@ -10,7 +10,7 @@ using namespace __gnu_pbds;
 #define inp freopen("file.inp", "r", stdin)
 #define out freopen("file.out", "w", stdout)
 #define TIME 1.0*clock()/CLOCKS_PER_SEC
-#define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
+#define fastIO ios_base::sync_with_stdio(false); cin.tie(nullptr)
 template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 template<typename K, typename V> using ordered_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
 
