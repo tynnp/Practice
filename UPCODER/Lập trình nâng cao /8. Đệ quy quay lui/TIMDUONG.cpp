@@ -1,48 +1,59 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <cstring>
-using namespace std;
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 
-int n, m, s, t;
-vector<int> vt[1001];
-bool visited[1001];
-int cnt[1001];
+using namespace std;
+using namespace __gnu_pbds;
+
+#define endl '\n'
+#define int long long
+#define inp freopen("file.inp", "r", stdin)
+#define out freopen("file.out", "w", stdout)
+#define TIME 1.0*clock()/CLOCKS_PER_SEC
+#define fastIO ios_base::sync_with_stdio(false); cin.tie(nullptr)
+template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template<typename K, typename V> using ordered_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
+
+const int MAXN = 1e5 + 5;
+const int MOD = 1e9 + 7;
+
+int N, M, S, T;
+vector<int> adj[MAXN];
+bool visited[MAXN];
+int cnt[MAXN];
 
 void BFS(int u) {
     queue<int> q;
     q.push(u);
     visited[u] = true;
-    cnt[u] = 0;
-    
+
     while (!q.empty()) {
         int v = q.front();
         q.pop();
 
-        for (int x : vt[v]) {
+        for (int x : adj[v]) {
             if (!visited[x]) {
+                cnt[x] = cnt[v] + 1;
                 q.push(x);
                 visited[x] = true;
-                cnt[x] = cnt[v] + 1;
             }
         }
     }
 }
 
-int main() {
-    cin >> n >> m >> s >> t;
-    
-    for (int i = 0; i < m; i++) {
-        int x, y;
-        cin >> x >> y;
-        vt[x].push_back(y);
-        vt[y].push_back(x);
+signed main() {
+    fastIO;
+    cin >> N >> M >> S >> T;
+
+    while (M--) {
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
 
-    memset(visited, false, sizeof(visited));
-    memset(cnt, -1, sizeof(cnt));
+    BFS(S);
+    cout << cnt[T];
 
-    BFS(s);
-    cout << cnt[t];
     return 0;
 }
