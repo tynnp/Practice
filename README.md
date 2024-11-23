@@ -14,6 +14,7 @@
 | 5 | LQDCODER - Trường Trung học phổ thông chuyên Lê Quý Đôn - Đà Nẵng | [Truy cập](/LQDCODER/) | [Truy cập web](http://lequydon.ntucoder.net/) |
 | 6 | CODEFORCES - Competitive programming | [Truy cập](/CODEFORCES/) | [Truy cập web](https://codeforces.com/) |
 | 7 | USACO - USA Computing Olympiad | [Truy cập](/USACO/) | [Truy cập web](https://usaco.org/index.php) |
+| 8 | KATTIS - Kattis Problem Archive | [Truy cập](/KATTIS/) | [Truy cập web](https://open.kattis.com/) |
 | 8 | LEETCODE - A New Way to Learn | | [Truy cập web](https://leetcode.com/) |
 | 9 | CSES - Code Submission Evaluation System | [Truy cập](/CSES/) | [Truy cập web](https://cses.fi/) |
 | 10 | LCOJ - Luyện Code Online| [Truy cập](/ONLINE%20JUDGE/LCOJ/) | [Truy cập web](https://luyencode.net/) |
