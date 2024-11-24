@@ -1,40 +1,46 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
+using namespace __gnu_pbds;
 
 #define endl '\n'
 #define int long long
 #define inp freopen("file.inp", "r", stdin)
 #define out freopen("file.out", "w", stdout)
 #define TIME 1.0*clock()/CLOCKS_PER_SEC
-#define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
+#define fastIO ios_base::sync_with_stdio(false); cin.tie(nullptr)
+template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template<typename K, typename V> using ordered_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
 
 const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
-int binaryPow(int a, int b, int m) {
+int binary_pow(int a, int b) {
     int res = 1;
-    a %= m;
-    
+    a %= MOD;
+
     while (b) {
-        if (b & 1) 
-            res = (res * a) % m;
-        a = (a * a) % m;
+        if (b & 1)
+            res = (res * a) % MOD;
+        a = (a * a) % MOD;
         b >>= 1;
     }
-    
+
     return res;
 }
 
-void solve() {
-    int a, b;
-    cin >> a >> b;
-    cout << binaryPow(a, b, MOD) << endl;
-}
+int n, a, b;
 
 signed main() {
-    int t;
-    cin >> t;
-    while (t--)
-        solve();
+    fastIO;
+    cin >> n;
+
+    while (n--) {
+        cin >> a >> b;
+        cout << binary_pow(a, b) << endl;
+    }
+    
     return 0;
 }
