@@ -1,45 +1,46 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
+using namespace __gnu_pbds;
 
 #define endl '\n'
 #define int long long
 #define inp freopen("file.inp", "r", stdin)
 #define out freopen("file.out", "w", stdout)
 #define TIME 1.0*clock()/CLOCKS_PER_SEC
-#define fastIO ios_base::sync_with_stdio(0); cin.tie(0)
+#define fastIO ios_base::sync_with_stdio(false); cin.tie(nullptr)
+template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template<typename K, typename V> using ordered_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
 
 const int MAXN = 1000 + 5;
 const int MOD = 1e9 + 7;
 
-int n, q;
-int bc[MAXN][MAXN];
+int n, q, f[MAXN][MAXN];
 int sum[MAXN][MAXN];
 
-void solve() {
+signed main() {
+    fastIO;
     cin >> n >> q;
-    
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             char c;
-            cin >> c;
-            bc[i][j] = c == '*';
+            cin >> c;       
+            f[i][j] = c == '*';
         }
     }
-    
+
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= n; j++)
-            sum[i][j] = sum[i-1][j] + sum[i][j-1] - sum[i-1][j-1] + bc[i][j];
+            sum[i][j] = sum[i-1][j] + sum[i][j-1] - sum[i-1][j-1] + f[i][j];
     
-    int a, b, x, y;
     while (q--) {
-        cin >> a >> b >> x >> y;
-        cout << sum[x][y] - sum[x][b-1] - sum[a-1][y] + sum[a-1][b-1] << endl;
+        int x, y, u, v;
+        cin >> x >> y >> u >> v;
+        cout << sum[u][v] - sum[u][y-1] - sum[x-1][v] + sum[x-1][y-1] << endl;
     }
-}
 
-signed main() {
-    int t = 1;
-    while (t--)
-        solve();
     return 0;
 }
