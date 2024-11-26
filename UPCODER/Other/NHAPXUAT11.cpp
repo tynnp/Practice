@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int n, x;
-int a[10];
-
 int main() {
-    while (cin >> x) 
-        a[n++] = x;
+    int x;
+    bool check = false;
     
-    for (int i = 0; i < n; i++) {
-        if (i != 0)
+    while (cin >> x) {
+        
+        if (check)
             cout << '\n';
-        cout << a[i];
+            
+        cout << x;
+        check = true;
     }
     
     return 0;
