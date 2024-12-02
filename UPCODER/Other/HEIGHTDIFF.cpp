@@ -73,7 +73,11 @@ signed main() {
     while (m--) {
         int l, r;
         cin >> l >> r;
-        cout << abs(getMax(1, 1, n, l, r) - getMin(1, 1, n, l, r)) << endl;
+        
+        if (l > r)
+            cout << -1000001 << endl;
+        else 
+            cout << abs(getMax(1, 1, n, l, r) - getMin(1, 1, n, l, r)) << endl;
     }
     
     return 0;
