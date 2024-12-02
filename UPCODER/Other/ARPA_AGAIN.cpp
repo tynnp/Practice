@@ -18,16 +18,22 @@ const int MAXN = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
 int n;
+string s;
 int ans[] = {6, 8, 4, 2};
 
 signed main() {
     fastIO;
-    cin >> n;
+    cin >> s;
 
-    if (n == 0)
-        cout << 1;
-    else 
-        cout << ans[n % 4];
-    
+    if (s == "0") {
+        cout << 1 << endl;
+        return 0;
+    }
+
+    int m = 0;
+    for (char c : s)
+        m = (m * 10 + (c - '0')) % 4;
+
+    cout << ans[m];
     return 0;
 }
