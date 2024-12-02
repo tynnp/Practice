@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace std;
+using namespace __gnu_pbds;
+
+#define endl '\n'
+#define int long long
+#define inp freopen("file.inp", "r", stdin)
+#define out freopen("file.out", "w", stdout)
+#define TIME 1.0*clock()/CLOCKS_PER_SEC
+#define fastIO ios_base::sync_with_stdio(false); cin.tie(nullptr)
+template<typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template<typename K, typename V> using ordered_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
+
+const int MAXN = 1e6 + 5;
+const int MOD = 1e9 + 7;
+
+int n, m;
+bool prime[MAXN];
+
+signed main() {
+    fastIO;
+    cin >> n >> m;
+    fill(prime, prime + MAXN, true);    
+    
+    prime[0] = prime[1] = false;
+    for (int i = 2; i*i < MAXN; i++) {
+        if (prime[i]) {
+            for (int j = i*i; j < MAXN; j += i)
+                prime[j] = false;
+        }
+    }
+
+    vector<int> water, food;
+    bool waterCheck = true;
+
+    for (int i = 2; i < MAXN; i++) {
+        if (prime[i]) {
+            if (waterCheck) {
+                water.push_back(i);
+                waterCheck = false;
+            } else {
+                food.push_back(i);
+                waterCheck = true;
+            }
+        }
+    }
+
+    if (m == 0) {
+        auto it = lower_bound(water.begin(), water.end(), n);
+        int x = LLONG_MAX, y = LLONG_MAX;
+
+        if (it != water.end())
+            x = *it;
+
+        if (it != water.begin())
+            y = *(--it);
+
+        cout << (abs(n - x) < abs(n - y) ? x : y);
+
+    } else {
+        auto it = lower_bound(food.begin(), food.end(), n);
+        int x = LLONG_MAX, y = LLONG_MAX;
+
+        if (it != food.end())
+            x = *it;
+
+        if (it != food.begin())
+            y = *(--it);
+        
+        cout << (abs(n - x) < abs(n - y) ? x : y);
+    }
+    
+    return 0;
+}
